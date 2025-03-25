@@ -6,6 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentlyPlaying = null;
     let expandedInfoContainer = null;
     let activeButton = null;
+    let navbarCollapse = document.querySelector(".navbar-collapse");
+    let navLinks = document.querySelectorAll(".nav-link");
+
+    // Close menu when a nav item is clicked
+    navLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            if (navbarCollapse.classList.contains("show")) {
+                new bootstrap.Collapse(navbarCollapse).hide();
+            }
+        });
+    });
+
+    // Close menu when clicking outside of it
+    document.addEventListener("click", function (event) {
+        let isClickInside = navbarCollapse.contains(event.target) || event.target.classList.contains("navbar-toggler");
+
+        if (!isClickInside && navbarCollapse.classList.contains("show")) {
+            new bootstrap.Collapse(navbarCollapse).hide();
+        }
+    });
+
 
     // Automatically filter by "editing" when the page loads
     filterVideos("editing");
@@ -16,7 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", function () {
         let top = window.scrollY;
         let opacity = Math.min(top / 300, 1);
-        header.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+        
+        if (top > 0) {
+            header.style.backgroundImage = `linear-gradient(to bottom, rgba(58, 96, 115, ${opacity}) 0%, rgba(0, 0, 0, ${opacity}) 90%)`;
+        } else {
+            header.style.backgroundImage = "none"; // Transparent when at the top
+        }
     });
 
     function setupVideoEndListener(videoContainer, thumbnail, videoId) {

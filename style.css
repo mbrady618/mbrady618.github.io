@@ -53,7 +53,31 @@ section {
 }
 
 .navbar {
-    background-color: #383B53 /* Start fully transparent */
+    background-color: rgba(0, 0, 0, 0); /* Set initial background to transparent */
+}
+
+@media (max-width: 767px) {  /* Target mobile screens */
+    .navbar-nav {
+        text-align: right;  /* Center text */
+    }
+
+    .navbar-collapse {
+        justify-content: right; /* Center the menu */
+    }
+
+    .navbar-nav .nav-item {
+        display: block; /* Stack menu items vertically */
+        width: auto; /* Prevent forced full width */
+    }
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-brand, 
+.navbar-nav .nav-link {
+    color: #e4e4e4 !important; /* Replace with your desired shade of blue */
 }
 
 .card {
@@ -207,7 +231,7 @@ section {
 }
 
 .expanded-info-container.open {
-     max-height: 1000px; 
+     max-height: 1200px; 
     opacity: 1;
     padding-top: 20px; /* Add padding here */
     padding-bottom: 20px; /* Add padding here */
@@ -358,6 +382,7 @@ section {
     overflow: hidden;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
   }
+  
 
 .dropdown-list.open {
     max-height: 275px; /* Adjust based on your menu size */
