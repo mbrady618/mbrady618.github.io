@@ -282,13 +282,24 @@ setTimeout(() => {
     }
 
     //adjust screen to expanded-info panel
-    function adjustScrollToFit(expandedInfoContainer) {
+    function adjustScrollToFit(expandedInfoContainer, videoCard) {
+        const videoRect = videoCard.getBoundingClientRect();
+        const navbarHeight = document.querySelector(".navbar").offsetHeight;
+        
+        // Check if the top of the video is off the screen after expanding
+        if (videoRect.top < navbarHeight) {
+            window.scrollBy({
+                top: videoRect.top - navbarHeight - 10, // Slight padding for spacing
+                behavior: "smooth"
+            });
+        }
+    
+        // Adjust scroll to fit the bottom of expanded info
         const rect = expandedInfoContainer.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const spaceBelow = windowHeight - rect.bottom;
     
         if (spaceBelow < 0) {
-            // Move screen up so bottom of the panel is aligned with the bottom of the viewport
             window.scrollBy({
                 top: Math.abs(spaceBelow) + 20, // Add padding to avoid exact edge
                 behavior: "smooth"
@@ -314,7 +325,7 @@ setTimeout(() => {
     
             // Wait for animation, then adjust scroll
             setTimeout(() => {
-                adjustScrollToFit(expandedInfoContainer);
+                adjustScrollToFit(expandedInfoContainer, videoCard);
             }, 300);
         });
     }
