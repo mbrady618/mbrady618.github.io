@@ -1,0 +1,456 @@
+/* Apply Montserrat to the whole site */
+body {
+    font-family: 'Lato', sans-serif !important;
+}
+
+#portfolio {
+    margin-top: 20px; /* Adjust this as needed */
+    padding-top: 10px; /* Minimal padding */
+}
+
+section {
+    scroll-margin-top: 40px; /* Adjust based on your navbar height */
+}
+
+/* spacing on all sections */
+.section {
+    margin-top: 4rem;
+    padding-top: 4rem;
+}
+.section:last-of-type {
+    padding-bottom: 4rem;
+}
+    
+/* hero background image */
+.bgimage {
+    height:100vh;
+    background: url('images/gotham.jpg');
+    background-size:cover;
+    position:relative;
+    padding: 0;
+    margin: 0;
+}
+/* text css above hero image*/
+.hero_title {
+    padding-top: 10rem;
+    font-size: 4.5rem;
+}
+.hero_desc {
+    font-size: 2rem;
+}
+.hero_text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.image_about {
+    width: 100%;
+    height: auto;
+}
+
+.navbar {
+    background-color: #383B53 /* Start fully transparent */
+}
+
+.card {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.card-title {
+    text-align: center;
+    font-family: 'Maiden Orange', serif !important;
+    font-size: 22px !important;
+}
+
+.card-title-large {
+    text-align: center;
+    font-family: 'Maiden Orange', serif !important;
+    font-size: 30px !important;
+}
+
+.card-text {
+    font-weight: 300;
+    text-align: center;
+}
+
+.vid-details {
+    font-weight: 300;
+    text-align: center;
+}
+
+.card:hover {
+    background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%);
+    border-color:#3A6073 !important;
+    box-shadow: inset 0 0 5px #3A6073, 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 10; /* Bring it to the top */
+}
+
+/* YouTube Containers */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: black;
+    overflow: hidden;
+}
+
+.video-container img,
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade */
+}
+
+.fade-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-video {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+
+.video-thumbnail {
+    position: relative;
+    border: solid rgb(234, 234, 234) 2px;
+    overflow: visible;
+    display: block;
+}
+
+
+
+.video-thumbnail.info-active {
+    border-color:#3A6073 !important; /* Highlight color when info is active */
+    /* background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%) !important; */
+    background-color:#eff9ff !important;
+    box-shadow: inset 0 0 5px #000000, 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    border-bottom-width: 0 !important;
+}
+
+.video-thumbnail:hover {
+    background-color:#f2f2f2;
+    /* background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%); */
+    border-color:#3A6073;
+    box-shadow: inset 0 0 10px #6d7173, 2px 2px 5px rgba(0, 0, 0, 0.3);
+    /* border-bottom: 2px solid #6d7173; */
+    transition: border-width 0.3s ease-in-out;
+    
+}
+
+.expanded-info {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.expanded-info.open {
+    padding-top: 10px; /* Optional: Add space when expanded */
+}
+
+
+
+
+ /* Fade-out animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+
+.expanded-info-container {
+    position: relative;
+    padding: 0 20px; /* Keep horizontal padding */
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0px;
+    margin-top: 10px;
+    animation: fadeIn 0.3s ease-in-out;
+    max-height: 0; 
+    opacity: 0;
+    /* overflow: hidden; */
+    transition: max-height 0.8s ease-out, opacity 0.8s ease-out, padding 0.8s ease-out;
+    border-color: #3A6073 !important;
+    background-color: #eff9ff;
+    box-shadow: inset 0 0 5px #000000, 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-width: 2px;
+    padding-top: 0; /* No padding initially */
+    padding-bottom: 0; /* No padding initially */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    background-image: linear-gradient(#eff9ff, #a8c4d3)
+}
+
+.expanded-info-container.open {
+     max-height: 1000px; 
+    opacity: 1;
+    padding-top: 20px; /* Add padding here */
+    padding-bottom: 20px; /* Add padding here */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.expanded-info-container.closing {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeOut 0.3s ease-in-out;
+}
+
+.close-info {
+    position: absolute;
+    top: 4.5px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 35px;
+    /* font-weight: bold; */
+    cursor: pointer !important;
+    color: #3A6073 ;
+    transition: transform 0.2s ease-in-out; /* Apply transition here */
+}
+
+.close-info:hover {
+    transform: scale(1.35); 
+
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+
+    }
+    to {
+        opacity: 1;
+
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.less-info-active {
+    background-color: #ff4d4d; /* Red color for emphasis */
+    color: white;
+    font-weight: bold;
+}
+
+
+.info-btn {
+
+      border: none;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      color: #000000;
+      cursor: pointer !important;
+      display: inline-block;
+      /* font-family: "Amazon Ember",sans-serif; */
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 8px;
+      padding: 6px 10px 6px 10px;
+      margin-bottom: 3px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      width: 86px;
+      background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  100%);
+      transition: 0.7s;
+      border-radius: 8px;
+      background-size: 300%;
+    }
+    
+.info-btn:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: white
+    }  
+
+.info-btn:focus {
+        background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  100%);
+        background-position: right center;
+        background-size: 300%;
+        color: white;
+            transform: scale(1.05); /* Slight scale effect */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }    
+
+.info-btn.active {
+    background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  100%);
+    background-position: right center;
+    background-size: 300%;
+    color: white;
+        transform: scale(1.05); /* Slight scale effect */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+/* Dropdown Menu Start */
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+  
+.dropdown-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    cursor: pointer !important;
+    text-align: center;
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073  51%, #16222A  100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+    border-radius: 10px 10px 0px 0px;
+
+}
+  
+.dropdown-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 0px 0px 10px 10px;
+    background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%);
+    z-index: 1000;
+    display: block; /* Always present in the DOM */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  }
+
+.dropdown-list.open {
+    max-height: 275px; /* Adjust based on your menu size */
+    opacity: 1;
+}
+  
+.dropdown-list li {
+    padding: 10px;
+    cursor: pointer !important;
+    text-align: center;
+  }
+
+.dropdown-button:hover {
+     background-position: right center; /* change the direction of the change here */
+     color: #fff;
+     text-decoration: none;
+   }
+
+.custom-dropdown:hover .dropdown-button {
+    background-position: right center; /* Keep the transition effect */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+.custom-dropdown:hover .dropdown-list {
+    display: block; /* Ensure menu stays open when hovered */
+  }
+  
+.dropdown-list li:hover {
+    background: linear-gradient(to right, #3A6073  0%, #16222A  100%) ;
+    color: white;
+  }
+/*Drowdown Menu End */
+    
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.underlined {
+    text-decoration: underline
+}
+
+
+.nopadding {
+    display: flex;
+    padding-bottom: none !important;
+    padding-top: none !important;
+
+}
+
+.video-grid {
+    padding-top: none !important;
+    padding-bottom: none !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0; /* Removes space between flex items */
+}
+
+.fontwhite {
+    color: white;
+}
+
+/* Container to keep the title and NSFW button aligned */
+.title-container {
+    display: flex;
+    align-items: center; /* Properly aligns items vertically */
+    gap: 8px; /* Space between title and NSFW */
+    justify-content: center;
+}
+
+/* Style for the NSFW badge */
+.nsfw-badge {
+    background-color: #000000; /* Red background */
+    color: #fff; /* White text */
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 5px;
+    font-weight: 300;
+    line-height: 1.2; /* Slightly adjusted to match title height */
+    position: relative;
+    top: -7px; /* Nudge it up slightly */
+    opacity: 50%;
+}
+
+
+
+
+
