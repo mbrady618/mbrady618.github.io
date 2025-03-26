@@ -8,6 +8,25 @@ body {
     src: url(/PhotographSignature.ttf); /*URL to font*/
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+
+.bgimage {
+    background-image: url('images/gotham.jpg'); /* Replace with your image */
+    background-position: center center; /* Ensures the center stays in the middle */
+    background-repeat: no-repeat;
+    background-size: cover; /* Prevents stretching or cropping */
+    background-attachment: fixed; /* Optional for parallax */
+    min-height: 100vh; /* Ensures full screen height */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Centers text */
+  }
+
 #portfolio {
     margin-top: 20px; /* Adjust this as needed */
     padding-top: 10px; /* Minimal padding */
@@ -18,23 +37,15 @@ section {
 }
 
 /* spacing on all sections */
-.section {
+/* .section {
     margin-top: 4rem;
     padding-top: 4rem;
-}
+} */
 .section:last-of-type {
     padding-bottom: 4rem;
 }
     
-/* hero background image */
-.bgimage {
-    height:100vh;
-    background: url('images/gotham.jpg');
-    background-size:cover;
-    position:relative;
-    padding: 0;
-    margin: 0;
-}
+
 /* text css above hero image*/
 .hero_title {
     padding-top: 10rem;
@@ -76,15 +87,20 @@ section {
     }
 
     .navbar-nav .nav-link {
-        font-size: 20px; /* Increase font size on small screens */
-        padding-top: 0px !important; /* Optional: Reduce padding for tighter spacing */
-        padding-bottom: 0px !important; /* Optional: Reduce padding for tighter spacing */
+        font-size: 24px; /* Increase font size on small screens */
+        font-weight: 300;
+        padding-top: 2px !important; /* Optional: Reduce padding for tighter spacing */
+        padding-bottom: 2px !important; /* Optional: Reduce padding for tighter spacing */
         padding-right: 8px !important;
     }
 
 }
 
-
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
 
 
 .navbar-toggler-icon {

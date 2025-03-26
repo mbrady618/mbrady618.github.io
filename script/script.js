@@ -153,54 +153,58 @@ setTimeout(() => {
         }, 1000);
     });
 
-    // Dropdown functionality
-    if (dropdownButton && dropdownList && categoryFilter) {
-        dropdownButton.addEventListener("click", function (event) {
-            event.stopPropagation();
-            dropdownList.classList.toggle("open");
-        });
+  // Ensure the dropdown button has a proper position
+dropdownButton.style.position = "relative";
+dropdownButton.style.display = "flex";
+dropdownButton.style.alignItems = "center";
+dropdownButton.style.justifyContent = "center"; // Center text
 
-        dropdownList.querySelectorAll("li").forEach(item => {
-            item.addEventListener("click", function () {
-                const selectedValue = item.getAttribute("data-value");
-                dropdownButton.textContent = item.textContent;
-                categoryFilter.value = selectedValue;
-                dropdownList.classList.remove("open");
-                filterVideos(selectedValue);
+// Style the triangle
+const triangle = document.createElement("span");
+triangle.style.position = "absolute";
+triangle.style.right = "20px"; // Fix to the right
+triangle.style.top = "50%";
+triangle.style.transform = "translateY(-50%)"; // Center vertically
+triangle.style.borderLeft = "6px solid transparent";
+triangle.style.borderRight = "6px solid transparent";
+triangle.style.borderTop = "6px solid white";
+triangle.style.transition = "transform 0.3s ease";
+dropdownButton.appendChild(triangle);
 
-                // Close expanded info section when filter changes
-                if (expandedInfoContainer) {
-                    closeExpandedInfo();
-                }
-            });
-        });
+function rotateTriangle(up) {
+    triangle.style.transform = up ? "translateY(-50%) rotate(180deg)" : "translateY(-50%) rotate(0deg)";
+}
 
-    // Close dropdown with delay if mouse leaves both button and menu
-    function scheduleClose() {
-        closeTimeout = setTimeout(() => {
-            dropdownList.classList.remove("open");
-        }, 300);
-    }
+dropdownButton.addEventListener("click", function (event) {
+    event.stopPropagation();
+    const isOpen = dropdownList.classList.contains("open");
+    dropdownList.classList.toggle("open");
+    rotateTriangle(!isOpen);
+});
 
-    function cancelClose() {
-        if (closeTimeout) {
-            clearTimeout(closeTimeout);
-        }
-    }
-
-    dropdownButton.addEventListener("mouseenter", cancelClose);
-    dropdownList.addEventListener("mouseenter", cancelClose);
-
-    dropdownButton.addEventListener("mouseleave", scheduleClose);
-    dropdownList.addEventListener("mouseleave", scheduleClose);
-
-    document.addEventListener("click", function (event) {
-        if (!dropdownButton.contains(event.target) && !dropdownList.contains(event.target)) {
-            dropdownList.classList.remove("open");
+dropdownList.querySelectorAll("li").forEach(item => {
+    item.addEventListener("click", function () {
+        const selectedValue = item.getAttribute("data-value");
+        dropdownButton.firstChild.nodeValue = item.textContent; // Update text while keeping triangle
+        categoryFilter.value = selectedValue;
+        dropdownList.classList.remove("open");
+        rotateTriangle(false);
+        filterVideos(selectedValue);
+        if (expandedInfoContainer) {
+            closeExpandedInfo();
         }
     });
+});
 
+// Close dropdown on outside click
+document.addEventListener("click", function (event) {
+    if (!dropdownButton.contains(event.target) && !dropdownList.contains(event.target)) {
+        dropdownList.classList.remove("open");
+        rotateTriangle(false);
     }
+});
+
+
 
     function filterVideos(category) {
         document.querySelectorAll(".video-thumbnail").forEach(video => {
