@@ -19,12 +19,20 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover; /* Prevents stretching or cropping */
     background-attachment: fixed; /* Optional for parallax */
-    min-height: 100vh; /* Ensures full screen height */
+    /* min-height: 100vh; Ensures full screen height */
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center; /* Centers text */
+  }
+
+  /* Fix for iPhones */
+@media (max-width: 768px) {
+    .bgimage {
+      background-size: contain; /* Prevents zooming */
+      background-position: center top; /* Adjust as needed */
+    }
   }
 
 #portfolio {
