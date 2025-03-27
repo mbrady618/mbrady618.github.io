@@ -8,6 +8,11 @@ body {
     src: url(/PhotographSignature.ttf); /*URL to font*/
 }
 
+@font-face {
+    font-family: 'Avenir'; /* Custom font name */
+    src: url('/AvenirLTStd-Light.otf'); /* URL to the font file */
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -40,7 +45,7 @@ a:link {
   }
 
   .bgimage {
-    background-image: url('images/gotham.jpg'); /* Replace with your image */
+    background-image: url('images/background_portfolio.jpg'); /* Replace with your image */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -51,20 +56,18 @@ a:link {
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-attachment: scroll; /* Prevents parallax issues */
   }
-  
-/* Styling for Play Button */
-.play-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
+
+.triangle-icon:hover {
+    background-color: #3A6073;
 }
+
 .triangle-icon {
   width: 50px;
   height: 50px;
   display: inline-block;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
 /* Video Container */
@@ -83,6 +86,7 @@ a:link {
     position: absolute;
     left: -200px; /* Centers 900px inside the 500px wrapper */
     top: -200px;  /* Centers 900px inside the 500px wrapper */
+    background: white;
 }
 
   @media (max-width: 768px) {
@@ -188,12 +192,13 @@ section {
 
 .navbar-brand, 
 .navbar-nav .nav-link {
-    color: #e4e4e4 !important; /* Replace with your desired shade of blue */ 
+    color: #e4e4e4 !important;  
 }
 
 .navbar-brand {
     font-family: 'Photograph Signature';
     font-size: 24px !important;
+    color: #e4e4e4 !important; 
 }
 
 .card {
@@ -591,7 +596,29 @@ section {
     opacity: 50%;
 }
 
+/* welcome to my portfolio animated text */
+.animated-text {
+    font-family: 'Avenir', sans-serif;
+    font-size: 33px;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    height: 40px;
+    width: auto;
+    position: relative;
+    top: -100px; /* Moves the text up by 200px */
+  }
+  
+/* Styling for Play Button */
+.play-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    position: relative;
+    top: -100px; /* Moves the play button up by 200px */
+  }
+  
 
-
-
-
+ 
