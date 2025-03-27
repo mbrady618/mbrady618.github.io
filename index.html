@@ -52,9 +52,22 @@
     <!-- main banner -->
     <section class="container-fluid section bgimage shadow-lg" id="home">
       <div class="row min-vh-100 d-flex align-items-center justify-content-center">
-        <div class="col-12 text-center text-white hero_text">
-          <h2 class="hero_title">I edit video & create motion graphics</h2>
-          <p class="hero_desc">and other stuff</p>
+        <div class="col-12 text-center text-white hero_text" id="content">
+          <h2 class="hero_title">welcome to my portfolio</h2>
+          <p class="hero_desc">well, it's down there</p>
+          <button id="playButton" class="play-btn" aria-label="Play Video">
+            <i class="triangle-icon"></i>
+          </button>
+        </div>
+        <div class="col-12 text-center" id="videoContainer" style="display: none;">
+          <div class="video-wrapper">
+            <iframe id="youtubeVideo" 
+                    src="https://www.youtube.com/embed/mj_8952IB08?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1" 
+                    frameborder="0" 
+                    allow="autoplay" 
+                    allowfullscreen>
+            </iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -67,7 +80,7 @@
       <div class="container text-center">
         <div class="row">
             <div class="col-lg-6 col-md-10 col-12 mx-auto d-block">
-                <img src="/images/portfolio.jpg" class="img-fluid" alt="Michael Brady Portfolio">
+                <img src="/images/PortolioTitle.png" class="img-fluid" alt="Michael Brady Portfolio">
             </div>
         </div>
     </div>
@@ -199,7 +212,7 @@
             <img class="card-img-top" src="/images/thumb_f35xmas.jpg" alt="Video Thumbnail" style="width:100%">
           </div>
           <div class="card-body">
-            <h4 class="card-title">F-35 Chrismas</h4>
+            <h4 class="card-title">F-35 Christmas</h4>
             <p class="card-text">(0:19) &nbsp; <i class="bi bi-info-circle"></i>
             <button class="info-btn">more info</button></p>
         </div>
@@ -381,7 +394,7 @@
           Date: 04/21/2015<br>
           Defense Media Activity<br></p></div>
           <div class="col-lg-4">
-          <p>This video was created to promote an episode from the online video series BLUE, which periodically highlights different missions around the Air Force.  I was the primary producer and editor for this specific episode.</p> 
+          <p>This video was created to promote an episode from the online video series BLUE, which periodically highlights different missions around the Air Force.  I was the primary producer and editor for this particular episode.</p> 
         </div>
         <div class="col-lg-4">
           <p>I edited the promo to resemble a movie trailer, adding suspenseful music to footage and sound bites from the episode. I also created the main title at the end of the promo using Adobe After Effects.</p>
@@ -406,18 +419,34 @@
             <p class="card-text">(20:21) &nbsp; <i class="bi bi-info-circle"></i>
             <button class="info-btn">more info</button></p>
         </div>
-        <!-- EXPANDED INFO BOX (Hidden Initially) -->
-        <div class="expanded-info">
-          <p>Inuclear family nformational video about the U.S. Air Force's role in the Nuclear Enterprise.</p>
-          <p>I created all of the motion graphics using Adobe After Effects.  The video elements were downloaded from military video archives.</p>
-          <div class="center">My Roles:<br>
-            Sole Editor<br>
-            Motion Graphic Designer<br>
+         <!-- EXPANDED INFO BOX (Hidden Initially) -->
+      <div class="expanded-info">
+        <div class="row">
+        <div class="col-12">
+          <h2 class="card-title-large">BLUE: A Nuclear Family</div>  
+        <div class="col-12">
+          <p class="vid-details">Runtime: 20:21<br>
+          Date: 04/21/2015<br>
+          Defense Media Activity<br></p></div>
+          <div class="col-lg-4">
+          <p>This video was created as part of a documentary-style series called BLUE, which periodically highlights different missions around the Air Force.</p> 
+          <p>I was heavily involved in the development of this series.  Being "blue" in the Air Force means that an Airman has a sense of pride in their service.  When developing the <a href="https://youtu.be/lb58wQpXX0g" target="_blank" rel="noopener noreferrer">opening sequence</a> for the series, I decided to make the logo orange to emphasize how BLUE represents more than a color.</p>
+        </div>
+        <div class="col-lg-4">
+          <p>As a three-person team we visited Malmstrom AFB, interviewing people in various roles to show how a nuclear base relies on many moving pieces. 
+          </p> 
+          <p>I did a lot of the camera work and was the sole editor for this video. After organizing the interviews into a coherent story, I wrote a script to help guide the narrative and ensure smooth transitions. I also created all of the motion graphics, adding interesting visual variety. </p>
+        </div>
+        <div class="col-lg-4">
+          <p>I edited several other episodes of BLUE, including <a href="https://youtu.be/Q2y1bmG6nbM" target="_blank" rel="noopener noreferrer">Space: The High Ground</a> and <a href="
+            https://youtu.be/l-QvcSCWR-U" target="_blank" rel="noopener noreferrer">The Spirit of Exploration</a>. The missions discussed in these episodes have mostly transitioned to the Space Force, but the information is still relevant.</p>
+          <p class="vid-details"><u>Production Roles</u><br>
+          <i>Editor<br>
+            Camera Operator<br>
+            Motion Graphics<br>
+            Scriptwriter<br>
             Narrator
-
-          </div>
-        </div>          
-      </div>
+            </i></p></div></div></div></div>
 
         <!-- Food Critic -->
         <div class="col-lg-4 col-12 col-12 video-thumbnail" data-video-id="RPzIJnZ4Yqo" data-category="editing shooting narrative">
@@ -503,7 +532,7 @@
 
 
  <!-- about section (12 coluumn grid)-->
- <section class="container-fluid pt-5 section shadow-lg" id="about">
+ <section class="container-fluid pt-3 section shadow-lg mt-5" id="about">
   <div class="col-12 pt-2"></div>
   <div class="container pb-5">
   <h1 class="text-center">About Me</h1>
@@ -516,7 +545,9 @@
       <div class="col-lg-6">
           <p> I'm a creative storyteller, video producer, and motion graphics artist with 20 years of experience bringing ideas to life. I’ve built my career around crafting compelling visual narratives, whether through video production, animation, or multimedia design. I love finding new ways to engage audiences, tell meaningful stories, and create content that sticks.</p>
 
-          <p>My experience until now has primarily been with the United States Air Force, and that has led to into several unique positions.  As a teacher at the Defense Information School, I led a team of instructors teaching advanced video production, motion graphics, and storytelling. I developed hands-on courses in Adobe Premiere Pro, After Effects, and Illustrator, mentoring students to refine their skills and build industry-ready portfolios. Before that, as a Communication Specialist at the Pentagon, I produced high-impact multimedia content, created motion graphics, and supported high-level communication initiatives. My time as a Video Producer at the Defense Media Activity had me managing projects from concept to completion, producing content for broadcast, digital platforms, and social media campaigns.</p>
+          <p>My experience until now has primarily been with the United States Air Force, and that has led to into several unique positions.  As a teacher at the Defense Information School, I led a team of instructors teaching advanced video production, motion graphics, and storytelling. I developed hands-on courses in Adobe Premiere Pro, After Effects, and Audition, mentoring students to refine their skills and build industry-ready portfolios.</p> 
+            
+          <p>Before that, as a Communication Specialist at the Pentagon, I produced high-impact multimedia content, created motion graphics, and supported high-level communication initiatives. My time as a Video Producer at the Defense Media Activity had me managing projects from concept to completion, producing content for broadcast, digital platforms, and social media campaigns.</p>
               
           <p>Beyond my professional work, I’m always looking for ways to push my creativity. I even built this portfolio site from scratch using just HTML5, CSS, and JavaScript—because why not? On top of that, I pursued a Bachelor of Science in Web & Digital Design at the University of Maryland Global Campus to expand my digital media expertise.</p>
 

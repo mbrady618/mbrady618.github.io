@@ -13,25 +13,91 @@ body, html {
     padding: 0;
   }
 
-.bgimage {
+
+/* unvisited link */
+a:link {
+    color:#3A6073;
+    font-weight: 600;
+    ;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: #12648d;
+    font-weight: 600;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: #677780 !important;
+    font-weight: 600;
+  }
+  
+  /* selected link */
+  a:active {
+    color:#677780;
+    font-weight: 600;
+  }
+
+  .bgimage {
     background-image: url('images/gotham.jpg'); /* Replace with your image */
-    background-position: center center; /* Ensures the center stays in the middle */
+    background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover; /* Prevents stretching or cropping */
-    background-attachment: fixed; /* Optional for parallax */
-    min-height: 100vh; /* Ensures full screen height */
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; /* Centers text */
+    text-align: center;
   }
+  
+/* Styling for Play Button */
+.play-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.triangle-icon {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: white;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+/* Video Container */
+.video-wrapper {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+
+/* Adjusting the iframe to show 900x900 of the video */
+#youtubeVideo {
+    width: 900px;  /* Set the iframe to 900x900 */
+    height: 900px;
+    position: absolute;
+    left: -200px; /* Centers 900px inside the 500px wrapper */
+    top: -200px;  /* Centers 900px inside the 500px wrapper */
+}
 
   @media (max-width: 768px) {
     .bgimage {
         background-size: auto 100vh; /* Ensures full height while keeping aspect ratio */
         background-position: center center; /* Keeps image centered */
+        background-attachment: scroll; /* Prevents parallax issues */
+    }
+}
 
+@media (max-width: 1024px) {  /* Targets iPads & similar devices */
+    .bgimage {
+        background-size: auto 100vh;  /* Ensures full height while preventing over-zooming */
+        background-position: center center;
+        background-attachment: scroll; /* Avoids iOS quirks with fixed backgrounds */
     }
 }
 
@@ -103,6 +169,10 @@ section {
         padding-right: 8px !important;
     }
 
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
 }
 
 .navbar-toggler:focus,

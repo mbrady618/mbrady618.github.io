@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let navbarCollapse = document.querySelector(".navbar-collapse");
     let navLinks = document.querySelectorAll(".nav-link");
 
+    //cover page video
+    document.getElementById('playButton').addEventListener('click', function () {
+        document.getElementById('content').style.display = 'none'; // Hide text and button
+        document.getElementById('videoContainer').style.display = 'block'; // Show video
+      });
+
     // Close menu when a nav item is clicked
     navLinks.forEach(link => {
         link.addEventListener("click", function () {
@@ -36,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Navbar transparency on scroll
     window.addEventListener("scroll", function () {
         let top = window.scrollY;
-        let opacity = Math.min(top / 300, 1);
+        let opacity = Math.min(top / 900, 1);
         
         if (top > 0) {
             header.style.backgroundImage = `linear-gradient(to bottom, rgba(58, 96, 115, ${opacity}) 0%, rgba(0, 0, 0, ${opacity}) 90%)`;
