@@ -80,7 +80,7 @@ a:link {
 }
 
 /* Adjusting the iframe to show 900x900 of the video */
-#youtubeVideo {
+#video-iframe {
     width: 900px;  /* Set the iframe to 900x900 */
     height: 900px;
     position: absolute;
@@ -148,7 +148,7 @@ section {
 }
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0); /* Set initial background to transparent */
+    background-color: rgba(0, 0, 0, 0); 
 }
 
 @media (max-width: 767px) {  /* Target mobile screens */
@@ -615,9 +615,10 @@ section {
     background: none;
     border: none;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 50px;
     position: relative;
     top: -100px; /* Moves the play button up by 200px */
+    transition: opacity 1s ease-in-out; /* Smooth fade */
   }
   
 

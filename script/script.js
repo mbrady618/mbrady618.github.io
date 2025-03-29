@@ -8,103 +8,280 @@ document.addEventListener("DOMContentLoaded", function () {
     let activeButton = null;
     let navbarCollapse = document.querySelector(".navbar-collapse");
     let navLinks = document.querySelectorAll(".nav-link");
-
+    let content = document.getElementById('content');
+    let videoContainer = document.getElementById('videoContainer');
+    let originalContentHTML = content.innerHTML;
+    let player;
+    let isRestoring = false;
+    
+    // Play button click event
     //cover page video
     document.getElementById('playButton').addEventListener('click', function () {
-    let videoContainer = document.getElementById('videoContainer');
-    let content = document.getElementById('content');
+        let videoContainer = document.getElementById('videoContainer');
+        let content = document.getElementById('content');
+    
+        // Store original content to restore later
+        // let originalContentHTML = content.innerHTML;
+    
+        // Hide text and button
+        content.style.display = 'none';
+        videoContainer.style.display = 'flex';
+    
+        // Remove existing content
+        videoContainer.innerHTML = "";
+    
+        // Create a white placeholder while the iframe loads
+        // let placeholder = document.createElement('div');
+        // placeholder.style.width = "500px";
+        // placeholder.style.height = "500px";
+        // placeholder.style.background = "white";
+        // placeholder.style.display = "inline-block";
+        // placeholder.style.position = "relative";
+    
+        // videoContainer.appendChild(placeholder);
+    
+        // Create the iframe
+        let iframe = document.createElement('iframe');
+        iframe.id = "youtubeVideo";
+        iframe.src = "https://www.youtube.com/embed/2ZrRU_XcR_c?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
+        iframe.frameBorder = "0";
+        iframe.allow = "autoplay; fullscreen";
+        iframe.allowFullscreen = true;
+        iframe.title = ""; // Add this line to remove the tooltip
+        iframe.style.width = "900px";
+        iframe.style.height = "900px";
+        iframe.style.position = "absolute";
+        iframe.style.left = "-200px";
+        iframe.style.top = "-200px";
+        iframe.style.opacity = "0";  // Initially hidden
+        iframe.style.transition = "opacity 1s ease-in-out"; // Smooth fade-in
+    
 
-    // Store original content to restore later
-    let originalContentHTML = content.innerHTML;
 
-    // Hide text and button
-    content.style.display = 'none';
-    videoContainer.style.display = 'flex';
-
-    // Remove existing content
-    videoContainer.innerHTML = "";
-
-    // Create a white placeholder while the iframe loads
-    let placeholder = document.createElement('div');
-    placeholder.style.width = "500px";
-    placeholder.style.height = "500px";
-    placeholder.style.background = "white";
-    placeholder.style.display = "inline-block";
-    placeholder.style.position = "relative";
-
-    videoContainer.appendChild(placeholder);
-
-    // Create the iframe
-    let iframe = document.createElement('iframe');
-    iframe.id = "youtubeVideo";
-    iframe.src = "https://www.youtube.com/embed/mj_8952IB08?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
-    iframe.frameBorder = "0";
-    iframe.allow = "autoplay; fullscreen";
-    iframe.allowFullscreen = true;
-    iframe.style.width = "900px";
-    iframe.style.height = "900px";
-    iframe.style.position = "absolute";
-    iframe.style.left = "-200px";
-    iframe.style.top = "-200px";
-    iframe.style.opacity = "0";  // Initially hidden
-    iframe.style.transition = "opacity 0.5s ease-in-out"; // Smooth fade-in
-
-    // Create video wrapper
-    let wrapper = document.createElement('div');
-    wrapper.classList.add('video-wrapper');
-    wrapper.appendChild(iframe);
-
-    // Replace placeholder with video wrapper
-    videoContainer.innerHTML = "";
-    videoContainer.appendChild(wrapper);
-
-    // Image to show after the video ends
-    let endImage = document.createElement('img');
-    endImage.src = "path/to/your-end-image.jpg";  // Replace with the path to your image
-    endImage.style.width = "500px";
-    endImage.style.height = "500px";
-    endImage.style.position = "absolute";
-    endImage.style.top = "0";
-    endImage.style.left = "0";
-    endImage.style.opacity = "0"; // Initially hidden
-    endImage.style.transition = "opacity 1s ease-in-out"; // Smooth fade-in and fade-out
-
-    // Add the image to the container but keep it hidden initially
-    videoContainer.appendChild(endImage);
-
-    iframe.onload = function () {
-        setTimeout(() => {
-            iframe.style.opacity = "1"; // Fade in the video
-
-            // Setup YouTube Player to detect when the video ends
-            if (typeof YT !== "undefined" && YT.Player) {
-                let player = new YT.Player(iframe, {
-                    events: {
-                        'onStateChange': function (event) {
-                            if (event.data === YT.PlayerState.ENDED) {
-                                // Show the end image after the video ends
-                                endImage.style.opacity = "1";  // Fade in the image
-
-                                // Wait for a few seconds, then transition back to the original content
-                                setTimeout(() => {
-                                    // Hide the end image
-                                    endImage.style.opacity = "0";
-
-                                    // Restore the original content after a brief delay
-                                    setTimeout(() => {
-                                        videoContainer.innerHTML = ""; // Remove the video
-                                        content.innerHTML = originalContentHTML; // Restore original content
-                                        content.style.display = 'block'; // Show content again
-                                    }, 500); // Delay before restoring content
-                                }, 1500); // Delay to show the end image for 1.5 seconds
+        // Create video wrapper
+        let wrapper = document.createElement('div');
+        wrapper.classList.add('video-wrapper');
+        wrapper.appendChild(iframe);
+    
+        // Replace placeholder with video wrapper
+        videoContainer.innerHTML = "";
+        videoContainer.appendChild(wrapper);
+    
+        // Image to show after the video ends
+        // let endImage = document.createElement('img');
+        // endImage.src = "path/to/your-end-image.jpg";  // Replace with the path to your image
+        // endImage.style.width = "500px";
+        // endImage.style.height = "500px";
+        // endImage.style.position = "absolute";
+        // endImage.style.top = "0";
+        // endImage.style.left = "0";
+        // endImage.style.opacity = "0"; // Initially hidden
+        // endImage.style.transition = "opacity 1s ease-in-out"; // Smooth fade-in and fade-out
+    
+        // Add the image to the container but keep it hidden initially
+        // videoContainer.appendChild(endImage);
+    
+        iframe.onload = function () {
+            setTimeout(() => {
+                iframe.style.opacity = "1"; // Fade in the video
+    
+                // Setup YouTube Player to detect when the video ends
+                if (typeof YT !== "undefined" && YT.Player) {
+                    let player = new YT.Player(iframe, {
+                        events: {
+                            'onStateChange': function (event) {
+                                if (event.data === YT.PlayerState.ENDED) {
+                                    // Show the end image after the video ends
+                                    youtubeVideo.style.opacity = "0";  // Fade in the image
+                                    restoreContent()
+                                    
+    
+                                    // Wait for a few seconds, then transition back to the original content
+                                    // setTimeout(() => {
+                                    //     // Hide the end image
+                                    //     endImage.style.opacity = "0";
+    
+                                    //     // Restore the original content after a brief delay
+                                    //     setTimeout(() => {
+                                    //         videoContainer.innerHTML = ""; // Remove the video
+                                    //         content.innerHTML = originalContentHTML; // Restore original content
+                                    //         content.style.display = 'block'; // Show content again
+                                    //     }, 500); // Delay before restoring content
+                                    // }, 1500); // Delay to show the end image for 1.5 seconds
+                                }
                             }
                         }
-                    }
-                });
-            }
-        }, 100);
-    };
-});
+                    });
+                }
+            }, 100);
+        };
+ 
+        
+    
+    //   // Track video progress and stop 2 seconds before the end
+    //   function trackVideoProgress() {
+    //     setInterval(function () {
+    //       if (player && player.getPlayerState() === YT.PlayerState.PLAYING && !isRestoring) {
+    //         let duration = player.getDuration();
+    //         let currentTime = player.getCurrentTime();
+    
+    //         console.log('Duration:', duration);
+    //         console.log('Current time:', currentTime);
+    //         console.log('Time remaining:', duration - currentTime);
+    
+    //         // Stop 2 seconds before the end
+    //         if (duration - currentTime <= 2) {
+    //           console.log('2 seconds remaining, stopping video and restoring content...');
+    //           isRestoring = true;
+    //           restoreContent();
+    //         }
+    //       }
+    //     }, 500); // Check every 0.5 seconds
+    //   }
+    
+      // Handle state change (optional but useful)
+    //   function onPlayerStateChange(event) {
+    //     if (event.data === YT.PlayerState.ENDED && !isRestoring) {
+    //       console.log('Video ended, restoring content...');
+    //       restoreContent();
+    //     }
+    //   }
+    
+      // Restore content after video
+    //   function restoreContent() {
+    //     videoContainer.style.display = 'none'; // Hide the video
+    //     content.style.display = 'block'; // Show original content
+    //     restartTextAnimation(); // Restart text animation
+    //     console.log('restarted text animation')
+    //   }
+    });
+    
+    // Function to restart text animation after video ends
+// function restartTextAnimation() {
+//     console.log('Restarting text animation...');
+//     textIndex = 0; // Always start with "welcome to my portfolio"
+//     index = 0;
+//     textElement.innerHTML = ""; // Clear content completely
+//     isAnimating = false; // Reset animation state
+//     typeText(); // Start fresh
+//   }
+    
+    // Load YouTube API asynchronously
+    function loadYouTubeAPI() {
+      let tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      let firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+    
+    // Call YouTube API loader when the page loads
+    loadYouTubeAPI();
+
+
+
+
+
+// Updated text animation with blank screen between texts
+const textElement = document.getElementById('text');
+
+
+const texts = ["welcome to my portfolio", "tap to play"];
+let index = 0;
+let textIndex = 0;
+let isAnimating = false;
+
+// Main function to type text
+function typeText() {
+  // Prevent multiple animations from running
+  if (isAnimating) return;
+
+  isAnimating = true;
+  index = 0;
+  textElement.innerHTML = ""; // Clear before typing new text
+
+  function type() {
+    if (index < texts[textIndex].length) {
+      textElement.innerHTML += texts[textIndex][index];
+      index++;
+      setTimeout(type, 100); // Typing speed
+    } else {
+      // Wait after text is completed, then clear and switch text
+      setTimeout(() => {
+        textElement.innerHTML = ""; // Clear after showing text
+        setTimeout(() => {
+          textIndex = (textIndex + 1) % texts.length; // Switch between texts
+          isAnimating = false;
+          typeText(); // Continue cycling between texts
+        }, 500); // 0.5-second delay before starting next text
+      }, 2000); // Delay after displaying completed text
+    }
+  }
+
+  // Start typing
+  type();
+}
+
+// Reset text and animation completely when the video starts
+function resetTextAnimation() {
+  textIndex = 0;
+  console.log('text index reset')
+  index = 0;
+  console.log('index reset')
+  textElement.innerHTML = ""; // Clear any existing content
+  console.log('text element reset')
+  isAnimating = false; // Ensure animation state is reset
+  console.log('is animating reset')
+}
+
+// Restore original content after the video ends
+function restoreContent() {
+  videoContainer.style.display = 'none'; // Hide the video
+  content.style.display = 'block'; // Show original content
+  resetTextAnimation(); // Restart animation fresh
+}
+
+// Simulate video starting (optional, reset when video starts)
+// function onVideoStart() {
+//   console.log("Video started, resetting text animation...");
+//   resetTextAnimation(); // Prepare to restart after video ends
+// }
+
+// Simulate the video ending
+// setTimeout(restoreContent, 5000); // Simulate video ending after 5 seconds
+
+// Start typing when the page loads
+typeText();
+
+    
+
+    
+
+    // function restoreContent() {
+    //     videoContainer.style.transition = "opacity 0.5s ease-in-out";
+    //     videoContainer.style.opacity = "0";
+    //     setTimeout(function () {
+    //         // Restore the original content
+    //         content.innerHTML = originalContentHTML; 
+    //         content.style.display = 'block';
+    //         videoContainer.innerHTML = "";
+    //         videoContainer.style.display = 'none';
+    //         videoContainer.style.opacity = "1";
+    //         isRestoring = false;
+    
+    //         // Reinitialize the text animation
+    //         const textElement = document.getElementById('text');
+    //         if (textElement) {
+    //             // Reset animation state and variables
+    //             isAnimating = false; // Make sure animation can restart
+    //             index = 0; // Reset text index
+    //             textElement.innerHTML = ""; // Clear any leftover text
+    //             typeText(); // Restart typing animation
+    //         }
+    //     }, 500);
+    // }
+    
+    
+
     
 
     // Close menu when a nav item is clicked
@@ -383,29 +560,17 @@ document.addEventListener("click", function (event) {
         });
     }
 
-    //text animation
-    const textElement = document.getElementById('text');
-    const text = "welcome to my portfolio";
-    let index = 0;
-  
-    function typeText() {
-      if (index < text.length) {
-        textElement.innerHTML += text[index];
-        index++;
-        setTimeout(typeText, 100); // Adjust typing speed here
-      } else {
-        setTimeout(resetText, 2000); // Delay before resetting
-      }
-    }
-  
-    function resetText() {
-      textElement.innerHTML = "";
-      index = 0;
-      setTimeout(typeText, 500); // Delay before re-typing
-    }
-  
-    // Start typing when the page loads
+    
+
+function resetText() {
+  // Only restart if not already animating
+  if (!isAnimating) {
     typeText();
+  }
+}
+
+// Start typing when the page loads
+typeText();
 
     //adjust screen to expanded-info panel
     function adjustScrollToFit(expandedInfoContainer, videoCard) {
