@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create the iframe
         let iframe = document.createElement('iframe');
         iframe.id = "youtubeVideo";
-        iframe.src = "https://www.youtube.com/embed/2ZrRU_XcR_c?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
+        iframe.src = "https://www.youtube.com/embed/IKvI0KnWoxQ?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
         iframe.frameBorder = "0";
         iframe.allow = "autoplay; fullscreen";
         iframe.allowFullscreen = true;
@@ -309,16 +309,16 @@ typeText();
     categoryFilter.value = "editing";
 
     // Navbar transparency on scroll
-    window.addEventListener("scroll", function () {
-        let top = window.scrollY;
-        let opacity = Math.min(top / 300, 1);
+    // window.addEventListener("scroll", function () {
+    //     let top = window.scrollY;
+    //     let opacity = Math.min(top / 300, 1);
         
-        if (top > 0) {
-            header.style.backgroundImage = `linear-gradient(to bottom, rgba(58, 96, 115, ${opacity}) 0%, rgba(0, 0, 0, ${opacity}) 90%)`;
-        } else {
-            header.style.backgroundImage = "none"; // Transparent when at the top
-        }
-    });
+    //     if (top > 0) {
+    //         header.style.backgroundImage = `linear-gradient(to bottom, rgba(58, 96, 115, ${opacity}) 0%, rgba(0, 0, 0, ${opacity}) 90%)`;
+    //     } else {
+    //         header.style.backgroundImage = "none"; // Transparent when at the top
+    //     }
+    // });
 
     function setupVideoEndListener(videoContainer, thumbnail, videoId) {
         if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {

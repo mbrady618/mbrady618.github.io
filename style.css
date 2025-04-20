@@ -148,7 +148,11 @@ section {
 }
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0); 
+    background: linear-gradient(
+    to bottom,
+    rgb(58, 96, 115) 0%,
+    rgb(0, 0, 0) 90%
+  );
 }
 
 @media (max-width: 767px) {  /* Target mobile screens */
