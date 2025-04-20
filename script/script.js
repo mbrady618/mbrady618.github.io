@@ -19,26 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('playButton').addEventListener('click', function () {
         let videoContainer = document.getElementById('videoContainer');
         let content = document.getElementById('content');
-    
-        // Store original content to restore later
-        // let originalContentHTML = content.innerHTML;
-    
+        
         // Hide text and button
         content.style.display = 'none';
         videoContainer.style.display = 'flex';
     
         // Remove existing content
         videoContainer.innerHTML = "";
-    
-        // Create a white placeholder while the iframe loads
-        // let placeholder = document.createElement('div');
-        // placeholder.style.width = "500px";
-        // placeholder.style.height = "500px";
-        // placeholder.style.background = "white";
-        // placeholder.style.display = "inline-block";
-        // placeholder.style.position = "relative";
-    
-        // videoContainer.appendChild(placeholder);
     
         // Create the iframe
         let iframe = document.createElement('iframe');
@@ -67,20 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
         videoContainer.innerHTML = "";
         videoContainer.appendChild(wrapper);
     
-        // Image to show after the video ends
-        // let endImage = document.createElement('img');
-        // endImage.src = "path/to/your-end-image.jpg";  // Replace with the path to your image
-        // endImage.style.width = "500px";
-        // endImage.style.height = "500px";
-        // endImage.style.position = "absolute";
-        // endImage.style.top = "0";
-        // endImage.style.left = "0";
-        // endImage.style.opacity = "0"; // Initially hidden
-        // endImage.style.transition = "opacity 1s ease-in-out"; // Smooth fade-in and fade-out
-    
-        // Add the image to the container but keep it hidden initially
-        // videoContainer.appendChild(endImage);
-    
         iframe.onload = function () {
             setTimeout(() => {
                 iframe.style.opacity = "1"; // Fade in the video
@@ -94,20 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                     // Show the end image after the video ends
                                     youtubeVideo.style.opacity = "0";  // Fade in the image
                                     restoreContent()
-                                    
-    
-                                    // Wait for a few seconds, then transition back to the original content
-                                    // setTimeout(() => {
-                                    //     // Hide the end image
-                                    //     endImage.style.opacity = "0";
-    
-                                    //     // Restore the original content after a brief delay
-                                    //     setTimeout(() => {
-                                    //         videoContainer.innerHTML = ""; // Remove the video
-                                    //         content.innerHTML = originalContentHTML; // Restore original content
-                                    //         content.style.display = 'block'; // Show content again
-                                    //     }, 500); // Delay before restoring content
-                                    // }, 1500); // Delay to show the end image for 1.5 seconds
                                 }
                             }
                         }

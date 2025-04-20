@@ -1,4 +1,5 @@
-/* Apply Montserrat to the whole site */
+@charset "UTF-8";
+
 body {
     font-family: 'Lato', sans-serif !important;
 }
@@ -14,6 +15,7 @@ body {
 }
 
 body, html {
+    height: 100%;
     margin: 0;
     padding: 0;
   }
@@ -45,19 +47,33 @@ a:link {
   }
 
   .bgimage {
-    background-image: url('images/background_portfolio.jpg'); /* Replace with your image */
-    background-position: center center;
+    background-image: url('images/background_portfolio.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100vh;
+    background-position: center center;
+    background-size: cover; /* Let it scale naturally */
+    background-attachment: scroll;
+  
+
     width: 100%;
+    overflow: hidden;
+  
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-attachment: scroll; /* Prevents parallax issues */
+    position: relative;
+    height: 800px;
   }
+
+  .content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  } 
 
 .triangle-icon:hover {
     background-color: #3A6073;
@@ -79,6 +95,27 @@ a:link {
     position: relative;
 }
 
+/* #videoContainer {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  #videoContainer {
+    position: absolute;
+    width: 100%;
+    height: 1200px; /* Give it extra space */
+    top: 100px; /* Pull the container up */
+    display: flex;
+    align-items: flex-start; /* So top of iframe isn't cut off */
+    justify-content: center;
+    overflow: visible;
+    z-index: 999; /* Ensure it's above other elements if needed */
+}  
+
 /* Adjusting the iframe to show 900x900 of the video */
 #video-iframe {
     width: 900px;  /* Set the iframe to 900x900 */
@@ -89,21 +126,21 @@ a:link {
     background: white;
 }
 
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .bgimage {
-        background-size: auto 100vh; /* Ensures full height while keeping aspect ratio */
-        background-position: center center; /* Keeps image centered */
-        background-attachment: scroll; /* Prevents parallax issues */
+        background-size: auto 100vh; 
+        background-position: center center; 
+        background-attachment: scroll; 
     }
-}
+} */
 
-@media (max-width: 1024px) {  /* Targets iPads & similar devices */
+/* @media (max-width: 1024px) {  /
     .bgimage {
-        background-size: auto 100vh;  /* Ensures full height while preventing over-zooming */
+        background-size: auto 100vh;  
         background-position: center center;
-        background-attachment: scroll; /* Avoids iOS quirks with fixed backgrounds */
+        background-attachment: scroll; 
     }
-}
+} */
 
 
 #portfolio {
@@ -126,7 +163,7 @@ section {
     
 
 /* text css above hero image*/
-.hero_title {
+/* .hero_title {
     padding-top: 10rem;
     font-size: 4.5rem;
 }
@@ -140,7 +177,7 @@ section {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-}
+} */
 
 .image_about {
     width: 100%;
@@ -153,9 +190,10 @@ section {
     rgb(58, 96, 115) 0%,
     rgb(0, 0, 0) 90%
   );
+
 }
 
-@media (max-width: 767px) {  /* Target mobile screens */
+@media (max-width: 768px) {  /* Target mobile screens */
     .navbar-nav {
         text-align: right;  /* Center text */
     }
@@ -176,11 +214,10 @@ section {
         padding-bottom: 2px !important; /* Optional: Reduce padding for tighter spacing */
         padding-right: 8px !important;
     }
-
 }
 
 .navbar-nav .nav-link {
-    font-weight: 500;
+    font-weight: 300;
 }
 
 .navbar-toggler:focus,
@@ -320,7 +357,7 @@ section {
 
 
  /* Fade-out animation */
-@keyframes fadeOut {
+/* @keyframes fadeOut {
     from {
         opacity: 1;
         transform: translateY(0);
@@ -329,7 +366,7 @@ section {
         opacity: 0;
         transform: translateY(-10px);
     }
-}
+} */
 
 
 .expanded-info-container {
@@ -561,14 +598,14 @@ section {
 
 .nopadding {
     display: flex;
-    padding-bottom: none !important;
-    padding-top: none !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
 
 }
 
 .video-grid {
-    padding-top: none !important;
-    padding-bottom: none !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     display: flex;
     flex-wrap: wrap;
     gap: 0; /* Removes space between flex items */
@@ -611,7 +648,7 @@ section {
     height: 40px;
     width: auto;
     position: relative;
-    top: -100px; /* Moves the text up by 200px */
+    top: -127px; /* Moves the text up by 200px */
   }
   
 /* Styling for Play Button */
