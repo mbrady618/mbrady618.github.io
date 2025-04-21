@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create the iframe
         let iframe = document.createElement('iframe');
         iframe.id = "youtubeVideo";
-        iframe.src = "https://www.youtube-nocookie.com/embed/yZ0ru7kVBvo?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
+        iframe.src = "https://www.youtube-nocookie.com/embed/Cv53GbBtZnI?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
         iframe.frameBorder = "0";
         iframe.allow = "autoplay; fullscreen";
         iframe.allowFullscreen = true;
