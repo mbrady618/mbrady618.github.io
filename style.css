@@ -238,7 +238,19 @@ section {
         margin-right: 80px !important; 
         margin-left: 80px !important;
       }  
+
+      .dropdown-button:hover {
+        background-position: initial !important;
+        text-decoration: none;
+      } 
+      
+      .dropdown-button {
+        background-position: center center !important; /* or whatever is your "default" */
+
+      }
 }
+
+
 
 .navbar-nav .nav-link {
     font-weight: 300;
