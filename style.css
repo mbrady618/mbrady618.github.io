@@ -537,7 +537,7 @@ section {
     }  
 
 .info-btn:focus {
-        background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  100%);
+        background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  82%,#3A6073  85%,rgb(50, 77, 92)  100%);
         background-position: right center;
         background-size: 300%;
         color: white;
@@ -546,7 +546,7 @@ section {
         }    
 
 .info-btn.active {
-    background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  100%);
+    background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  82%,#3A6073  85%,rgb(50, 77, 92)  100%);
     background-position: right center;
     background-size: 300%;
     color: white;
