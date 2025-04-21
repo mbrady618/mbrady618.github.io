@@ -35,27 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
         iframe.allow = "autoplay; fullscreen";
         iframe.allowFullscreen = true;
         iframe.title = ""; // Add this line to remove the tooltip
-        // iframe.style.width = "900px";
-        // iframe.style.height = "900px";
-        // iframe.style.position = "absolute";
-        // iframe.style.left = "-200px";
-        // iframe.style.top = "-200px";
         iframe.style.opacity = "0";  // Initially hidden
         iframe.style.transition = "opacity 1s ease-in-out"; // Smooth fade-in
-
         iframe.style.border = "none";
         iframe.style.outline = "none";
         iframe.style.boxShadow = "none";
-    
-
-        // iframe.style.position = "absolute"; 
-        // iframe.style.top = "50%";
-        // iframe.style.left = "50%";
-        // iframe.style.transform = "translate(-50%, -50%) scale(1.5)";
-        // iframe.style.width = "100vw";  
-        // iframe.style.height = "56.25vw"; 
-        // iframe.style.maxWidth = "1920px"; 
-        // iframe.style.maxHeight = "1080px"; 
 
         if (window.innerWidth < 768) {
             iframe.classList.add("video-mobile");
@@ -67,6 +51,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let wrapper = document.createElement('div');
         wrapper.classList.add('video-wrapper');
         wrapper.appendChild(iframe);
+
+        // Create transparent overlay
+let overlay = document.createElement('div');
+overlay.classList.add('video-touch-overlay');
+wrapper.appendChild(overlay);
     
         // Replace placeholder with video wrapper
         videoContainer.innerHTML = "";
