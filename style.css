@@ -229,7 +229,7 @@ section {
     }
 
     .close-info {
-        top: 0px !important;
+        top: -30px !important;
         right: 0px !important;
         font-size: 60px !important;
       } 
@@ -436,10 +436,17 @@ section {
     animation: fadeOut 0.3s ease-in-out;
 }
 
+.dialog-header {
+    position: relative;
+    padding: 16px; /* consistent spacing from edges */
+  }
+
 .close-info {
     position: absolute;
-    top: 4.5px;
-    right: 18px;
+    top: 0;
+    right: 10px;
+    padding: 8px;
+    z-index:10;
     background: none;
     border: none;
     font-size: 35px;
