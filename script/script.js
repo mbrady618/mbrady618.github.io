@@ -42,18 +42,26 @@ document.addEventListener("DOMContentLoaded", function () {
         // iframe.style.top = "-200px";
         iframe.style.opacity = "0";  // Initially hidden
         iframe.style.transition = "opacity 1s ease-in-out"; // Smooth fade-in
+
+        iframe.style.border = "none";
+        iframe.style.outline = "none";
+        iframe.style.boxShadow = "none";
     
 
-        iframe.style.position = "absolute"; // or "relative" if needed
-        iframe.style.top = "50%";
-        iframe.style.left = "50%";
-        iframe.style.transform = "translate(-50%, -50%) scale(1.5)";
-        iframe.style.width = "100vw";  // fill screen width
-        iframe.style.height = "56.25vw"; // 16:9 aspect ratio (100 * 9 / 16)
-        iframe.style.maxWidth = "1920px"; // optional
-        iframe.style.maxHeight = "1080px"; // optional
+        // iframe.style.position = "absolute"; 
+        // iframe.style.top = "50%";
+        // iframe.style.left = "50%";
+        // iframe.style.transform = "translate(-50%, -50%) scale(1.5)";
+        // iframe.style.width = "100vw";  
+        // iframe.style.height = "56.25vw"; 
+        // iframe.style.maxWidth = "1920px"; 
+        // iframe.style.maxHeight = "1080px"; 
 
-
+        if (window.innerWidth < 768) {
+            iframe.classList.add("video-mobile");
+        } else {
+            iframe.classList.add("video-desktop");
+        }
 
         // Create video wrapper
         let wrapper = document.createElement('div');
