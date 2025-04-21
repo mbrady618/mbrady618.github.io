@@ -239,15 +239,15 @@ section {
         margin-left: 80px !important;
       }  
 
-      .dropdown-button {
-        background-position: center center !important; /* or whatever the non-hover start is */
-        transition: none !important; /* optional: disables animation */
+      /* .dropdown-button {
+        background-position: center center !important; 
+        transition: none !important; 
       }
     
       .dropdown-button:hover {
         background-position: center center !important;
 
-      }
+      } */
 }
 
 
