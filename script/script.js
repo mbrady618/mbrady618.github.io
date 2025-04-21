@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownButton = document.querySelector(".dropdown-button");
     const dropdownList = document.querySelector(".dropdown-list");
     const categoryFilter = document.getElementById("categoryFilter");
+    const form = document.getElementById('contactForm');
     let currentlyPlaying = null;
     let expandedInfoContainer = null;
     let activeButton = null;
@@ -386,13 +387,34 @@ setTimeout(() => {
     });
 
     // Remove focus from currently selected item after 1 second
-    document.addEventListener("click", function () {
+    // document.addEventListener("click", function () {
+    //     setTimeout(() => {
+    //         if (document.activeElement) {
+    //             document.activeElement.blur();
+    //         }
+    //     }, 1000);
+    // });
+
+    //remove focus from currently selected item after 1 second EXCEPT contact section
+    document.addEventListener("click", function (event) {
+        const contactSection = document.getElementById("contact");
+    
+        // If the click target is *inside* the contact section, don't blur
+        if (contactSection && contactSection.contains(event.target)) {
+            return;
+        }
+    
+        // Otherwise, blur after 1 second
         setTimeout(() => {
             if (document.activeElement) {
                 document.activeElement.blur();
             }
         }, 1000);
     });
+
+
+
+
 
   // Ensure the dropdown button has a proper position
 dropdownButton.style.position = "relative";
@@ -627,4 +649,58 @@ typeText();
         });
     });
 });
+
+// Contact Form
+const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      form.reset();
+      document.getElementById('thankYouPopup').style.display = 'flex';
+    } else {
+      alert('Oops! Something went wrong. Please try again.');
+    }
+  });
+
+  function closePopup() {
+    document.getElementById('thankYouPopup').style.display = 'none';
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+  
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+  
+    if (response.ok) {
+      form.reset();
+      document.getElementById('thankYouPopup').style.display = 'flex';
+    } else {
+      alert('Oops! Something went wrong. Please try again.');
+    }
+  });
+  
+  function closePopup() {
+    document.getElementById('thankYouPopup').style.display = 'none';
+  }
+  
+  // ✅ This is the missing piece: attach the click event to the close button
+  document.getElementById('closePopupBtn').addEventListener('click', closePopup);
 

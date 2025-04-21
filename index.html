@@ -565,10 +565,10 @@
           Date: 06/01/2018<br>
           Air Force TV, Pentagon<br></p></div>
           <div class="col-lg-4">
-          <p>This video was created as part of an Air Force social media series called Insights, which was designed to be an "info-tainment" platform that was both fun and informative. This particular episode showcases a broad description of what the Air Force does.</p> 
+          <p>This video was created as part of an Air Force social media series called Insights, which was designed to be an "info-tainment" platform that's both fun and informative. This particular episode showcases a broad description of what the Air Force does.</p> 
         </div>
         <div class="col-lg-4">
-          <p>I edited the entire video and designed all of the motion graphics. The photos and images were primarily sourced from stock catalogs while the video consists of archival military footage. I edited the original script to make it more accesible to a broad audience and I voiced it.</p>
+          <p>I handled all video editing and created the motion graphics from scratch. The visuals include stock photos and archival military footage. I also revised the original script to make it more accessible to a wider audience and provided the voiceover.</p>
           <p> </p>
         </div>
         <div class="col-lg-4">
@@ -651,11 +651,49 @@
 
 
 <section class="container mt-4 pt-4 section" id="contact">
-  <h1 class="text-center">Contact</h1>
+  <h1 class="text-center">Contact Me</h1>
 <div class="card shadow-lg p-3">
-  <h5 class="card-title">Michael Brady</h5>
-  <p class="card-text">Video Editor<br>Motion Graphic Designer</p>
-</div></section>
+  <h5 class="card-title">Let's collaborate!</h5>
+  <p class="card-text">Reach out to me<br>about future projects</p>
+
+
+
+    <form id="contactForm" action="https://formspree.io/f/xnndalgp" method="POST">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required>
+  
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required>
+  
+      <label for="message">Message</label>
+      <textarea name="message" id="message" rows="5" required></textarea>
+  
+      <!-- Honeypot field (spam protection) -->
+      <input type="text" name="_honey" style="display: none">
+  
+      <!-- Disable Formspree default captcha -->
+      <input type="hidden" name="_captcha" value="false">
+  
+      <button type="submit">Send Message</button>
+    </form>
+  
+    <!-- Thank You Popup -->
+    <div id="thankYouPopup" class="popup" style="display: none;">
+      <div class="popup-content">
+        <p>Thanks for reaching out! I'll get back to you soon.</p>
+        <button type="button" id="closePopupBtn">Close</button>
+      </div>
+    </div>
+</div>
+
+
+</section>
+
+
+
+
+
+
 
 <!-- load javascript after loading all html content -->
   <script src="/script/script.js"></script>
@@ -671,3 +709,4 @@
   </footer>
 
 </html>
+
