@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+/* * {
+    outline: 1px solid red;
+} */
+
 body {
     font-family: 'Lato', sans-serif !important;
 }
@@ -19,7 +23,6 @@ body, html {
     margin: 0;
     padding: 0;
   }
-
 
 /* unvisited link */
 a:link {
@@ -95,26 +98,19 @@ a:link {
     position: relative;
 }
 
-/* #videoContainer {
+#videoContainer {
     position: absolute;
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-  } */
+    top: -50px;
+  } 
 
-  #videoContainer {
-    position: absolute;
-    width: 100%;
-    height: 1200px; /* Give it extra space */
-    top: 100px; /* Pull the container up */
-    display: flex;
-    align-items: flex-start; /* So top of iframe isn't cut off */
-    justify-content: center;
-    overflow: visible;
-    z-index: 999; /* Ensure it's above other elements if needed */
-}  
+ 
+
+
 
 /* Adjusting the iframe to show 900x900 of the video */
 #video-iframe {
