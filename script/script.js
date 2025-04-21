@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create the iframe
         let iframe = document.createElement('iframe');
         iframe.id = "youtubeVideo";
-        iframe.src = "https://www.youtube.com/embed/IKvI0KnWoxQ?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
+        iframe.src = "https://www.youtube-nocookie.com/embed/yZ0ru7kVBvo?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
         iframe.frameBorder = "0";
         iframe.allow = "autoplay; fullscreen";
         iframe.allowFullscreen = true;
@@ -535,9 +535,7 @@ document.addEventListener("click", function (event) {
         requestAnimationFrame(() => {
             expandedInfoContainer.classList.add("open");
         });
-    }
-
-    
+    }    
 
 function resetText() {
   // Only restart if not already animating

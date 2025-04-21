@@ -227,6 +227,11 @@ section {
         padding-bottom: 2px !important; /* Optional: Reduce padding for tighter spacing */
         padding-right: 8px !important;
     }
+
+    /* .close-info {
+        top: 0px !important;
+        right: 0px !important;
+      } */
 }
 
 .navbar-nav .nav-link {
@@ -272,6 +277,11 @@ section {
     text-align: center;
     font-family: 'Maiden Orange', serif !important;
     font-size: 30px !important;
+    margin-right: 40px;
+    margin-left: 40px;
+    white-space: normal;
+    word-wrap: break-word;
+
 }
 
 .card-text {
