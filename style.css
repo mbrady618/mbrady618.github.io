@@ -189,7 +189,7 @@ section {
 
 }
 
-@media (max-width: 950px) {  /* Target mobile screens */
+@media (max-width: 768px) {  /* Target mobile screens */
     .navbar-nav {
         text-align: right;  /* Center text */
     }
