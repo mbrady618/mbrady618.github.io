@@ -733,5 +733,23 @@ section {
     transition: opacity 1s ease-in-out; /* Smooth fade */
   }
   
-
  
+  footer {
+    background: linear-gradient(
+      to top,
+      rgb(58, 96, 115) 0%,
+      rgb(0, 0, 0) 90%
+    );
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .linkedin-icon {
+    color: rgb(255, 255, 255) !important;
+    transition: color 0.3s ease;
+  }
+  
+  .linkedin-icon:hover {
+    color: #68b0d4 !important;
+  }
