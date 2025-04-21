@@ -228,10 +228,10 @@ section {
         padding-right: 8px !important;
     }
 
-    /* .close-info {
+    .close-info {
         top: 0px !important;
-        right: 0px !important;
-      } */
+        right: 10px !important;
+      } 
 }
 
 .navbar-nav .nav-link {
