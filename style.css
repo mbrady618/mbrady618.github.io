@@ -239,7 +239,7 @@ section {
         margin-left: 80px !important;
       }  
 
-      /* .dropdown-button {
+      .dropdown-button {
         background-position: center center !important; 
         transition: none !important; 
       }
@@ -247,7 +247,7 @@ section {
       .dropdown-button:hover {
         background-position: center center !important;
 
-      } */
+      }
 }
 
 
