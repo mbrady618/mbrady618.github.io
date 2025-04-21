@@ -234,8 +234,8 @@ section {
       } 
 
     .card-title-large {
-        margin-right: 60px; /* or however wide your close button is */
-        margin-left: 60px;
+        margin-right: 80px; /* or however wide your close button is */
+        margin-left: 80px;
         white-space: normal;
         word-wrap: break-word;
       }  
