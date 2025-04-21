@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const header = document.querySelector(".navbar");
     const dropdownButton = document.querySelector(".dropdown-button");
+    const dropdownItems = document.querySelectorAll('.dropdown-list li');
     const dropdownList = document.querySelector(".dropdown-list");
     const categoryFilter = document.getElementById("categoryFilter");
     let currentlyPlaying = null;
@@ -279,6 +280,35 @@ typeText();
         }
     });
 
+    //Close menu on mobile after item selected
+    // Debug: Log button and list existence
+console.log("Dropdown button found:", dropdownButton);
+console.log("Number of dropdown items:", dropdownItems.length);
+
+dropdownItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // Debug: Log which item was clicked
+    console.log("Dropdown item clicked:", item.textContent);
+
+    // Remove focus from button to clear mobile hover/focus state
+    dropdownButton.blur();
+    console.log("Dropdown button blurred");
+
+    // Optional: collapse the dropdown list
+    const dropdownList = document.querySelector('.dropdown-list');
+    if (dropdownList) {
+      dropdownList.classList.remove('show');
+      console.log("Dropdown list 'show' class removed");
+    } else {
+      console.error("Dropdown list not found!");
+    }
+
+    // Optional: update the button label
+    dropdownButton.textContent = item.textContent;
+    console.log("Dropdown button text updated to:", item.textContent);
+  });
+});
+
 
     // Automatically filter by "editing" when the page loads
     filterVideos("editing");
@@ -523,8 +553,10 @@ document.addEventListener("click", function (event) {
         expandedInfoContainer = document.createElement("div");
         expandedInfoContainer.classList.add("expanded-info-container");
         expandedInfoContainer.innerHTML = 
-            `<button class="close-info">x</button>
-            ${videoCard.querySelector(".expanded-info").innerHTML}`;
+    `<div class="dialog-header">
+        <button class="close-info">x</button>
+    </div>
+    ${videoCard.querySelector(".expanded-info").innerHTML}`;
 
         visibleVideos[insertAfterIndex].insertAdjacentElement("afterend", expandedInfoContainer);
 
