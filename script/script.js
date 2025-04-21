@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         iframe.title = ""; // Add this line to remove the tooltip
         iframe.style.width = "900px";
         iframe.style.height = "900px";
-        iframe.style.position = "absolute";
+        iframe.style.position = "relative";
         iframe.style.left = "-200px";
         iframe.style.top = "-200px";
         iframe.style.opacity = "0";  // Initially hidden
