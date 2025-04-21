@@ -230,8 +230,15 @@ section {
 
     .close-info {
         top: 0px !important;
-        right: 10px !important;
+        right: 0px !important;
       } 
+
+    .card-title-large {
+        margin-right: 60px; /* or however wide your close button is */
+        margin-left: 60px;
+        white-space: normal;
+        word-wrap: break-word;
+      }  
 }
 
 .navbar-nav .nav-link {
