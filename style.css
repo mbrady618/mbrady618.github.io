@@ -525,7 +525,7 @@ section {
       touch-action: manipulation;
       vertical-align: middle;
       width: 86px;
-      background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  100%);
+      background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  82%,#3A6073  85%,rgb(50, 77, 92)  100%);
       transition: 0.7s;
       border-radius: 8px;
       background-size: 300%;
