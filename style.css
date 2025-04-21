@@ -229,15 +229,14 @@ section {
     }
 
     .close-info {
-        top: 0px !important;
+        top: -30px !important;
         right: 0px !important;
+        font-size: 60px !important;
       } 
 
     .card-title-large {
-        margin-right: 100px; /* or however wide your close button is */
-        margin-left: 100px;
-        white-space: normal;
-        word-wrap: break-word;
+        margin-right: 80px !important; 
+        margin-left: 80px !important;
       }  
 }
 
