@@ -229,7 +229,7 @@ section {
     }
 
     .close-info {
-        top: -30px !important;
+        top: 0px !important;
         right: 0px !important;
         font-size: 60px !important;
       } 
