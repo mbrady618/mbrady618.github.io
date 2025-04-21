@@ -239,14 +239,14 @@ section {
         margin-left: 80px !important;
       }  
 
-      .dropdown-button:hover {
-        background-position: initial !important;
-        text-decoration: none;
-      } 
-      
       .dropdown-button {
-        background-position: center center !important; /* or whatever is your "default" */
-
+        background-position: center center !important; /* or whatever the non-hover start is */
+        transition: none !important; /* optional: disables animation */
+      }
+    
+      .dropdown-button:hover {
+        background-position: center center !important;
+        text-decoration: none !important;
       }
 }
 
@@ -573,6 +573,7 @@ section {
     transition: 0.5s;
     background-size: 200% auto;
     border-radius: 10px 10px 0px 0px;
+    background-position: center center 
 
 }
   
@@ -606,13 +607,13 @@ section {
   }
 
 .dropdown-button:hover {
-     background-position: right center; /* change the direction of the change here */
+     background-position: left center; /* change the direction of the change here */
      color: #fff;
      text-decoration: none;
    }
 
 .custom-dropdown:hover .dropdown-button {
-    background-position: right center; /* Keep the transition effect */
+    background-position: left center; /* Keep the transition effect */
     color: #fff;
     text-decoration: none;
   }
