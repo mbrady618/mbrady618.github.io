@@ -90,6 +90,7 @@
           <button id="playButton" class="play-btn" aria-label="Play Video">
             <i class="triangle-icon"></i>
           </button>
+          
         </div>
         <div class="text-center" id="videoContainer" style="display: none;">
           <div class="video-wrapper">
@@ -100,11 +101,17 @@
                     title="">
             </iframe>
           </div>
+          
         </div>
+        <!-- Transparent Box Below Video -->
+      <div id="clickBox" onclick="window.location.href='#portfolio'"></div>
+    </div>
+    <div id="clickBox2" onclick="window.location.href='#portfolio'"></div>
+    </div>
       </div>
     </section>
 
-   
+ 
 
 <!-- PORTFOLIO -->
 <section class="section" id="portfolio">    
@@ -119,7 +126,7 @@
       <div class="d-flex flex-column align-items-center">
           <label for="categoryFilter">Select Category:</label>
           <div class="col-lg-4 col-12 custom-dropdown">
-              <button class="dropdown-button fontwhite shadow">Video/Audio Editing</button>
+              <button class="dropdown-button">Video/Audio Editing</button>
               <ul class="dropdown-list">
                   <li data-value="editing">Video/Audio Editing</li>
                   <li data-value="graphics">Motion Graphics</li>
@@ -733,7 +740,7 @@
 
   <footer class="bg-dark text-white text-center py-4 mt-5">
     <div class="container">
-      <p class="mb-2">© 2025 Michael Brady Portfolio</p>
+      <p class="mb-2 font-weight-light">© 2025 Michael Brady Portfolio</p>
     </div>
   </footer>
 
