@@ -8,6 +8,10 @@ body {
     font-family: 'Lato', sans-serif !important;
 }
 
+p {
+    font-weight: 300;
+}
+
 @font-face {
     font-family: 'Photograph Signature'; /*a name to be used later*/
     src: url(/PhotographSignature.ttf); /*URL to font*/
@@ -441,16 +445,18 @@ section {
     border-color:#3A6073 !important; /* Highlight color when info is active */
     /* background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%) !important; */
     background-color:#eff9ff !important;
-    box-shadow: inset 0 0 5px #000000, 2px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 10px rgba(109, 113, 115, 0.2), 2px 2px 5px rgba(0, 0, 0, 0.2);
+
     transition: all 0.3s ease-in-out;
     border-bottom-width: 0 !important;
+    background-image: none !important;
 }
 
 .video-thumbnail:hover {
-    background-color:#f2f2f2;
-    /* background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%); */
+    background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%);
     border-color:#3A6073;
-    box-shadow: inset 0 0 10px #6d7173, 2px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 10px rgba(109, 113, 115, 0.3), 2px 2px 5px rgba(0, 0, 0, 0.2);
+
     /* border-bottom: 2px solid #6d7173; */
     transition: border-width 0.3s ease-in-out;
     
@@ -663,6 +669,7 @@ section {
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+
   }
   
 
@@ -675,6 +682,7 @@ section {
     padding: 10px;
     cursor: pointer !important;
     text-align: center;
+    font-weight: 300;
   }
 
 .dropdown-button:hover {
@@ -996,5 +1004,8 @@ section {
   cursor: pointer; /* Change cursor to indicate it's clickable */
   z-index: 10; 
     background-color: transparent; /* Change to transparent */
+  }
 
+  label[for="categoryFilter"] {
+    font-weight: 300;
   }
