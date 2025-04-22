@@ -24,6 +24,10 @@ body, html {
     padding: 0;
   }
 
+h1 {
+    font-weight:300 !important;
+}
+
 /* unvisited link */
 a:link {
     color:#3A6073;
@@ -291,14 +295,59 @@ section {
 
 .navbar-brand, 
 .navbar-nav .nav-link {
-    color: #e4e4e4 !important;  
+    color: #ffffff !important;  
 }
 
 .navbar-brand {
     font-family: 'Photograph Signature';
     font-size: 24px !important;
-    color: #e4e4e4 !important; 
+    color: #ffffff !important; 
 }
+
+.navbar-logo {
+    height: 50px;
+    transition: filter 0.35s ease;
+  }
+  
+  .navbar-brand:hover .navbar-logo {
+    content: url("/images/PortolioTitle_Blue.png");
+  }
+
+  .navbar-brand:hover .blue-logo {
+    opacity: 1;
+  }
+  
+  .navbar-brand:hover .white-logo {
+    opacity: 0;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #9fbccb !important;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-logo {
+      position: absolute;
+      top: 5px;
+      left: 40px;
+      height: 50px;
+      max-height: none;
+      z-index: 1051;
+      transition: all 0.3s ease;
+    }
+  
+    .navbar-logo.logo-expanded {
+      height: 140px; /* Adjust to match expanded navbar */
+      top: 85px;
+    }
+  }
+
+  .navbar-logo-placeholder {
+    height: 60px;
+    width: 0; /* keeps it from affecting layout horizontally */
+    visibility: hidden; /* completely invisible */
+  }
+
 
 .card {
     padding-left: 0px !important;
@@ -645,7 +694,7 @@ section {
   }
   
 .dropdown-list li:hover {
-    background: linear-gradient(to right, #3A6073  0%, #16222A  100%) ;
+    background: linear-gradient(to left, #3A6073  0%, #16222A  100%) ;
     color: white;
   }
 /*Drowdown Menu End */
@@ -745,14 +794,15 @@ section {
     text-align: center;
   }
 
-  .linkedin-icon {
-    color: rgb(255, 255, 255) !important;
+  .icon-link i {
+    color: rgb(171, 171, 171); /* Match your LinkedIn icon */
     transition: color 0.3s ease;
   }
   
-  .linkedin-icon:hover {
-    color: #68b0d4 !important;
+  .icon-link i:hover {
+    color: #3A6073; /* Optional: hover color */
   }
+
 
   /* Contact Form */
 
@@ -833,3 +883,72 @@ section {
     border: 3px solid #3A6073; /* optional: match your site’s color theme */
   }
 
+/* hamburger menu */
+/* Styling for the toggler button */
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+  
+  /* Structure for the hamburger lines */
+  .toggler-icon {
+    width: 30px;
+    height: 24px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toggler-icon span {
+    background: #fff;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+    left: 0;
+    border-radius: 2px;
+  }
+  
+  .toggler-icon span:nth-child(1) {
+    top: 0;
+  }
+  
+  .toggler-icon span:nth-child(2) {
+    top: 10px;
+  }
+  
+  .toggler-icon span:nth-child(3) {
+    top: 20px;
+  }
+  
+  /* When the menu is collapsed (hamburger icon) */
+  .navbar-toggler.collapsed .toggler-icon span:nth-child(1) {
+    transform: rotate(0deg);
+    top: 0;
+  }
+  
+  .navbar-toggler.collapsed .toggler-icon span:nth-child(2) {
+    opacity: 1;
+  }
+  
+  .navbar-toggler.collapsed .toggler-icon span:nth-child(3) {
+    transform: rotate(0deg);
+    top: 20px;
+  }
+  
+  /* When the menu is expanded (X icon) */
+  .navbar-toggler:not(.collapsed) .toggler-icon span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+  }
+  
+  .navbar-toggler:not(.collapsed) .toggler-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar-toggler:not(.collapsed) .toggler-icon span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px;
+  }

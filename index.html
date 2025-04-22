@@ -28,39 +28,58 @@
   <link rel="apple-touch-icon" sizes="192x192" href="/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Maiden+Orange&display=swap" rel="stylesheet">
+  <!-- Basic Open Graph Tags -->
+<meta property="og:title" content="Michael Brady Portfolio">
+<meta property="og:description" content="Explore the portfolio of Michael Brady – video editor and graphic designer.">
+<meta property="og:image" content="https://michaelbradyportfolio.com/images/preview-image.jpg">
+<meta property="og:url" content="https://michaelbradyportfolio.com">
+<meta property="og:type" content="website">
+<!-- Optional Twitter Tags (in case it's shared there too) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Michael Brady Portfolio">
+<meta name="twitter:description" content="Explore the portfolio of Michael Brady – video editor and graphic designer.">
+<meta name="twitter:image" content="https://michaelbradyportfolio.com/images/preview-image.jpg">
 </head>
 
 <body>
 
 
 <!-- navbar -->
-    <!-- https://getbootstrap.com/docs/5.2/components/navbar/ -->
-    <nav class="navbar navbar-expand-md fixed-top py-0">
-      <div class="container">
-          <a class="navbar-brand" href="#">Michael Brady</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav navbar-text ms-auto">
-                  <li class="nav-item me-2 ms-2">
-                      <a class="nav-link" href="#home">Home</a>
-                  </li>
-                  <li class="nav-item me-2 ms-2">
-                    <a class="nav-link" href="#portfolio">My Work</a>
-                </li>                 
-                  <li class="nav-item me-2 ms-2">
-                      <a class="nav-link" href="#about">About Me</a>
-                  </li>
- 
-                  <li class="nav-item me-2 ms2">
-                      <a class="nav-link" href="#contact">Contact</a>
-                  </li>
-              </ul>
-
-          </div>
+<nav class="navbar navbar-expand-md fixed-top py-0">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="/images/PortolioTitle_White.png" alt="Michael Brady Logo" class="navbar-logo">
+    </a>
+    <div class="navbar-logo-placeholder"></div>
+    
+    <!-- Custom Hamburger Toggler Button with 'collapsed' class -->
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="toggler-icon">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-  </nav>
+    </button>
+    
+    <!-- Navbar Items -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav navbar-text ms-auto">
+        <li class="nav-item me-2 ms-2">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item me-2 ms-2">
+          <a class="nav-link" href="#portfolio">My Work</a>
+        </li>
+        <li class="nav-item me-2 ms-2">
+          <a class="nav-link" href="#about">About Me</a>
+        </li>
+        <li class="nav-item me-2 ms-2">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <!-- main page -->
     <section class="bgimage shadow-lg" id="home">
@@ -619,9 +638,12 @@
 
  <!-- about section (12 coluumn grid)-->
  <section class="container-fluid pt-3 section shadow-lg mt-5" id="about">
-  <div class="col-12 pt-2"></div>
-  <div class="container pb-5">
   <h1 class="text-center">About Me</h1>
+  
+  <div class="col-12 pt-2"></div>
+
+  <div class="container pb-5">
+  
   
   <div class="row mt-4">
       <div class="col-lg-6">
@@ -657,8 +679,15 @@
     <!-- Profile Picture -->
     <img src="/images/batman.jpg" alt="Profile Picture" class="profile-pic mx-auto mb-3">
 
-    <h5 class="card-title">Michael Brady</h5>
-    <p class="card-text">Video Editor<br>Graphic Designer<br>Cinematographer<br>Web Developer</p>
+    <h5 class="card-title">Michael Brady<br>
+    <a href="https://www.linkedin.com/in/michael-brady-4187b83b/" class="icon-link" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip"
+    title="Visit my LinkedIn profile">
+      <i class="fab fa-linkedin fa-md"></i></a>
+      <a href="/files/MichaelBradyResume.pdf" class="icon-link ms-2" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" title="View my résumé">
+        <i class="fas fa-file-lines fa-md"></i>
+      </a>
+    </h5>
+    <p class="card-text">Video Editor<br>Graphic Designer<br>Cinematographer</p>
 
     <!-- Contact Form continues below -->
 
@@ -704,9 +733,7 @@
 
   <footer class="bg-dark text-white text-center py-4 mt-5">
     <div class="container">
-      <p class="mb-2">© 2025 Michael Brady Portfolio &nbsp &nbsp 
-      <a href="https://www.linkedin.com/in/michael-brady-4187b83b/" class="linkedin-icon" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin fa-lg"></i></a></p>
+      <p class="mb-2">© 2025 Michael Brady Portfolio</p>
     </div>
   </footer>
 

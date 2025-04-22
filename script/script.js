@@ -704,3 +704,31 @@ const form = document.getElementById('contactForm');
   // ✅ This is the missing piece: attach the click event to the close button
   document.getElementById('closePopupBtn').addEventListener('click', closePopup);
 
+ 
+  //make tooltips work with bootstrap 
+  document.addEventListener("DOMContentLoaded", function () {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+      new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  });
+
+  //make title expand with menu open on mobile 
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggler = document.querySelector('.navbar-toggler');
+    const collapse = document.querySelector('#navbarSupportedContent');
+    const logo = document.querySelector('.navbar-logo');
+
+    // Use Bootstrap's shown/hidden events to track collapse state
+    collapse.addEventListener('show.bs.collapse', function () {
+        logo.classList.add('logo-expanded');
+      });
+      
+      collapse.addEventListener('hide.bs.collapse', function () {
+        logo.classList.remove('logo-expanded');
+      });
+
+    collapse.addEventListener('hidden.bs.collapse', function () {
+      logo.classList.remove('logo-expanded');
+    });
+  });
