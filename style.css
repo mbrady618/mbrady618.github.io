@@ -337,8 +337,8 @@ section {
     }
   
     .navbar-logo.logo-expanded {
-      height: 100px; /* Adjust to match expanded navbar */
-      top: 84px;
+      height: 85px; /* Adjust to match expanded navbar */
+      top: 98px;
     }
   }
 
