@@ -651,32 +651,35 @@
 
 
 <section class="container mt-4 pt-4 section" id="contact">
-  <h1 class="text-center">Contact Me</h1>
-<div class="card shadow-lg p-3">
-  <h5 class="card-title">Let's collaborate!</h5>
-  <p class="card-text">Reach out to me<br>about future projects</p>
+  <h1 class="text-center">Contact</h1>
+  <div class="card shadow-lg p-3 text-center">
+
+    <!-- Profile Picture -->
+    <img src="/images/batman.jpg" alt="Profile Picture" class="profile-pic mx-auto mb-3">
+
+    <h5 class="card-title">Let's collaborate!</h5>
+    <p class="card-text">Reach out to me<br>about future projects</p>
+
+    <!-- Contact Form continues below -->
 
 
 
     <form id="contactForm" action="https://formspree.io/f/xnndalgp" method="POST">
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" required>
-  
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required>
-  
-      <label for="message">Message</label>
-      <textarea name="message" id="message" rows="5" required></textarea>
-  
+      <input type="text" name="name" id="name" placeholder="Name" required>
+    
+      <input type="email" name="email" id="email" placeholder="Email" required>
+    
+      <textarea name="message" id="message" rows="5" placeholder="Message" required></textarea>
+    
       <!-- Honeypot field (spam protection) -->
       <input type="text" name="_honey" style="display: none">
-  
+    
       <!-- Disable Formspree default captcha -->
-      <input type="hidden" name="_captcha" value="false">
-  
+      <!-- <input type="hidden" name="_captcha" value="false"> -->
+    
       <button type="submit">Send Message</button>
     </form>
-  
+    
     <!-- Thank You Popup -->
     <div id="thankYouPopup" class="popup" style="display: none;">
       <div class="popup-content">
@@ -684,7 +687,6 @@
         <button type="button" id="closePopupBtn">Close</button>
       </div>
     </div>
-</div>
 
 
 </section>

@@ -778,7 +778,7 @@ section {
   button {
     padding: 0.75rem;
     font-size: 1rem;
-    background-color: #333;
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073  51%, #16222A  100%);
     color: white;
     border: none;
     cursor: pointer;
@@ -808,5 +808,27 @@ section {
 
   .popup-content button {
     margin-top: 1rem;
-    background-color: #007acc;
+    background-color: #3A6073
+  }
+
+  input, textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* add a neutral default border */
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border: 1px solid #3A6073; /* border color changes on focus */
+    box-shadow: 0 0 0 1px #3A6073;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #3A6073; /* optional: match your site’s color theme */
   }
