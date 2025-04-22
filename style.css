@@ -362,16 +362,16 @@ section {
 
 .card-title {
     text-align: center;
-    font-family: 'Maiden Orange', serif !important;
-    font-size: 22px !important;
+    /* font-family: 'Maiden Orange', serif !important; */
+    font-size: 18px !important;
 }
 
 .card-title-large {
     text-align: center;
-    font-family: 'Maiden Orange', serif !important;
+    /* font-family: 'Maiden Orange', serif !important; */
     font-size: 30px !important;
-    margin-right: 40px;
-    margin-left: 40px;
+    margin-right: 80px;
+    margin-left: 80px;
     white-space: normal;
     word-wrap: break-word;
 
@@ -756,12 +756,12 @@ section {
     background-color: #000000; /* Red background */
     color: #fff; /* White text */
     font-size: 12px;
-    padding: 2px 4px;
+    padding: 2px 3px;
     border-radius: 5px;
     font-weight: 300;
-    line-height: 1.2; /* Slightly adjusted to match title height */
+    line-height: 1.1; /* Slightly adjusted to match title height */
     position: relative;
-    top: -7px; /* Nudge it up slightly */
+    top: -4px; /* Nudge it up slightly */
     opacity: 50%;
 }
 
