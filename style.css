@@ -329,7 +329,7 @@ section {
     .navbar-logo {
       position: absolute;
       top: 5px;
-      left: 40px;
+      left: 30px;
       height: 50px;
       max-height: none;
       z-index: 1051;
@@ -337,8 +337,8 @@ section {
     }
   
     .navbar-logo.logo-expanded {
-      height: 140px; /* Adjust to match expanded navbar */
-      top: 85px;
+      height: 100px; /* Adjust to match expanded navbar */
+      top: 84px;
     }
   }
 
