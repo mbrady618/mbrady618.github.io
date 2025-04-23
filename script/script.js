@@ -362,7 +362,7 @@ typeText();
                 setTimeout(() => {
                     this.innerHTML = 
     `<div class="fade-video">
-        <iframe id="video-iframe-${videoId}" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0&modestbranding=1&autohide=1" 
+        <iframe id="video-iframe-${videoId}" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0&modestbranding=1&autohide=1&cc_load_policy=1" 
             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
         </iframe>
     </div>`;
