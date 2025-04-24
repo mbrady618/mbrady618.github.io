@@ -92,6 +92,8 @@ a:link {
 
 .triangle-icon:hover {
     background-color: #3A6073;
+    transform: scale(1.1);
+
 }
 
 .triangle-icon {
@@ -100,6 +102,7 @@ a:link {
   display: inline-block;
   background-color: rgb(0, 0, 0);
   clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  transition: all 0.3s ease;
 }
 /* Video Container */
 .video-wrapper {
@@ -301,6 +304,10 @@ section {
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+
+.navbar-toggler::before {
+    content: none; /* Disables the pseudo-element entirely */
+  }
 
 .navbar-brand, 
 .navbar-nav .nav-link {
@@ -627,11 +634,14 @@ section {
       touch-action: manipulation;
       vertical-align: middle;
       width: 86px;
-      background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  82%,#3A6073  85%,rgb(50, 77, 92)  100%);
+      background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  82%,#3A6073  85%,rgb(50, 77, 92)  100%) !important;
       transition: 0.7s;
       border-radius: 8px;
       background-size: 300%;
     }
+    .info-btn::before {
+        content: none; /* Disables the pseudo-element entirely */
+      }
     
 .info-btn:hover {
     background-position: right center; /* change the direction of the change here */
@@ -665,18 +675,33 @@ section {
     text-align: center;
   }
   
-.dropdown-button {
+  .dropdown-button {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
     width: 100%;
     padding: 10px;
     border: none;
     cursor: pointer !important;
     text-align: center;
-    background-image: linear-gradient(to right, #16222A 0%, #3A6073  51%, #16222A  100%);
-    transition: 0.5s;
-    background-size: 200% auto;
-    border-radius: 10px 10px 0px 0px;
-    background-position: center center 
+    background: none;
+    border-radius: 10px 10px 0 0;
+    color: white;
+}
 
+.dropdown-button::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
+    background-position: center center;
+    background-size: 100% 100%;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.dropdown-button:hover::before {
+    transform: scale(2);
 }
   
 .dropdown-list {
@@ -710,12 +735,6 @@ section {
     font-weight: 300;
   }
 
-.dropdown-button:hover {
-     background-position: left center; /* change the direction of the change here */
-     color: #fff;
-     text-decoration: none;
-   }
-
 .custom-dropdown:hover .dropdown-button {
     background-position: left center; /* Keep the transition effect */
     color: #fff;
@@ -727,8 +746,10 @@ section {
   }
   
 .dropdown-list li:hover {
-    background: linear-gradient(to left, #3A6073  0%, #16222A  100%) ;
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
     color: white;
+    background-position: center center;
+    background-size: 100% 100%;
   }
 /*Drowdown Menu End */
     
@@ -818,6 +839,12 @@ section {
     top: -95px; /* Moves the play button up by 200px */
     transition: opacity 1s ease-in-out; /* Smooth fade */
   }
+
+.play-btn::before {
+    background-image: none;
+  }
+
+
   
   #titleStack {
     position: absolute;
@@ -902,15 +929,49 @@ section {
     box-sizing: border-box;
   }
 
-  button {
-    padding: 0.75rem;
-    font-size: 1rem;
-    background-image: linear-gradient(to right, #16222A 0%, #3A6073  51%, #16222A  100%);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: 300;
-  }
+ button {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 300;
+  border-radius: 8px;
+}
+
+/* Gradient layer */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
+  z-index: -1;
+  transition: transform 0.5s ease;
+  transform: scale(1);
+  transform-origin: center;
+}
+
+/* Gradient hover */
+button:hover::before {
+  transform: scale(2);
+}
+
+/* Text grow effect */
+.button-text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+button:hover .button-text {
+  transform: scale(1.05);
+}
+
+
+  
 
   .popup {
     position: fixed;
@@ -1040,7 +1101,14 @@ section {
     background-image: linear-gradient(to right, #2f4554 0%, #3A6073  51%, #2f4554  100%);
     height: 12px;
     line-height: 0;
+    border-radius: 6px;
+    transition: all 0.3s ease;
     } 
+
+   #closePopupBtn::before {
+        content: none; /* Disables the pseudo-element entirely */
+      }
+    
 
   #closePopupBtn:hover {
     background-image: linear-gradient(to right, #385164 0%, #46758d  51%, #385164  100%);
