@@ -283,8 +283,6 @@ section {
 
       }
 
-      #titleStack {
-        top: 415px !important;  /* Adjust as needed */
 }
 
 
@@ -803,7 +801,12 @@ section {
     height: 40px;
     width: auto;
     position: relative;
-    top: -143px; /* Moves the text up by 200px */
+    top: -125px; /* Moves the text up by 200px */
+  }
+
+  .animated {
+    height: 0;
+    top: -80px;
   }
   
 /* Styling for Play Button */
@@ -812,18 +815,19 @@ section {
     border: none;
     cursor: pointer;
     position: relative;
-    top: -108px; /* Moves the play button up by 200px */
+    top: -95px; /* Moves the play button up by 200px */
     transition: opacity 1s ease-in-out; /* Smooth fade */
   }
   
   #titleStack {
     position: absolute;
-    top: 545px;  /* Adjust as needed */
+    top: 45px; /* Start right below the content block */
     left: 50%;
-    transform: translate(-50%, 0);
+    width: 200px;
+    transform: translate(-50%, 10px); /* Slide it down a bit */
     text-align: center;
     z-index: 2;
-    pointer-events: none; /* Prevent blocking clicks, optional */
+    pointer-events: none;
   }
   
   
@@ -1046,7 +1050,7 @@ section {
 /* Positioning the box below the video */
 #clickBox {
     position: absolute;
-  top: 720px; /* Position the box 500px from the top */
+    top: 272px;
   left: 50%; /* Center it horizontally */
   transform: translateX(-50%); /* Ensure it is centered exactly */
   width: 62px;
@@ -1060,17 +1064,26 @@ section {
 
   #clickBox2 {
     position: absolute;
-  top: 790px; /* Position the box 500px from the top */
+    top: 327px;
   left: 50%; /* Center it horizontally */
   transform: translateX(-50%); /* Ensure it is centered exactly */
-  width: 140px;
-  height: 75px;
+  width: 130px;
+  height: 70px;
   background-color: red; /* Set the background to red so you can see it */
   cursor: pointer; /* Change cursor to indicate it's clickable */
   z-index: 10; 
     background-color: transparent; /* Change to transparent */
   }
 
+  #clickBox, #clickBox2 {
+    pointer-events: auto;
+  }
+
   label[for="categoryFilter"] {
     font-weight: 300;
+  }
+
+  #content {
+    position: relative;
+    display: inline-block; /* Optional: keeps the anchor tight */
   }
