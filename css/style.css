@@ -362,8 +362,12 @@ section {
       opacity: 1;
     }
   
-    .navbar-nav .nav-link:hover {
-      color: inherit !important;
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus,
+    .navbar-nav .nav-link:active {
+      color: #ffffff !important;
+      background-color: transparent !important;
+      text-decoration: none !important;
     }
 
     .navbar-logo {
@@ -1268,47 +1272,16 @@ section {
 
 
 
-  /* Base button styling */
-.toggle-bio-button {
-    position: relative;
-    overflow: hidden;
-    height: 50px;
-    width: 100%; 
-    border: none;
-    cursor: pointer;
-    background: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Gradient background layer */
-  .toggle-bio-btn::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
-    z-index: -1;
-    transition: transform 0.5s ease;
-    transform: scale(1);
-    transform-origin: center;
-  }
-  
-  /* On hover, background expands */
-  .toggle-bio-btn:hover::before {
-    transform: scale(2);
-  }
-  
-  /* Text grow effect */
-  .toggle-bio-btn .button-text {
-    display: inline-block;
-    transition: transform 0.3s ease;
-    color: white; /* Optional text color */
-    z-index: 1; /* Keep it above the background */
-  }
-  
-  /* On hover, text grows */
-  .toggle-bio-btn:hover .button-text {
-    transform: scale(1.05);
-  }
+.toggle-bio-btn {
+  height: 50px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 300;
+}

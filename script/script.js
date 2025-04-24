@@ -743,18 +743,26 @@ const form = document.getElementById('contactForm');
     });
   });
 
-  //make bio expand on mobile
   function toggleBio() {
     const bio = document.getElementById('bio-content');
     const button = document.querySelector('.toggle-bio-btn');
     const dots = document.getElementById('bio-dots');
+    const bioTop = document.getElementById('biotop');
+    const photoTop = document.getElementById('phototop');
   
     bio.classList.toggle('show');
     dots.classList.toggle('hidden');
   
+    const expandOffset = 75;  // Offset for expanding (scroll to biotop)
+    const collapseOffset = 80; // Offset for collapsing (scroll to phototop)
+  
     if (bio.classList.contains('show')) {
       button.textContent = "Collapse Bio −";
+      const topPosition = bioTop.getBoundingClientRect().top + window.pageYOffset - expandOffset;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
     } else {
       button.textContent = "Expand Bio +";
+      const topPosition = photoTop.getBoundingClientRect().top + window.pageYOffset - collapseOffset;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
     }
   }
