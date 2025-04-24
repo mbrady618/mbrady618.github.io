@@ -1,0 +1,1091 @@
+@charset "UTF-8";
+
+/* * {
+    outline: 1px solid red;
+} */
+
+body {
+    font-family: 'Lato', sans-serif !important;
+}
+
+p {
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Photograph Signature'; /*a name to be used later*/
+    src: url(/PhotographSignature.ttf); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Avenir'; /* Custom font name */
+    src: url('/AvenirLTStd-Light.otf'); /* URL to the font file */
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+h1 {
+    font-weight:300 !important;
+}
+
+/* unvisited link */
+a:link {
+    color:#3A6073;
+    font-weight: 600;
+    ;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: #12648d;
+    font-weight: 600;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: #677780 !important;
+    font-weight: 600;
+  }
+  
+  /* selected link */
+  a:active {
+    color:#677780;
+    font-weight: 600;
+  }
+
+  .bgimage {
+    background-image: url('/images/background_portfolio.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* Let it scale naturally */
+    background-attachment: scroll;
+  
+
+    width: 100%;
+    overflow: hidden;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    height: 800px;
+  }
+
+  .content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  } 
+
+.triangle-icon:hover {
+    background-color: #3A6073;
+}
+
+.triangle-icon {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: rgb(0, 0, 0);
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+/* Video Container */
+.video-wrapper {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+
+.video-wrapper iframe {
+    z-index: 1;
+    position: relative;
+    pointer-events: none; /* optional if you want to block all interaction */
+}
+
+.video-touch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: transparent;
+    pointer-events: none; /* Let touches pass through */
+    touch-action: manipulation; /* Allow scrolling/swiping, block double-tap zoom */
+}
+
+/* iframe {
+    pointer-events: none;
+} */
+
+#videoContainer {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -50px;
+  } 
+
+  .video-desktop {
+    width: 900px;
+    height: 900px;
+    position: relative;
+    left: -200px;
+    top: -200px;
+}
+
+.video-mobile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    width: 100vw;
+    height: 56.25vw;
+    max-width: 1920px;
+    max-height: 1080px;
+} 
+
+
+
+/* Adjusting the iframe to show 900x900 of the video */
+#video-iframe {
+    width: 900px;  /* Set the iframe to 900x900 */
+    height: 900px;
+    position: absolute;
+    left: -200px; /* Centers 900px inside the 500px wrapper */
+    top: -200px;  /* Centers 900px inside the 500px wrapper */
+    background: white;
+}
+
+  /* @media (max-width: 768px) {
+    .bgimage {
+        background-size: auto 100vh; 
+        background-position: center center; 
+        background-attachment: scroll; 
+    }
+} */
+
+/* @media (max-width: 1024px) {  /
+    .bgimage {
+        background-size: auto 100vh;  
+        background-position: center center;
+        background-attachment: scroll; 
+    }
+} */
+
+
+#portfolio {
+    margin-top: 20px; /* Adjust this as needed */
+    padding-top: 10px; /* Minimal padding */
+}
+
+section {
+    scroll-margin-top: 40px; /* Adjust based on your navbar height */
+}
+
+/* spacing on all sections */
+/* .section {
+    margin-top: 4rem;
+    padding-top: 4rem;
+} */
+.section:last-of-type {
+    padding-bottom: 4rem;
+}
+    
+
+/* text css above hero image*/
+/* .hero_title {
+    padding-top: 10rem;
+    font-size: 4.5rem;
+}
+.hero_desc {
+    font-size: 2rem;
+}
+.hero_text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+} */
+
+.image_about {
+    width: 100%;
+    height: auto;
+}
+
+.navbar {
+    background: linear-gradient(
+    to bottom,
+    rgb(58, 96, 115) 0%,
+    rgb(0, 0, 0) 90%
+  );
+
+}
+
+@media (max-width: 768px) {  /* Target mobile screens */
+    .navbar-nav {
+        text-align: right;  /* Center text */
+    }
+
+    .navbar-collapse {
+        justify-content: right; /* Center the menu */
+    }
+
+    .navbar-nav .nav-item {
+        display: block; /* Stack menu items vertically */
+        width: auto; /* Prevent forced full width */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 24px; /* Increase font size on small screens */
+        font-weight: 300;
+        padding-top: 2px !important; /* Optional: Reduce padding for tighter spacing */
+        padding-bottom: 2px !important; /* Optional: Reduce padding for tighter spacing */
+        padding-right: 8px !important;
+    }
+
+    .close-info {
+        top: -30px !important;
+        right: 0px !important;
+        font-size: 60px !important;
+      } 
+
+    .card-title-large {
+        margin-right: 80px !important; 
+        margin-left: 80px !important;
+      }  
+
+      .dropdown-button {
+        background-position: center center !important; 
+        transition: none !important; 
+      }
+    
+      .dropdown-button:hover {
+        background-position: center center !important;
+
+      }
+
+}
+
+
+
+.navbar-nav .nav-link {
+    font-weight: 300;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-brand, 
+.navbar-nav .nav-link {
+    color: #ffffff !important;  
+}
+
+.navbar-brand {
+    font-family: 'Photograph Signature';
+    font-size: 24px !important;
+    color: #ffffff !important; 
+}
+
+.navbar-logo {
+    height: 50px;
+    opacity: 1;
+    transition: height 0.3s ease, top 0.3s ease, opacity 0.3s ease filter 0.35s ease;
+  }
+  
+  .navbar-brand:hover .navbar-logo {
+    content: url("/images/PortolioTitle_Blue.png");
+  }
+
+  .navbar-brand:hover .blue-logo {
+    opacity: 1;
+  }
+  
+  .navbar-brand:hover .white-logo {
+    opacity: 0;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #9fbccb !important;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-logo {
+      position: absolute;
+      top: 5px;
+      left: 30px;
+      height: 50px;
+      max-height: none;
+      z-index: 1051;
+      transition: all 0.3s ease;
+    }
+  
+    .navbar-logo.logo-expanded {
+      height: 85px; /* Adjust to match expanded navbar */
+      top: 98px;
+      /* opacity: 0.7; */
+    }
+  }
+
+  .navbar-logo-placeholder {
+    height: 60px;
+    width: 0; /* keeps it from affecting layout horizontally */
+    visibility: hidden; /* completely invisible */
+  }
+
+
+.card {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.card-title {
+    text-align: center;
+    /* font-family: 'Maiden Orange', serif !important; */
+    font-size: 18px !important;
+}
+
+.card-title-large {
+    text-align: center;
+    /* font-family: 'Maiden Orange', serif !important; */
+    font-size: 30px !important;
+    margin-right: 80px;
+    margin-left: 80px;
+    white-space: normal;
+    word-wrap: break-word;
+
+}
+
+.card-text {
+    font-weight: 300;
+    text-align: center;
+}
+
+.vid-details {
+    font-weight: 300;
+    text-align: center;
+}
+
+.card:hover {
+    background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%);
+    border-color:#3A6073 !important;
+    box-shadow: inset 0 0 5px #3A6073, 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 10; /* Bring it to the top */
+}
+
+/* YouTube Containers */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: black;
+    overflow: hidden;
+}
+
+.video-container img,
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade */
+}
+
+.fade-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-video {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+
+.video-thumbnail {
+    position: relative;
+    border: solid rgb(234, 234, 234) 2px;
+    overflow: visible;
+    display: block;
+}
+
+
+
+.video-thumbnail.info-active {
+    border-color:#3A6073 !important; /* Highlight color when info is active */
+    /* background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%) !important; */
+    background-color:#eff9ff !important;
+    box-shadow: inset 0 0 10px rgba(109, 113, 115, 0.2), 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+    transition: all 0.3s ease-in-out;
+    border-bottom-width: 0 !important;
+    background-image: none !important;
+}
+
+.video-thumbnail:hover {
+    background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%);
+    border-color:#3A6073;
+    box-shadow: inset 0 0 10px rgba(109, 113, 115, 0.3), 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+    /* border-bottom: 2px solid #6d7173; */
+    transition: border-width 0.3s ease-in-out;
+    
+}
+
+.expanded-info {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.expanded-info.open {
+    padding-top: 10px; /* Optional: Add space when expanded */
+}
+
+
+
+
+ /* Fade-out animation */
+/* @keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+} */
+
+
+.expanded-info-container {
+    position: relative;
+    padding: 0 20px; /* Keep horizontal padding */
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0px;
+    margin-top: 10px;
+    animation: fadeIn 0.3s ease-in-out;
+    max-height: 0; 
+    opacity: 0;
+    /* overflow: hidden; */
+    transition: max-height 0.8s ease-out, opacity 0.8s ease-out, padding 0.8s ease-out;
+    border-color: #3A6073 !important;
+    background-color: #eff9ff;
+    box-shadow: inset 0 0 5px #000000, 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-width: 2px;
+    padding-top: 0; /* No padding initially */
+    padding-bottom: 0; /* No padding initially */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    background-image: linear-gradient(#eff9ff, #a8c4d3)
+}
+
+.expanded-info-container.open {
+     max-height: 1200px; 
+    opacity: 1;
+    padding-top: 20px; /* Add padding here */
+    padding-bottom: 20px; /* Add padding here */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.expanded-info-container.closing {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeOut 0.3s ease-in-out;
+}
+
+.dialog-header {
+    position: relative;
+    padding: 16px; /* consistent spacing from edges */
+  }
+
+.close-info {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    padding: 8px;
+    z-index:10;
+    background: none;
+    border: none;
+    font-size: 35px;
+    font-weight: 300;
+    cursor: pointer !important;
+    color: #3A6073 ;
+    transition: transform 0.2s ease-in-out; /* Apply transition here */
+}
+
+.close-info .toggler-icon.open-x span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+  }
+  
+  .close-info .toggler-icon.open-x span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .close-info .toggler-icon.open-x span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px;
+  }
+
+.close-info:hover {
+    transform: scale(1.35); 
+
+}
+
+.close-info .toggler-icon span {
+    background-color: #2e2e2e; /* Black */
+  }
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+
+    }
+    to {
+        opacity: 1;
+
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.less-info-active {
+    background-color: #ff4d4d; /* Red color for emphasis */
+    color: white;
+    font-weight: bold;
+}
+
+
+.info-btn {
+
+      border: none;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      color: #000000;
+      cursor: pointer !important;
+      display: inline-block;
+      /* font-family: "Amazon Ember",sans-serif; */
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 8px;
+      padding: 6px 10px 6px 10px;
+      margin-bottom: 3px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      width: 86px;
+      background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  82%,#3A6073  85%,rgb(50, 77, 92)  100%);
+      transition: 0.7s;
+      border-radius: 8px;
+      background-size: 300%;
+    }
+    
+.info-btn:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: white
+    }  
+
+.info-btn:focus {
+        background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  82%,#3A6073  85%,rgb(50, 77, 92)  100%);
+        background-position: right center;
+        background-size: 300%;
+        color: white;
+            transform: scale(1.05); /* Slight scale effect */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }    
+
+.info-btn.active {
+    background-image: linear-gradient(to right, #eaeaea  0%, #eaeaea  35%,#16222A  50%, #3A6073  82%,#3A6073  85%,rgb(50, 77, 92)  100%);
+    background-position: right center;
+    background-size: 300%;
+    color: white;
+        transform: scale(1.05); /* Slight scale effect */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+/* Dropdown Menu Start */
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+  
+.dropdown-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    cursor: pointer !important;
+    text-align: center;
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073  51%, #16222A  100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+    border-radius: 10px 10px 0px 0px;
+    background-position: center center 
+
+}
+  
+.dropdown-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 0px 0px 10px 10px;
+    background-image: linear-gradient(to right, #fafdfe  0%, #f3fbff  100%);
+    z-index: 1000;
+    display: block; /* Always present in the DOM */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+
+  }
+  
+
+.dropdown-list.open {
+    max-height: 275px; /* Adjust based on your menu size */
+    opacity: 1;
+}
+  
+.dropdown-list li {
+    padding: 10px;
+    cursor: pointer !important;
+    text-align: center;
+    font-weight: 300;
+  }
+
+.dropdown-button:hover {
+     background-position: left center; /* change the direction of the change here */
+     color: #fff;
+     text-decoration: none;
+   }
+
+.custom-dropdown:hover .dropdown-button {
+    background-position: left center; /* Keep the transition effect */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+.custom-dropdown:hover .dropdown-list {
+    display: block; /* Ensure menu stays open when hovered */
+  }
+  
+.dropdown-list li:hover {
+    background: linear-gradient(to left, #3A6073  0%, #16222A  100%) ;
+    color: white;
+  }
+/*Drowdown Menu End */
+    
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.underlined {
+    text-decoration: underline
+}
+
+
+.nopadding {
+    display: flex;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+
+}
+
+.video-grid {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0; /* Removes space between flex items */
+}
+
+.fontwhite {
+    color: white;
+}
+
+/* Container to keep the title and NSFW button aligned */
+.title-container {
+    display: flex;
+    align-items: center; /* Properly aligns items vertically */
+    gap: 8px; /* Space between title and NSFW */
+    justify-content: center;
+}
+
+/* Style for the NSFW badge */
+.nsfw-badge {
+    background-color: #000000; /* Red background */
+    color: #fff; /* White text */
+    font-size: 12px;
+    padding: 2px 3px;
+    border-radius: 5px;
+    font-weight: 300;
+    line-height: 1.1; /* Slightly adjusted to match title height */
+    position: relative;
+    top: -4px; /* Nudge it up slightly */
+    opacity: 50%;
+}
+
+/* welcome to my portfolio animated text */
+.animated-text {
+    font-family: 'Avenir', sans-serif;
+    font-size: 33px;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    height: 40px;
+    width: auto;
+    position: relative;
+    top: -125px; /* Moves the text up by 200px */
+  }
+
+  .animated {
+    height: 0;
+    top: -80px;
+  }
+  
+/* Styling for Play Button */
+.play-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top: -95px; /* Moves the play button up by 200px */
+    transition: opacity 1s ease-in-out; /* Smooth fade */
+  }
+  
+  #titleStack {
+    position: absolute;
+    top: 45px; /* Start right below the content block */
+    left: 50%;
+    width: 200px;
+    transform: translate(-50%, 10px); /* Slide it down a bit */
+    text-align: center;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  
+  .title-word {
+    font-family: 'Lato', sans-serif;
+    font-size: 28px;
+    line-height: 1.3;
+    display: block;
+    position: relative;
+    color: #000000;
+  }
+  
+  /* Fine-tuning individual lines */
+  #word1 {
+    top: 0px;
+  }
+  #word2 {
+    top: 4px;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  #word3 {
+    top: 8px;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  #word4 {
+    top: 15px;
+    font-weight: 300;
+    font-size: 20px;
+  }
+ 
+  footer {
+    background: linear-gradient(
+      to top,
+      rgb(58, 96, 115) 0%,
+      rgb(0, 0, 0) 90%
+    );
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .icon-link i {
+    color: rgb(171, 171, 171); /* Match your LinkedIn icon */
+    transition: color 0.3s ease;
+  }
+  
+  .icon-link i:hover {
+    color: #3A6073; /* Optional: hover color */
+  }
+
+
+  /* Contact Form */
+
+  #contact {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  input, textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073  51%, #16222A  100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 300;
+  }
+
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    font-weight: 300;
+  }
+
+  .popup-content button {
+    margin-top: 1rem;
+    background-color: #3A6073
+  }
+
+  input, textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* add a neutral default border */
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border: 1px solid #3A6073; /* border color changes on focus */
+    box-shadow: 0 0 0 1px #3A6073;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #3A6073; /* optional: match your site’s color theme */
+  }
+
+/* hamburger menu */
+/* Styling for the toggler button */
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+  
+  /* Structure for the hamburger lines */
+  .toggler-icon {
+    width: 30px;
+    height: 24px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toggler-icon span {
+    background: #fff;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+    left: 0;
+    border-radius: 2px;
+  }
+  
+  .toggler-icon span:nth-child(1) {
+    top: 0;
+  }
+  
+  .toggler-icon span:nth-child(2) {
+    top: 10px;
+  }
+  
+  .toggler-icon span:nth-child(3) {
+    top: 20px;
+  }
+  
+  /* When the menu is collapsed (hamburger icon) */
+  .navbar-toggler.collapsed .toggler-icon span:nth-child(1) {
+    transform: rotate(0deg);
+    top: 0;
+  }
+  
+  .navbar-toggler.collapsed .toggler-icon span:nth-child(2) {
+    opacity: 1;
+  }
+  
+  .navbar-toggler.collapsed .toggler-icon span:nth-child(3) {
+    transform: rotate(0deg);
+    top: 20px;
+  }
+  
+  /* When the menu is expanded (X icon) */
+  .navbar-toggler:not(.collapsed) .toggler-icon span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+  }
+  
+  .navbar-toggler:not(.collapsed) .toggler-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar-toggler:not(.collapsed) .toggler-icon span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px;
+  }
+
+  .mb-2 {
+    font-weight: 300;  /* Adjust the number to make the text thinner */
+  }
+
+  #closePopupBtn {
+    background-image: linear-gradient(to right, #2f4554 0%, #3A6073  51%, #2f4554  100%);
+    height: 12px;
+    line-height: 0;
+    } 
+
+  #closePopupBtn:hover {
+    background-image: linear-gradient(to right, #385164 0%, #46758d  51%, #385164  100%);
+    transform: scale(1.1);  /* Increase size by 10% */
+}
+
+/* Positioning the box below the video */
+#clickBox {
+    position: absolute;
+    top: 272px;
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Ensure it is centered exactly */
+  width: 62px;
+  height: 120px;
+  background-color: red; /* Set the background to red so you can see it */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  z-index: 10; 
+    background-color: transparent; /* Change to transparent */
+
+  }
+
+  #clickBox2 {
+    position: absolute;
+    top: 327px;
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Ensure it is centered exactly */
+  width: 130px;
+  height: 70px;
+  background-color: red; /* Set the background to red so you can see it */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  z-index: 10; 
+    background-color: transparent; /* Change to transparent */
+  }
+
+  #clickBox, #clickBox2 {
+    pointer-events: auto;
+  }
+
+  label[for="categoryFilter"] {
+    font-weight: 300;
+  }
+
+  #content {
+    position: relative;
+    display: inline-block; /* Optional: keeps the anchor tight */
+  }
+
+  
