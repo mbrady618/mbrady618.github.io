@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Hide text and button
         content.style.display = 'none';
         videoContainer.style.display = 'flex';
+        content.style.display = 'none';
+        document.getElementById('titleStack').style.display = 'none';
     
         // Remove existing content
         videoContainer.innerHTML = "";
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create the iframe
         let iframe = document.createElement('iframe');
         iframe.id = "youtubeVideo";
-        iframe.src = "https://www.youtube-nocookie.com/embed/Cv53GbBtZnI?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
+        iframe.src = "https://www.youtube-nocookie.com/embed/GSbJzr4GQxc?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
         iframe.frameBorder = "0";
         iframe.allow = "autoplay; fullscreen";
         iframe.allowFullscreen = true;
@@ -205,6 +207,8 @@ function restoreContent() {
   videoContainer.style.display = 'none'; // Hide the video
   content.style.display = 'block'; // Show original content
   resetTextAnimation(); // Restart animation fresh
+  content.style.display = 'block';
+  document.getElementById('titleStack').style.display = 'block';      
 }
 
 // Simulate video starting (optional, reset when video starts)
@@ -530,25 +534,25 @@ document.addEventListener("click", function (event) {
         }
     }
 
-    function openExpandedInfo(videoCard, visibleVideos, insertAfterIndex) {
-        expandedInfoContainer = document.createElement("div");
-        expandedInfoContainer.classList.add("expanded-info-container");
-        expandedInfoContainer.innerHTML = 
-    `<div class="dialog-header">
-        <button class="close-info">x</button>
-    </div>
-    ${videoCard.querySelector(".expanded-info").innerHTML}`;
+    // function openExpandedInfo(videoCard, visibleVideos, insertAfterIndex) {
+    //     expandedInfoContainer = document.createElement("div");
+    //     expandedInfoContainer.classList.add("expanded-info-container");
+    //     expandedInfoContainer.innerHTML = 
+    // `<div class="dialog-header">
+    //     <button class="close-info">x</button>
+    // </div>
+    // ${videoCard.querySelector(".expanded-info").innerHTML}`;
 
-        visibleVideos[insertAfterIndex].insertAdjacentElement("afterend", expandedInfoContainer);
+    //     visibleVideos[insertAfterIndex].insertAdjacentElement("afterend", expandedInfoContainer);
 
-        expandedInfoContainer.querySelector(".close-info").addEventListener("click", function () {
-            closeExpandedInfo();
-        });
+    //     expandedInfoContainer.querySelector(".close-info").addEventListener("click", function () {
+    //         closeExpandedInfo();
+    //     });
 
-        requestAnimationFrame(() => {
-            expandedInfoContainer.classList.add("open");
-        });
-    }    
+    //     requestAnimationFrame(() => {
+    //         expandedInfoContainer.classList.add("open");
+    //     });
+    // }    
 
 function resetText() {
   // Only restart if not already animating
@@ -590,7 +594,13 @@ typeText();
         expandedInfoContainer = document.createElement("div");
         expandedInfoContainer.classList.add("expanded-info-container");
         expandedInfoContainer.innerHTML = 
-            `<button class="close-info">x</button>
+            `<button class="close-info">
+  <div class="toggler-icon open-x">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</button>
             ${videoCard.querySelector(".expanded-info").innerHTML}`;
     
         visibleVideos[insertAfterIndex].insertAdjacentElement("afterend", expandedInfoContainer);

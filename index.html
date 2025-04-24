@@ -83,32 +83,47 @@
 </nav>
 
     <!-- main page -->
-    <section class="bgimage shadow-lg" id="home">
+    <section class="bgimage shadow-lg" id="home" style="position: relative;">
       <div class="content-wrapper">
+        
+        <!-- Main animated text + play button -->
         <div class="text-center" id="content">
           <div class="animated-text" id="text"></div>
           <br>
           <button id="playButton" class="play-btn" aria-label="Play Video">
             <i class="triangle-icon"></i>
           </button>
-          
         </div>
+    
+        <!-- Floating title stack (video editor, etc) -->
+        <div id="titleStack">
+          <span class="title-word" id="word1">Michael Brady</span>
+          <span class="title-word" id="word2">video editor</span>
+          <span class="title-word" id="word3">graphic designer</span>
+          <span class="title-word" id="word4">cinematographer</span>
+        </div>
+    
+        <!-- Hidden video container -->
         <div class="text-center" id="videoContainer" style="display: none;">
           <div class="video-wrapper">
             <iframe id="video-iframe" 
-                    src="https://www.youtube-nocookie.com/embed/Cv53GbBtZnI?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&color=white" 
+                    src="https://www.youtube-nocookie.com/embed/GSbJzr4GQxc?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&color=white" 
                     frameborder="0" 
                     allow="autoplay" 
                     title="">
             </iframe>
           </div>
-          
         </div>
-        <!-- Transparent Box Below Video -->
-      <div id="clickBox" onclick="window.location.href='#portfolio'"></div>
-    </div>
-    <div id="clickBox2" onclick="window.location.href='#portfolio'"></div>
-    </div>
+    <!-- Clickable Transparent Box -->
+<!-- First clickable transparent box -->
+<a href="#portfolio">
+  <div id="clickBox"></div>
+</a>
+
+<!-- Second clickable transparent box -->
+<a href="#portfolio">
+  <div id="clickBox2"></div>
+</a>
       </div>
     </section>
 
@@ -655,7 +670,7 @@
   
   <div class="row mt-4">
       <div class="col-lg-6">
-          <img src="/images/batman.jpg" class="image_about" alt="Image of Michael Brady">
+          <img src="/images/portrait.jpg" class="image_about" alt="Image of Michael Brady">
       </div>
 
       <div class="col-lg-6">
@@ -685,7 +700,7 @@
   <div class="card shadow-lg p-3 text-center">
 
     <!-- Profile Picture -->
-    <img src="/images/batman.jpg" alt="Profile Picture" class="profile-pic mx-auto mb-3">
+    <img src="/images/portrait.jpg" alt="Profile Picture" class="profile-pic mx-auto mb-3">
 
     <h5 class="card-title">Michael Brady<br>
     <a href="https://www.linkedin.com/in/michael-brady-4187b83b/" class="icon-link" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip"
@@ -695,7 +710,7 @@
         <i class="fas fa-file-lines fa-md"></i>
       </a>
     </h5>
-    <p class="card-text">Video Editor<br>Graphic Designer<br>Cinematographer</p>
+    <p class="card-text">video editor<br>graphic designer<br>cinematographer</p>
 
     <!-- Contact Form continues below -->
 
