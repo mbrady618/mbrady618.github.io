@@ -971,7 +971,7 @@ section {
     position: relative;
     overflow: hidden;
     height: 50px;
-    width: 200px; /* Optional fixed width */
+    width: 100%; 
     border: none;
     cursor: pointer;
     background: none;
@@ -1011,7 +1011,11 @@ section {
     transform: scale(1.05);
   }
   
-
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em; /* Optional spacing */
+  }
 
   
 
