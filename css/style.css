@@ -291,6 +291,15 @@ section {
 
       }
 
+      .dropdown-button::before {
+        transition: none !important;
+        transform: none !important;
+      }
+    
+      .dropdown-button:hover::before {
+        transform: none !important;
+      }
+
 }
 
 
@@ -387,6 +396,7 @@ section {
     }
   }
 
+
   .navbar-logo-placeholder {
     height: 60px;
     width: 0; /* keeps it from affecting layout horizontally */
@@ -434,6 +444,8 @@ section {
     box-shadow: inset 0 0 5px #3A6073, 2px 2px 5px rgba(0, 0, 0, 0.3);
     z-index: 10; /* Bring it to the top */
 }
+
+
 
 /* YouTube Containers */
 .video-container {
@@ -1069,8 +1081,8 @@ section {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #3A6073; /* optional: match your site’s color theme */
+    /* border-radius: 50%;
+    border: 3px solid #3A6073;  */
   }
 
 /* hamburger menu */
@@ -1246,7 +1258,7 @@ section {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -45px; /* places dots 5px below the paragraph */
+    bottom: -15px; /* places dots 5px below the paragraph */
     font-size: 1.5rem;
   }
   
@@ -1284,3 +1296,14 @@ section {
   font-size: 1rem;
   font-weight: 300;
 }
+
+.image-wrapper {
+    background-color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 100%;
+  }
