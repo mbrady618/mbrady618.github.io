@@ -282,6 +282,9 @@ section {
         background-position: center center !important;
 
       }
+
+      #titleStack {
+        top: 415px !important;  /* Adjust as needed */
 }
 
 
