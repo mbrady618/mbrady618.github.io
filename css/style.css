@@ -271,6 +271,11 @@ section {
         font-size: 60px !important;
       } 
 
+      .close-info::before {
+        content: none;
+      }
+   
+
     .card-title-large {
         margin-right: 80px !important; 
         margin-left: 80px !important;
@@ -1040,6 +1045,7 @@ button:hover .button-text {
     cursor: pointer;
     transition: all 0.3s ease;
   }
+
   
   .toggler-icon span {
     background: #fff;
