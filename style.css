@@ -815,7 +815,7 @@ section {
   
   #titleStack {
     position: absolute;
-    top: 480px;  /* Adjust as needed */
+    top: 545px;  /* Adjust as needed */
     left: 50%;
     transform: translate(-50%, 0);
     text-align: center;
