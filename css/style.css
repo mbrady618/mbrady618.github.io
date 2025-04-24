@@ -19,7 +19,7 @@ p {
 
 @font-face {
     font-family: 'Avenir'; /* Custom font name */
-    src: url('/AvenirLTStd-Light.otf'); /* URL to the font file */
+    src: url('/webfonts/AvenirLTStd-Light.otf'); /* URL to the font file */
 }
 
 body, html {
