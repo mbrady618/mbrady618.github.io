@@ -685,18 +685,26 @@
  <!-- about section (12 coluumn grid)-->
  <section class="container-fluid pt-3 section shadow-lg mt-5" id="about">
   <h1 class="text-center">About Me</h1>
-  
-  <div class="col-12 pt-2"></div>
 
   <div class="container pb-5">
-  
-  
-  <div class="row mt-4">
-      <div class="col-lg-6 pb-4">
-          <img src="/images/portrait.jpg" class="image_about" alt="Image of Michael Brady">
+    <div class="row mt-4">
+      <div class="col-lg-6 pb-4 text-center position-relative">
+        <img src="/images/portrait.jpg" class="image_about img-fluid" alt="Image of Michael Brady">
+      
+        <!-- Absolute positioned dots -->
+        <div id="bio-dots" class="dots d-lg-none">. &nbsp; . &nbsp; .</div>
+      
+        <!-- Button shown on mobile only -->
+        <button class="toggle-bio-btn d-block d-lg-none mt-4 mb-1" onclick="toggleBio()">Expand Bio +</button>
       </div>
-      <div class="col-lg-6">
-          <p> I'm a creative storyteller, video producer, and motion graphic designer with 20 years of experience bringing ideas to life. I’ve built my career around crafting compelling visual narratives, whether through video production, animation, or multimedia design. I love finding new ways to engage audiences, tell meaningful stories, and create content that sticks.</p>
+
+      <div class="col-lg-6 ">
+        <p class="mb-0">I'm a creative storyteller, video producer, and motion graphic designer with 20 years of experience bringing ideas to life. I’ve built my career around crafting compelling visual narratives, whether through video production, animation, or multimedia design. I love finding new ways to engage audiences, tell meaningful stories, and create content that sticks.</p>
+          <!-- Dots that disappear on expand -->
+
+        <!-- Bio content wrapper -->
+        <div id="bio-content" class="bio-text d-lg-block">
+          
 
           <p>My experience until now has primarily been with the United States Air Force, and that has led to several unique opportunities.  As a teacher at the Defense Information School, I led a team of instructors teaching advanced video production, motion graphics, and storytelling. I developed hands-on courses in Adobe Premiere Pro, After Effects, and Audition, mentoring students to refine their skills and build industry-standard products.</p> 
             

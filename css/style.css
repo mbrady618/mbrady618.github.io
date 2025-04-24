@@ -125,7 +125,7 @@ a:link {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    z-index: 500;
     background: transparent;
     pointer-events: none; /* Let touches pass through */
     touch-action: manipulation; /* Allow scrolling/swiping, block double-tap zoom */
@@ -1203,4 +1203,112 @@ section {
     display: inline-block; /* Optional: keeps the anchor tight */
   }
 
+
   
+  /* Transition for showing/hiding bio text on mobile */
+  .bio-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, padding 0.5s ease;
+    padding-top: 2rem; /* Optional: add some smooth spacing reveal */
+
+  }
+  
+  /* When active */
+  .bio-text.show {
+    max-height: 1000px; /* Set higher than needed to allow full expansion */
+    padding-top: 1rem; /* Optional: add some smooth spacing reveal */
+  }
+  
+  /* On desktop, always show bio */
+  @media (min-width: 992px) {
+    .bio-text {
+      max-height: none !important;
+      overflow: visible;
+    }
+  }
+
+  .toggle-bio-btn {
+    display: block;
+    margin: 1rem auto;
+  }
+
+  .position-relative {
+    position: relative;
+  }
+  
+  .dots {
+    position: absolute;
+    bottom: -150px; /* tweak as needed to position just below the image */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+  
+  .dots.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+
+/* Button style */
+.toggle-bio-btn {
+    background-color: #005a8d;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    /* border-radius: 5px; */
+    font-size: 1rem;
+    width: 100%;
+  }
+
+
+
+
+
+  /* Base button styling */
+.toggle-bio-button {
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+    width: 100%; 
+    border: none;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Gradient background layer */
+  .toggle-bio-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
+    z-index: -1;
+    transition: transform 0.5s ease;
+    transform: scale(1);
+    transform-origin: center;
+  }
+  
+  /* On hover, background expands */
+  .toggle-bio-btn:hover::before {
+    transform: scale(2);
+  }
+  
+  /* Text grow effect */
+  .toggle-bio-btn .button-text {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    color: white; /* Optional text color */
+    z-index: 1; /* Keep it above the background */
+  }
+  
+  /* On hover, text grows */
+  .toggle-bio-btn:hover .button-text {
+    transform: scale(1.05);
+  }

@@ -742,3 +742,19 @@ const form = document.getElementById('contactForm');
       logo.classList.remove('logo-expanded');
     });
   });
+
+  //make bio expand on mobile
+  function toggleBio() {
+    const bio = document.getElementById('bio-content');
+    const button = document.querySelector('.toggle-bio-btn');
+    const dots = document.getElementById('bio-dots');
+  
+    bio.classList.toggle('show');
+    dots.classList.toggle('hidden');
+  
+    if (bio.classList.contains('show')) {
+      button.textContent = "Collapse Bio −";
+    } else {
+      button.textContent = "Expand Bio +";
+    }
+  }
