@@ -275,9 +275,9 @@ typeText();
 
 
     // Automatically filter by "editing" when the page loads
-    filterVideos("editing");
-    dropdownButton.querySelector(".button-text").textContent = "Video/Audio Editing";
-    categoryFilter.value = "editing";
+    filterVideos("all");
+    dropdownButton.querySelector(".button-text").textContent = "All Videos";
+    categoryFilter.value = "all";
 
     // Navbar transparency on scroll
     // window.addEventListener("scroll", function () {
