@@ -1165,12 +1165,16 @@ section {
   } */
 
   .profile-card {
-    width: 686px; /* Adjust to match the background element */
-    height: 530px; /* Adjust height as needed */
-    margin: 0 auto; /* Center it horizontally */
+    width: 100%;
+    max-width: 686px;
+    height: auto; /* Optional: let height grow with content */
+    margin: 0 auto;
     position: relative;
-    bottom: -14px;
-    z-index: 2; /* Stay above the background */
+    bottom: -13px;
+    z-index: 2;
+    padding: 1rem; /* Add some breathing room on mobile */
+    box-sizing: border-box;
+    min-height: 530px;
   }
 
   .contact-title {
@@ -1511,7 +1515,23 @@ section {
             transform: scale(1) !important;  /* Disable scaling on mobile */
           }
 
+
+  .profile-card {
+    padding: 1rem;
+    bottom: 0; /* Optional: reset bottom on mobile */
+  }
+
+  form input,
+  form textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .button-wrapper {
+    text-align: center;
+  }
 }
+
 
 /* Mobile-specific styles */
 @media (max-width: 992px) {  
