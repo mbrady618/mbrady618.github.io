@@ -761,9 +761,6 @@ section {
     z-index: -1;
 }
 
-.dropdown-button:hover::before {
-    transform: scale(3);
-}
 
  /* Text grow effect */
  .custom-dropdown .button-text {
@@ -826,12 +823,32 @@ section {
     display: block; /* Ensure menu stays open when hovered */
   }
   
-.dropdown-list li:hover {
+  .custom-dropdown:hover .dropdown-button::before {
+    transform: scale(3);
+  }
+  
+  /* If you still want the hover effect on individual list items */
+  .custom-dropdown .dropdown-list li:hover {
     background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
     color: white;
-    background-position: center center;
-    background-size: 100% 100%;
+    transform: scale(1.05);  /* Ensure the list item zooms on hover */
+  }
+
+  .custom-dropdown:hover .dropdown-button .button-text {
+    transform: scale(1.05) !important;
+  }
+
+  .custom-dropdown .dropdown-button:hover .button-text,
+  .custom-dropdown .dropdown-list li:hover .button-text {
     transform: scale(1.05);
+  }
+
+  .dropdown-list li:hover {
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
+    background-position: center center;
+    background-size: 300%; /* Zoomed-in appearance */
+    transform: scale (1.05); /* Remove scale on hover */
+    color: white;
   }
 /*Drowdown Menu End */
     
@@ -1485,14 +1502,14 @@ section {
 
       }
 
-      .dropdown-button::before {
-        transition: none !important;
-        transform: none !important;
-      }
-    
-      .dropdown-button:hover::before {
-        transform: none !important;
-      }
+      
+        .dropdown-button:hover::before {
+          transform: scale(1.5) !important; /* Prevent extra zoom on hover */
+        }
+
+        .custom-dropdown:hover .dropdown-button .button-text {
+            transform: scale(1) !important;  /* Disable scaling on mobile */
+          }
 
 }
 
