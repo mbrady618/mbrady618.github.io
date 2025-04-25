@@ -91,16 +91,16 @@ a:link {
   .bgimage-btm {
     position: relative;
     overflow: hidden;
-    height: 700px; /* Only show 700px of the image */
+    padding-bottom: 20px; /* Keeps spacing below card */
   }
   
   .bgimage-btm::before {
     content: "";
     position: absolute;
-    top: -100px; /* Move image up 100px to hide the top */
+    top: -100px;
     left: 0;
     width: 100%;
-    height: 800px; /* Natural height of the image section */
+    height: 800px;
     background-image: url('/images/background_portfolio_bottom.jpg');
     background-repeat: no-repeat;
     background-position: center top;
