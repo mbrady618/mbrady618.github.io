@@ -13,6 +13,8 @@ p {
     font-size: 18px;
 }
 
+
+
 .video_editor {
     letter-spacing: 4px;
     margin-left: 3px;
@@ -44,6 +46,7 @@ body, html {
 
 h1 {
     font-weight:300 !important;
+    font-size: clamp(2rem, 5vw, 3rem);
 }
 
 /* unvisited link */
@@ -433,7 +436,7 @@ section {
 }
 
 .contact-title {
-    font-size: 28px !important;
+    font-size: clamp(1.2rem, 3vw, 2rem);
     text-align: center;
     font-weight: 300;
     line-height: 1.5 !important; 
