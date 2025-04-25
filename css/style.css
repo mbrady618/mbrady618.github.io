@@ -1223,7 +1223,7 @@ section {
   
   /* Transition for showing/hiding bio text on mobile */
   .bio-text {
-    max-height: 0;
+    max-height: 1200px;
     overflow: hidden;
     transition: max-height 0.6s ease, padding 0.5s ease;
     padding-top: 2rem; /* Optional: add some smooth spacing reveal */
@@ -1235,7 +1235,7 @@ section {
   
   /* When active */
   .bio-text.show {
-    max-height: 1000px; /* Set higher than needed to allow full expansion */
+    max-height: 1200px; /* Set higher than needed to allow full expansion */
     padding-top: 1rem; /* Optional: add some smooth spacing reveal */
   }
   
