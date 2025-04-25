@@ -138,10 +138,10 @@
       </div>
     </section>
 
- 
+    <div class="section-divider mx-auto"></div> 
 
 <!-- PORTFOLIO -->
-<section class="section" id="portfolio">    
+<section class="section thick-border-2" id="portfolio">    
      <div class="container">
       <div class="container text-center">
         <div class="row">
@@ -673,36 +673,46 @@
           </div>
           </div>
         </div>          
-        </div> </div></div>
+       
+      </div> </div> <div class="col-12 mt-4 dummydiv"></div></div>
 </section>
 
 
 
 
-
+<div class="section-divider-2 mx-auto"></div> 
 
 
  <!-- about section (12 coluumn grid)-->
- <section class="container-fluid pt-3 section shadow-lg mt-5" id="about">
-  <h1 class="text-center">About Me</h1>
+ <section class="container-fluid section shadow-lg" id="about">
 
-  <div class="container pb-5">
-    <div class="row mt-4">
-      <div class="col-lg-4 offset-lg-4 pb-3 text-center">
-        
-        <img src="/images/portrait.jpg" class="image_about img-fluid" id ="phototop" alt="Image of Michael Brady">
-      
 
-      
-        <!-- Button shown on mobile only -->
-        <button class="toggle-bio-btn d-block d-lg-none mt-4 mb-1" id="biotop" onclick="toggleBio()">Expand Bio +</button>
+  <div class="row no-gutters">
+    <!-- Left border (1–2 columns) -->
+    <div class="d-none d-lg-block col-lg-1 gradient-border"></div>
+
+    <!-- Main content (adjusted to 10–10 columns) -->
+    <div class="col-12 col-md-12 col-lg-10 thick-border">
+      <h1 class="text-center pt-4">About Me</h1>
+      <div class="container pb-5">
+        <div class="row mt-4">
+          <div class="col-12 col-lg-4 offset-lg-4 pb-3 text-center d-flex justify-content-center">
+
+
+        <img src="/images/portrait.jpg" class="image_about " id ="phototop" alt="Image of Michael Brady">
       </div>
 
-      <div class="col-lg-10 offset-lg-1 position-relative">
-        <p class="mb-0">I'm a creative storyteller, video producer, and motion graphic designer with 20 years of experience bringing ideas to life. I’ve built my career around crafting compelling visual narratives, whether through video production, animation, or multimedia design. I love finding new ways to engage audiences, tell meaningful stories, and create content that sticks.</p>
+      <div class="col-lg-10 offset-lg-1 position-relative">        <!-- Button shown on mobile only -->
+        <button class="toggle-bio-btn d-block d-lg-none mt-3 mb-1" id="biotop" onclick="toggleBio()">Expand Bio +</button>
+    </div>
 
+      
+        <p class="pt-3 mb-0">I'm a creative storyteller, video producer, and motion graphic designer with 20 years of experience bringing ideas to life. I’ve built my career around crafting compelling visual narratives, whether through video production, animation, or multimedia design. I love finding new ways to engage audiences, tell meaningful stories, and create content that sticks.</p>
+
+
+        <div class="col-lg-10 offset-lg-1 position-relative"> 
         <!-- Dots placed outside the <p>, but relative to it -->
-    <div id="bio-dots" class="dots d-lg-none">. &nbsp; . &nbsp; .</div>
+    <div id="bio-dots" class="dots d-lg-none">. &nbsp; . &nbsp; .</div></div>
 
           
 
@@ -717,24 +727,33 @@
           <p>Beyond my professional work, I’m always looking for ways to push my creativity. I work on creative projects in my free time, compose music, and even built this portfolio site from scratch using just HTML5, CSS, and JavaScript. On top of that, I pursued a Bachelor of Science in Web & Digital Design at the University of Maryland Global Campus to expand my digital media expertise.</p>
 
           <p>At the end of the day, I love what I do. Whether it’s producing a video, designing motion graphics, or helping someone develop their skills, my goal is always the same—create something engaging, impactful, and memorable.</p>
-      </div>
-  </div>
+
   </div></div>
+  </div>
+</div>
+    <!-- Right border (1–2 columns) -->
+    <div class="d-none d-lg-block col-lg-1 gradient-border-2"></div>
+
+  </div>
+
+
 </section>
 
 
 
+<div class="section-divider-3 mx-auto"></div> 
 
 
 
+<section class="bgimage-btm">
 
-<section class="container-fluid mt-4 pt-4 section" id="contact">
+<div class=" container-fluid mt-4 pt-4 section" id="contact">
   <h1 class="text-center">Contact</h1>
   
-  <div class="card shadow-lg p-3 text-center">
+  <div class="card shadow-lg p-3 text-cente profile-card">
 
     <!-- Profile Picture -->
-    <img src="/images/MB.png" alt="Profile Picture" class="profile-pic mx-auto mb-3">
+    <img src="/images/MB.png" alt="Profile Picture" class="profile-pic mx-auto mb-2">
 
     <h5 class="card-title">Michael Brady<br>
     <a href="https://www.linkedin.com/in/michael-brady-4187b83b/" class="icon-link" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip"
@@ -778,7 +797,7 @@
       </div>
     </div>
 </div>
-
+</div>
 </section>
 
 
@@ -792,7 +811,7 @@
 
   </body>
 
-  <footer class="bg-dark text-white text-center py-4 mt-5">
+  <footer class="bg-dark text-white text-center py-4 mt-0">
     <div class="container">
       <p class="mb-2 font-weight-light">© 2025 Michael Brady Portfolio</p>
     </div>

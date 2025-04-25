@@ -10,6 +10,7 @@ body {
 
 p {
     font-weight: 300;
+    font-size: 18px;
 }
 
 @font-face {
@@ -62,16 +63,30 @@ a:link {
   }
 
   .bgimage {
-    background-image: url('/images/background_portfolio.jpg');
+    background-image: url('/images/background_portfolio_new.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover; /* Let it scale naturally */
     background-attachment: scroll;
-  
-
     width: 100%;
     overflow: hidden;
-  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    height: 800px;
+    bottom: 0;
+  }
+
+  .bgimage-btm {
+    background-image: url('/images/background_portfolio_bottom.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* Let it scale naturally */
+    background-attachment: scroll;
+    width: 100%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,6 +119,8 @@ a:link {
   clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   transition: all 0.3s ease;
 }
+
+
 /* Video Container */
 .video-wrapper {
     width: 500px;
@@ -194,13 +211,19 @@ a:link {
 
 
 #portfolio {
-    margin-top: 20px; /* Adjust this as needed */
-    padding-top: 10px; /* Minimal padding */
+    /* margin-top: 20px; */
+    padding-top: 30px; 
 }
 
 section {
     scroll-margin-top: 40px; /* Adjust based on your navbar height */
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
+
+.section-divider {
+    margin-top: 0 !important;
+  }
 
 /* spacing on all sections */
 /* .section {
@@ -229,10 +252,32 @@ section {
     color: white;
 } */
 
-.image_about {
-    width: 100%;
+
+  .image_about {
+    width: 360px; /* or whatever fixed size you like */
     height: auto;
-}
+    display: block;
+    margin: 0 auto;
+    max-width: none;
+  }
+  
+  /* Apply responsive behavior only for mobile */
+  @media (max-width: 575.98px) {
+    .image_about {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  
+  /* Lock image size after it hits its max width */
+  @media (min-width: 576px) {
+    .image_about {
+      width: 360px; /* or whatever "widest" size looks best */
+      max-width: none;
+    }
+  }
+  
 
 .navbar {
     background: linear-gradient(
@@ -243,64 +288,7 @@ section {
 
 }
 
-@media (max-width: 768px) {  /* Target mobile screens */
-    .navbar-nav {
-        text-align: right;  /* Center text */
-    }
 
-    .navbar-collapse {
-        justify-content: right; /* Center the menu */
-    }
-
-    .navbar-nav .nav-item {
-        display: block; /* Stack menu items vertically */
-        width: auto; /* Prevent forced full width */
-    }
-
-    .navbar-nav .nav-link {
-        font-size: 24px; /* Increase font size on small screens */
-        font-weight: 300;
-        padding-top: 2px !important; /* Optional: Reduce padding for tighter spacing */
-        padding-bottom: 2px !important; /* Optional: Reduce padding for tighter spacing */
-        padding-right: 8px !important;
-    }
-
-    .close-info {
-        top: -30px !important;
-        right: 0px !important;
-        font-size: 60px !important;
-      } 
-
-      .close-info::before {
-        content: none;
-      }
-   
-
-    .card-title-large {
-        margin-right: 80px !important; 
-        margin-left: 80px !important;
-      }  
-
-      .dropdown-button {
-        background-position: center center !important; 
-        transition: none !important; 
-      }
-    
-      .dropdown-button:hover {
-        background-position: center center !important;
-
-      }
-
-      .dropdown-button::before {
-        transition: none !important;
-        transform: none !important;
-      }
-    
-      .dropdown-button:hover::before {
-        transform: none !important;
-      }
-
-}
 
 
 
@@ -409,6 +397,7 @@ section {
     padding-right: 0px !important;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
+    transition: all 0.3s ease;
 }
 
 .card-title {
@@ -444,6 +433,8 @@ section {
     box-shadow: inset 0 0 5px #3A6073, 2px 2px 5px rgba(0, 0, 0, 0.3);
     z-index: 10; /* Bring it to the top */
 }
+
+
 
 
 
@@ -561,10 +552,11 @@ section {
     padding-left: 20px !important;
     padding-right: 20px !important;
     background-image: linear-gradient(#eff9ff, #a8c4d3)
+    
 }
 
 .expanded-info-container.open {
-     max-height: 1200px; 
+     max-height: 1400px; 
     opacity: 1;
     padding-top: 20px; /* Add padding here */
     padding-bottom: 20px; /* Add padding here */
@@ -726,6 +718,7 @@ section {
     background: none;
     border-radius: 10px 10px 0 0;
     color: white;
+    font-size: 18px;
 }
 
 .dropdown-button::before {
@@ -758,6 +751,7 @@ section {
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    font-size: 18px;
 
   }
   
@@ -1078,11 +1072,16 @@ section {
   }
 
   .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     object-fit: cover;
+    transition: transform 0.3s ease;
     /* border-radius: 50%;
     border: 3px solid #3A6073;  */
+  }
+
+  .profile-card:hover .profile-pic {
+    transform: scale(1.05); /* Adjust scale as needed */
   }
 
 /* hamburger menu */
@@ -1212,6 +1211,7 @@ section {
 
   label[for="categoryFilter"] {
     font-weight: 300;
+    font-size: 18px;
   }
 
   #content {
@@ -1227,6 +1227,9 @@ section {
     overflow: hidden;
     transition: max-height 0.6s ease, padding 0.5s ease;
     padding-top: 2rem; /* Optional: add some smooth spacing reveal */
+
+   
+
 
   }
   
@@ -1247,6 +1250,8 @@ section {
   .toggle-bio-btn {
     display: block;
     margin: 1rem auto;
+    padding-left: 10px;
+    padding-right: 20px !important;
   }
 
   .position-relative {
@@ -1258,7 +1263,7 @@ section {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -15px; /* places dots 5px below the paragraph */
+    bottom: -40px; /* places dots 5px below the paragraph */
     font-size: 1.5rem;
   }
   
@@ -1307,3 +1312,123 @@ section {
     margin: 0 auto;
     width: 100%;
   }
+
+  .gradient-border {
+    background: linear-gradient(to right, rgb(58, 96, 115), rgb(0, 0, 0));
+    min-height: 100%; /* Make it fill the height of the section */
+  }
+
+  .gradient-border-2 {
+    background: linear-gradient(to left, rgb(58, 96, 115), rgb(0, 0, 0));
+    min-height: 100%; /* Make it fill the height of the section */
+  }
+
+  /*section dividers*/
+  .section-divider {
+    height: 40px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(38, 62, 76)  0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 80%, rgb(51, 83, 101) 100%); 
+}
+
+.section-divider-2 {
+    height: 1px;
+    width: 100%;
+    background: rgb(51, 83, 101) ; 
+}
+
+.section-divider-3 {
+    height: 40px;
+    width: 100%;
+    background: linear-gradient(to top, rgb(35, 58, 69) 0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 80%, rgb(51, 83, 101) 100%); 
+}
+
+.thick-border {
+    border-top: 2px solid rgb(51, 83, 101) !important;
+    border-bottom: 3px solid rgb(51, 83, 101) !important; 
+  }
+
+  .thick-border-2 {
+    border-left: 6px solid rgb(51, 83, 101);
+    border-right: 6px solid rgb(51, 83, 101) !important; 
+  }
+
+  .dummydiv {
+    min-height: 10px; 
+  }
+
+  /*Media Queries*/
+  @media (max-width: 768px) {  /* Target mobile screens */
+    .navbar-nav {
+        text-align: right;  /* Center text */
+    }
+
+    .navbar-collapse {
+        justify-content: right; /* Center the menu */
+    }
+
+    .navbar-nav .nav-item {
+        display: block; /* Stack menu items vertically */
+        width: auto; /* Prevent forced full width */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 24px; /* Increase font size on small screens */
+        font-weight: 300;
+        padding-top: 2px !important; /* Optional: Reduce padding for tighter spacing */
+        padding-bottom: 2px !important; /* Optional: Reduce padding for tighter spacing */
+        padding-right: 8px !important;
+    }
+
+    .close-info {
+        top: -30px !important;
+        right: 0px !important;
+        font-size: 60px !important;
+      } 
+
+      .close-info::before {
+        content: none;
+      }
+   
+
+    .card-title-large {
+        margin-right: 80px !important; 
+        margin-left: 80px !important;
+      }  
+
+      .dropdown-button {
+        background-position: center center !important; 
+        transition: none !important; 
+      }
+    
+      .dropdown-button:hover {
+        background-position: center center !important;
+
+      }
+
+      .dropdown-button::before {
+        transition: none !important;
+        transform: none !important;
+      }
+    
+      .dropdown-button:hover::before {
+        transform: none !important;
+      }
+
+}
+
+/* Mobile-specific styles */
+@media (max-width: 992px) {  
+    /* Remove left and right borders on mobile */
+    .section.thick-border-2 {
+      border-left: none !important;
+      border-right: transparent !important;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .image_about {
+        width: 100%;
+        /* Additional styling for mobile */
+    }
+}
+  
