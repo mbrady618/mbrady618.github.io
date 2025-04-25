@@ -766,3 +766,9 @@ const form = document.getElementById('contactForm');
       window.scrollTo({ top: topPosition, behavior: 'smooth' });
     }
   }
+
+  //hide most videos on mobile
+  function expandVideos() {
+    const section = document.querySelector('.video-section');
+    section.classList.add('expanded');
+  }

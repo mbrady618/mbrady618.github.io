@@ -1070,6 +1070,12 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: opacity 0.3s ease;
+  }
+  
+  .video-section.expanded .fancy-button {
+    opacity: 0;
+    pointer-events: none;
   }
   
   /* Gradient background layer */
@@ -1551,4 +1557,52 @@ section {
         /* Additional styling for mobile */
     }
 }
-  
+
+
+/* hide most videos on mobile */
+
+@media (max-width: 768px) {
+  .video-section {
+    position: relative;
+    overflow: hidden;
+    max-height: 1350px; /* Enough to show 4 videos + overlay */
+    transition: max-height 2s ease;
+    
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 1150px; /* adjust based on your video height */
+    left: 0;
+    width: 100%;
+    height: 700px;
+    background: linear-gradient(to bottom, transparent 0px, white 120px, white 700px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 150px;
+    z-index: 10;
+    transition: transform 1.5s ease;
+
+  }
+
+  .expand-text {
+    font-weight: bold;
+    cursor: pointer;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .video-section.expanded {
+    max-height: 9999px;
+    
+  }
+
+  .video-section.expanded .video-overlay {
+    transform: translateY(490%);
+    /* opacity: 0; */
+    pointer-events: none;
+  }
+}
