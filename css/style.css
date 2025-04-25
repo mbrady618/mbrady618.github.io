@@ -1426,7 +1426,7 @@ section {
 }
 
 .section-divider-2 {
-    height: 1px;
+    height: 4px;
     width: 100%;
     background: rgb(51, 83, 101) ; 
 }
