@@ -276,7 +276,7 @@ typeText();
 
     // Automatically filter by "editing" when the page loads
     filterVideos("editing");
-    dropdownButton.textContent = "Video/Audio Editing";
+    dropdownButton.querySelector(".button-text").textContent = "Video/Audio Editing";
     categoryFilter.value = "editing";
 
     // Navbar transparency on scroll
@@ -452,7 +452,7 @@ dropdownButton.addEventListener("click", function (event) {
 dropdownList.querySelectorAll("li").forEach(item => {
     item.addEventListener("click", function () {
         const selectedValue = item.getAttribute("data-value");
-        dropdownButton.firstChild.nodeValue = item.textContent; // Update text while keeping triangle
+        dropdownButton.querySelector(".button-text").textContent = item.textContent;
         categoryFilter.value = selectedValue;
         dropdownList.classList.remove("open");
         rotateTriangle(false);
