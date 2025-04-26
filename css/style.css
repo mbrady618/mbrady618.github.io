@@ -1335,10 +1335,6 @@ section {
     overflow: hidden;
     transition: max-height 0.6s ease, padding 0.5s ease;
     padding-top: 2rem; /* Optional: add some smooth spacing reveal */
-
-   
-
-
   }
   
   /* When active */
@@ -1539,7 +1535,24 @@ section {
   .button-wrapper {
     text-align: center;
   }
+  
 }
+
+@media (min-width: 992px) {  /* Target mobile screens */
+
+#expandButton {
+    display: none;
+}
+
+#whiteFade {
+    display: none;
+}
+
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* Your styles here */
+  }
 
 
 /* Mobile-specific styles */
@@ -1561,7 +1574,7 @@ section {
 
 /* hide most videos on mobile */
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .video-section {
     position: relative;
     overflow: hidden;
@@ -1583,6 +1596,7 @@ section {
     padding-top: 150px;
     z-index: 10;
     transition: transform 1.5s ease;
+    transform: translateY(70%)
 
   }
 
@@ -1605,14 +1619,40 @@ section {
     /* opacity: 0; */
     pointer-events: none;
   }
+ 
 }
 
-.white-fade {
-position: absolute;
-left: 0;
-right: 0;
-bottom: 50px; /* or adjust slightly if you need */
-    background: linear-gradient(to bottom, transparent 0px, white 120px, white 700px);
-height: 100px;
+@media (min-width: 768px) and (max-width: 992px) {
+    
+  
+    .white-fade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 50px; 
+          background: linear-gradient(to bottom, transparent 0px,white 300px);
+      height: 300px;
+  }
+
+
+  .video-section {
+    max-height: 185vh; /* Enough to show 4 videos + overlay */
+}
+}
+
+@media (max-width: 768px) {
+    
+  
+    .white-fade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 50px; 
+          background: linear-gradient(to bottom, transparent 0px,white 100px);
+      height: 100px;
+   
+  }
+
 
 }
+    

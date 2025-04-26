@@ -276,8 +276,9 @@ typeText();
 
     // Automatically filter by "editing" when the page loads
     filterVideos("all");
-    dropdownButton.querySelector(".button-text").textContent = "All Videos";
-    categoryFilter.value = "all";
+dropdownButton.querySelector(".button-text").textContent = "All Videos";
+categoryFilter.value = "all";
+updateDropdownList("all"); // 👈 add this line
 
     // Navbar transparency on scroll
     // window.addEventListener("scroll", function () {
@@ -449,6 +450,8 @@ dropdownButton.addEventListener("click", function (event) {
     rotateTriangle(!isOpen);
 });
 
+
+//dropdown function on click
 dropdownList.querySelectorAll("li").forEach(item => {
     item.addEventListener("click", function () {
         const selectedValue = item.getAttribute("data-value");
@@ -457,19 +460,28 @@ dropdownList.querySelectorAll("li").forEach(item => {
         dropdownList.classList.remove("open");
         rotateTriangle(false);
         filterVideos(selectedValue);
+
         if (expandedInfoContainer) {
             closeExpandedInfo();
         }
 
-        if (selectedValue === "all") { // <-- assuming "all" is the data-value for All Videos
-            document.getElementById('expandButton').style.display = 'block';
-            document.getElementById('whiteFade').style.display = 'block';
-        } else {
-            document.getElementById('expandButton').style.display = 'none';
-            document.getElementById('whiteFade').style.display = 'none';
-        }
+        expandVideosNoAnimation();
+
+        // 👇 Update the dropdown list visibility
+        updateDropdownList(selectedValue);
     });
 });
+
+//hide inactive menu items
+function updateDropdownList(selectedValue) {
+    dropdownList.querySelectorAll("li").forEach(item => {
+        if (item.getAttribute("data-value") === selectedValue) {
+            item.style.display = "none"; // Hide the selected one
+        } else {
+            item.style.display = "block"; // Show all others
+        }
+    });
+}
 
 // Close dropdown on outside click
 document.addEventListener("click", function (event) {
@@ -783,4 +795,12 @@ const form = document.getElementById('contactForm');
     document.getElementById('whiteFade').style.display = 'none';
 
   }
+
+  function expandVideosNoAnimation() {
+    const section = document.querySelector('.video-section');
+    section.classList.add('expanded');
+    section.classList.add('no-animation'); // You can use this new class in your CSS if needed
+    document.getElementById('expandButton').style.display = 'none';
+    document.getElementById('whiteFade').style.display = 'none';
+}
   
