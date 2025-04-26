@@ -771,4 +771,8 @@ const form = document.getElementById('contactForm');
   function expandVideos() {
     const section = document.querySelector('.video-section');
     section.classList.add('expanded');
+    document.getElementById('expandButton').style.display = 'none';
+    document.getElementById('whiteFade').style.display = 'none';
+
   }
+  
