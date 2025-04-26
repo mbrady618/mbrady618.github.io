@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Play button click event
     //cover page video
-    document.getElementById('playButton').addEventListener('click', function () {
+    document.querySelector('.playCard').addEventListener('click', function () {
+        document.querySelector('.playCard').classList.add('no-hover');
         let videoContainer = document.getElementById('videoContainer');
         let content = document.getElementById('content');
         
@@ -77,6 +78,7 @@ wrapper.appendChild(overlay);
                                     // Show the end image after the video ends
                                     youtubeVideo.style.opacity = "0";  // Fade in the image
                                     restoreContent()
+                                    document.querySelector('.playCard').classList.remove('no-hover');
                                 }
                             }
                         }

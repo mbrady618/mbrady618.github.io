@@ -126,20 +126,24 @@ a:link {
     flex-direction: column;
   } 
 
-.triangle-icon:hover {
-    background-color: #3A6073;
-    transform: scale(1.1);
-
-}
-
 .triangle-icon {
   width: 50px;
   height: 50px;
   display: inline-block;
-  background-color: rgb(0, 0, 0);
+  background-color: #3A6073;
   clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   transition: all 0.3s ease;
 }
+
+.playCard.no-hover {
+    pointer-events: none;
+  }
+
+  .playCard {
+    transition: all 0.3s ease;
+    /* border: 2px solid black !important;  */
+      }
+
 
 
 /* Video Container */
@@ -174,13 +178,15 @@ a:link {
 } */
 
 #videoContainer {
-    position: absolute;
+    position: absolute !important;
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    top: -50px;
+    top: -210px;
+    left: 0;
+    right: 0;
   } 
 
   .video-desktop {
@@ -928,7 +934,7 @@ section {
     height: 40px;
     width: auto;
     position: relative;
-    top: -125px; /* Moves the text up by 200px */
+    top: 174px; /* Moves the text up by 200px */
   }
 
   .animated {
@@ -942,7 +948,7 @@ section {
     border: none;
     cursor: pointer;
     position: relative;
-    top: -95px; /* Moves the play button up by 200px */
+    top: 200px; /* Moves the play button up by 200px */
     transition: opacity 1s ease-in-out; /* Smooth fade */
   }
 
@@ -954,7 +960,7 @@ section {
   
   #titleStack {
     position: absolute;
-    top: 45px; /* Start right below the content block */
+    top: 340px; /* Start right below the content block */
     left: 50%;
     width: 200px;
     transform: translate(-50%, 10px); /* Slide it down a bit */
@@ -992,6 +998,26 @@ section {
     font-weight: 300;
     font-size: 20px;
   }
+
+
+  .intro-card {
+    width: 100%;
+    max-width: 682px;
+    height: auto; /* Optional: let height grow with content */
+    margin: 0 auto;
+    position: relative;
+    top: -51px;
+    z-index: 2;
+    padding: 1rem; /* Add some breathing room on mobile */
+    box-sizing: border-box;
+    min-height: 530px;
+  }
+
+  .intro-card:hover .triangle-icon {
+    background-color: #61899d;
+    transform: scale(1.2);
+  }
+
  
   footer {
     background: linear-gradient(
@@ -1183,7 +1209,7 @@ section {
     height: auto; /* Optional: let height grow with content */
     margin: 0 auto;
     position: relative;
-    bottom: -13px;
+    top: 18px;
     z-index: 2;
     padding: 1rem; /* Add some breathing room on mobile */
     box-sizing: border-box;
@@ -1654,6 +1680,10 @@ section {
 @media (max-width: 768px) {
     
   
+    #videoContainer {
+        height: 107vh;
+    }
+
     .white-fade {
       position: absolute;
       left: 0;
