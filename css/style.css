@@ -1581,14 +1581,14 @@ section {
   .video-section {
     position: relative;
     overflow: hidden;
-    max-height: 135vh; /* Enough to show 4 videos + overlay */
-    transition: max-height 7s ease;
+    max-height: 1315px; /* Enough to show 4 videos + overlay */
+
     
   }
 
   .video-overlay {
     position: absolute;
-    top: 120vh; /* adjust based on your video height */
+    top: 110vh; /* adjust based on your video height */
     left: 0;
     width: 100%;
     height: 700px;
@@ -1614,7 +1614,7 @@ section {
 
   .video-section.expanded {
     max-height: 9999px;
-    
+    transition: max-height 7s ease;
   }
 
   .video-section.expanded .video-overlay {
@@ -1642,7 +1642,7 @@ section {
       right: 0;
       bottom: 50px; 
           background: linear-gradient(to bottom, transparent 0px,white 300px);
-      height: 300px;
+      height: 350px;
   }
 
 
@@ -1659,8 +1659,8 @@ section {
       left: 0;
       right: 0;
       bottom: 50px; 
-          background: linear-gradient(to bottom, transparent 0px,white 100px);
-      height: 100px;
+      background: linear-gradient(to top, white 0%, white 5%, transparent 100%);
+      height: 150px;
     }
 
     .bgimage-btm::before {
