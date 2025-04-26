@@ -1074,7 +1074,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.3s ease;
+    transition: all 1s ease;
   }
   
   .video-section.expanded .fancy-button {
@@ -1582,7 +1582,7 @@ section {
     position: relative;
     overflow: hidden;
     max-height: 135vh; /* Enough to show 4 videos + overlay */
-    transition: max-height 2s ease;
+    transition: max-height 7s ease;
     
   }
 
@@ -1674,7 +1674,7 @@ section {
 
     body {
         position: relative;
-        top: -23px;
+        top: -24px;
       }
 
 

@@ -790,10 +790,23 @@ const form = document.getElementById('contactForm');
   //hide most videos on mobile
   function expandVideos() {
     const section = document.querySelector('.video-section');
+    const expandButton = document.getElementById('expandButton');
+    const whiteFade = document.getElementById('whiteFade');
+  
     section.classList.add('expanded');
-    document.getElementById('expandButton').style.display = 'none';
-    document.getElementById('whiteFade').style.display = 'none';
-
+  
+    // Add a fade-out effect
+    expandButton.style.transition = 'opacity 1s ease';
+    whiteFade.style.transition = 'opacity 1s ease';
+  
+    expandButton.style.opacity = '0';
+    whiteFade.style.opacity = '0';
+  
+    // After 1 second (1000ms), hide them completely
+    setTimeout(() => {
+      expandButton.style.display = 'none';
+      whiteFade.style.display = 'none';
+    }, 1000);
   }
 
   function expandVideosNoAnimation() {
