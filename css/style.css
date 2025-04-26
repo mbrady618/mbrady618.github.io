@@ -1622,6 +1622,13 @@ section {
     /* opacity: 0; */
     pointer-events: none;
   }
+
+  .section-divider-2 {
+    height: 40px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(38, 62, 76)  0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 50%, rgb(51, 83, 101) 100%); 
+}
+
  
 }
 
