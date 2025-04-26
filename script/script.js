@@ -460,8 +460,14 @@ dropdownList.querySelectorAll("li").forEach(item => {
         if (expandedInfoContainer) {
             closeExpandedInfo();
         }
-        document.getElementById('expandButton').style.display = 'none';
-        document.getElementById('whiteFade').style.display = 'none';
+
+        if (selectedValue === "all") { // <-- assuming "all" is the data-value for All Videos
+            document.getElementById('expandButton').style.display = 'block';
+            document.getElementById('whiteFade').style.display = 'block';
+        } else {
+            document.getElementById('expandButton').style.display = 'none';
+            document.getElementById('whiteFade').style.display = 'none';
+        }
     });
 });
 
