@@ -460,6 +460,8 @@ dropdownList.querySelectorAll("li").forEach(item => {
         if (expandedInfoContainer) {
             closeExpandedInfo();
         }
+        document.getElementById('expandButton').style.display = 'none';
+        document.getElementById('whiteFade').style.display = 'none';
     });
 });
 
