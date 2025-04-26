@@ -1629,6 +1629,7 @@ section {
     background: linear-gradient(to bottom, rgb(38, 62, 76)  0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 50%, rgb(51, 83, 101) 100%); 
 }
 
+
  
 }
 
@@ -1671,15 +1672,12 @@ section {
         display: none;
     }
 
-
-}
-
-@media (max-width: 576px) {
-
-    .dummydiv {
-        display: none;
-    }
+    body {
+        position: relative;
+        top: -23px;
+      }
 
 
 }
-    
+
+
