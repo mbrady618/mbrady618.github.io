@@ -1660,8 +1660,25 @@ section {
       bottom: 50px; 
           background: linear-gradient(to bottom, transparent 0px,white 100px);
       height: 100px;
-   
-  }
+    }
+
+    .bgimage-btm::before {
+        background-image: none; /* Remove the picture */
+        background-color: white; /* Set solid white background */
+      }
+  
+    .dummydiv {
+        display: none;
+    }
+
+
+}
+
+@media (max-width: 576px) {
+
+    .dummydiv {
+        display: none;
+    }
 
 
 }
