@@ -1565,14 +1565,14 @@ section {
   .video-section {
     position: relative;
     overflow: hidden;
-    max-height: 1350px; /* Enough to show 4 videos + overlay */
+    max-height: 110vh; /* Enough to show 4 videos + overlay */
     transition: max-height 2s ease;
     
   }
 
   .video-overlay {
     position: absolute;
-    top: 1150px; /* adjust based on your video height */
+    top: 1152px; /* adjust based on your video height */
     left: 0;
     width: 100%;
     height: 700px;
