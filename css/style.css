@@ -1680,9 +1680,10 @@ section {
 @media (max-width: 768px) {
     
   
-    /* #videoContainer {
+    #videoContainer {
         height: 945px;
-    } */
+        top: -215px;
+    }
 
     .white-fade {
       position: absolute;
