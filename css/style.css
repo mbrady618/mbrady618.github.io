@@ -189,6 +189,12 @@ a:link {
     right: 0;
   } 
 
+/* Disable hover effect when .no-hover class is added */
+.no-hover:hover {
+    pointer-events: none; /* This will prevent hover styles from being applied */
+    cursor: default; /* Change cursor to default when hovering */
+  }
+
   .video-desktop {
     width: 900px;
     height: 900px;
