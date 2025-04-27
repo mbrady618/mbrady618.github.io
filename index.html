@@ -167,12 +167,14 @@
           </div>
       </div>
       <input type="hidden" id="categoryFilter" name="categoryFilter">
-  
-<div class="video-section" id="videoSection">  
+
+      
+
+<div class="video-section desktop-view" id="videoSection">  
 
     <div class="col-12 mt-4"></div>
     <div class="row video-grid g-0 shadow-lg">
-
+     <!-- was, but removed row <div class="row video-grid g-0 shadow-lg"> -->
 
         <!-- MDCC -->
         <div class="col-lg-4 col-12 video-thumbnail" data-video-id="SJxtfXsJc04" data-category="all promotional">
@@ -252,8 +254,77 @@
 
 
       
-        <!-- You're All Mine -->
-        <div class="col-lg-4  col-12 col-12 video-thumbnail" data-video-id="FWu9CPNlAI0" data-category="all narrative">
+
+ <!-- DC Shootoff Promo -->
+ <div class="col-lg-4 col-12 col-12 video-thumbnail" data-video-id="v0f9fqvmRi4" data-category="all promotional">
+  <div class="video-container" data-video-id="v0f9fqvmRi4" data-thumbnail="/images/thumb_shootoff.jpg">
+    <img class="card-img-top" src="/images/thumb_shootoff.jpg" alt="Video Thumbnail" style="width:100%">
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">DC Video Shootoff Promo</h4>
+    <p class="card-text">(1:05) &nbsp; <i class="bi bi-info-circle"></i>
+    <button class="info-btn">more info</button></p>
+</div>
+ <!-- EXPANDED INFO BOX (Hidden Initially) -->
+ <div class="expanded-info">
+  <div class="row">
+  <div class="col-12">
+    <h2 class="card-title-large">DC Video Shootoff Promo</h2></div>  
+  <div class="col-12">
+    <p class="vid-details">Runtime: 1:05<br>
+    Date: 09/07/2019<br>
+    DC Video Shootoff, Washington D.C.<br></p></div>
+    <div class="col-lg-4">
+    <p>This video was developed for the annual DC Video Shootoff, which is a not-for-profit video workshop for military and civil service videographers that focuses on storytelling fundamentals and provides mentorship and instruction regarding various aspects of video production. </p>
+    <p>I was part of the social media team and was tasked to create a video that promoted the event and highlighted that the teams were about to begin filming.</p>  
+  </div>
+  <div class="col-lg-4">
+    <p>My initial vision was to creatively depict how a team might assemble video gear to shoot their story. I thought it would be fun to emulate how a movie might show an agent gearing up for a mission.</p>
+    <p>I used dynamic lighting to highlight various pieces of equipment that resembled tactical gear, capturing close-up shots of the action. During the edit, I added sci-fi-inspired sound effects to enhance the illusion and give the sequence an engaging, cinematic feel. </p>
+  </div>
+  <div class="col-lg-4">
+    <p>I also added motion titles to replicate the style of a movie teaser trailer, using the mystery of the visuals to intrigue audiences and spark curiosity rather than spelling everything out. The video was conceptualized, shot, and edited in just a few hours because I was under the same time constraints as the teams.</p>
+    <p class="vid-details"><u>Production Roles</u><br>
+    <i>Producer/Director<br>
+    Editor<br>
+    Camera Operator<br></i></p>
+  </div>
+  </div>
+</div>          
+</div> 
+
+
+        <!-- //expand button -->
+        <!-- <div class="col-lg-4 empty-video ignore-video" data-category="all"><button class="fancy-button" id="expandButton" onclick="expandVideos()">Expand Videos +</button>
+          <div class="video-container">
+            
+          </div>
+          <div class="card-body">
+            <div class="title-container">
+            <h4 class="card-title">Expand Button</h4></div>
+            <p class="card-text">holding space &nbsp; <i class="bi bi-info-circle"></i></p>
+        </div>
+
+        </div>        -->
+        
+        <!-- //video slide -->
+        <!-- <div class="col-lg-4   " data-category="all"><div class="video-slide" id="videoSlide"> </div>
+          <div class="video-container">
+            
+          </div>
+          <div class="card-body">
+            <div class="title-container">
+            <h4 class="card-title">Video Slide</h4></div>
+            <p class="card-text">holding space &nbsp; <i class="bi bi-info-circle"></i></p>
+        </div>
+
+        </div>     -->
+ 
+        
+        
+        <!-- You're All Mine (EXPAND BUTTON) -->
+        <div class="col-lg-4 empty-video col-12 col-12 video-thumbnail" data-video-id="FWu9CPNlAI0" data-category="all narrative"> 
+          <button class="fancy-button" id="expandButton" onclick="expandVideos()">Expand Videos +</button>
           <div class="video-container" data-video-id="FWu9CPNlAI0" data-thumbnail="/images/thumb_allmine.jpg">
             <img class="card-img-top" src="/images/thumb_allmine.jpg" alt="Video Thumbnail" style="width:100%">
           </div>
@@ -297,46 +368,10 @@
         </div>          
         </div> 
 
- <!-- DC Shootoff Promo -->
- <div class="col-lg-4 col-12 col-12 video-thumbnail" data-video-id="v0f9fqvmRi4" data-category="all promotional">
-  <div class="video-container" data-video-id="v0f9fqvmRi4" data-thumbnail="/images/thumb_shootoff.jpg">
-    <img class="card-img-top" src="/images/thumb_shootoff.jpg" alt="Video Thumbnail" style="width:100%">
-  </div>
-  <div class="card-body">
-    <h4 class="card-title">DC Video Shootoff Promo</h4>
-    <p class="card-text">(1:05) &nbsp; <i class="bi bi-info-circle"></i>
-    <button class="info-btn">more info</button></p>
-</div>
- <!-- EXPANDED INFO BOX (Hidden Initially) -->
- <div class="expanded-info">
-  <div class="row">
-  <div class="col-12">
-    <h2 class="card-title-large">DC Video Shootoff Promo</h2></div>  
-  <div class="col-12">
-    <p class="vid-details">Runtime: 1:05<br>
-    Date: 09/07/2019<br>
-    DC Video Shootoff, Washington D.C.<br></p></div>
-    <div class="col-lg-4">
-    <p>This video was developed for the annual DC Video Shootoff, which is a not-for-profit video workshop for military and civil service videographers that focuses on storytelling fundamentals and provides mentorship and instruction regarding various aspects of video production. </p>
-    <p>I was part of the social media team and was tasked to create a video that promoted the event and highlighted that the teams were about to begin filming.</p>  
-  </div>
-  <div class="col-lg-4">
-    <p>My initial vision was to creatively depict how a team might assemble video gear to shoot their story. I thought it would be fun to emulate how a movie might show an agent gearing up for a mission.</p>
-    <p>I used dynamic lighting to highlight various pieces of equipment that resembled tactical gear, capturing close-up shots of the action. During the edit, I added sci-fi-inspired sound effects to enhance the illusion and give the sequence an engaging, cinematic feel. </p>
-  </div>
-  <div class="col-lg-4">
-    <p>I also added motion titles to replicate the style of a movie teaser trailer, using the mystery of the visuals to intrigue audiences and spark curiosity rather than spelling everything out. The video was conceptualized, shot, and edited in just a few hours because I was under the same time constraints as the teams.</p>
-    <p class="vid-details"><u>Production Roles</u><br>
-    <i>Producer/Director<br>
-    Editor<br>
-    Camera Operator<br></i></p>
-  </div>
-  </div>
-</div>          
-</div> 
 
-        <!-- Shakespeare -->
-        <div class="col-lg-4 col-12 video-thumbnail" data-video-id="fqF2ZQSQWfU" data-category="all graphics">
+
+        <!-- Shakespeare (VIDEO SLIDE)-->
+        <div class="col-lg-4 col-12 video-thumbnail video-slide empty-video" id="videoSlide" data-video-id="fqF2ZQSQWfU" data-category="all graphics">
           <div class="video-container" data-video-id="fqF2ZQSQWfU" data-thumbnail="/images/thumb_shakespeare.jpg">
             <img class="card-img-top" src="/images/thumb_shakespeare.jpg" alt="Video Thumbnail" style="width:100%">
           </div>
@@ -688,12 +723,19 @@
 
     
   </div>    
-  <div class="video-overlay" id="videoOverlay">
+  <!-- <div class="hide"><button class="fancy-button mt-5" id="expandButton" onclick="expandVideos()">Expand Videos +</button></div> -->
+    </div>
 
   </div>
-    </div>
-    <div><div class="white-fade" id="whiteFade"></div><button class="fancy-button" id="expandButton" onclick="expandVideos()">Expand Videos +</button></div>
-  </div>
+
+
+
+
+
+
+
+
+
 </section>
 
 
@@ -842,7 +884,7 @@
 
   </body>
 
-  <footer class="bg-dark text-white text-center py-4 mt-0">
+  <footer class="bg-dark text-white text-center mt-0">
     <div class="container d-flex flex-column justify-content-center align-items-center">
       <p class="mb-0 font-weight-light">© 2025 Michael Brady Portfolio</p>
       <p class="mt-0 mb-0 font-weight-light-small">Website design by Michael Brady</p>
@@ -850,4 +892,3 @@
   </footer>
 
 </html>
-

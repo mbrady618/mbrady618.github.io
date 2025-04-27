@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let player;
     let isRestoring = false;
     
-    // Play button click event
-    //cover page video
+   
+    //INTRO PAGE
     document.querySelector('.playCard').addEventListener('click', function () {
         document.querySelector('.playCard').classList.add('no-hover');
         let videoContainer = document.getElementById('videoContainer');
@@ -86,57 +86,8 @@ wrapper.appendChild(overlay);
                 }
             }, 100);
         };
- 
-        
-    
-    //   // Track video progress and stop 2 seconds before the end
-    //   function trackVideoProgress() {
-    //     setInterval(function () {
-    //       if (player && player.getPlayerState() === YT.PlayerState.PLAYING && !isRestoring) {
-    //         let duration = player.getDuration();
-    //         let currentTime = player.getCurrentTime();
-    
-    //         console.log('Duration:', duration);
-    //         console.log('Current time:', currentTime);
-    //         console.log('Time remaining:', duration - currentTime);
-    
-    //         // Stop 2 seconds before the end
-    //         if (duration - currentTime <= 2) {
-    //           console.log('2 seconds remaining, stopping video and restoring content...');
-    //           isRestoring = true;
-    //           restoreContent();
-    //         }
-    //       }
-    //     }, 500); // Check every 0.5 seconds
-    //   }
-    
-      // Handle state change (optional but useful)
-    //   function onPlayerStateChange(event) {
-    //     if (event.data === YT.PlayerState.ENDED && !isRestoring) {
-    //       console.log('Video ended, restoring content...');
-    //       restoreContent();
-    //     }
-    //   }
-    
-      // Restore content after video
-    //   function restoreContent() {
-    //     videoContainer.style.display = 'none'; // Hide the video
-    //     content.style.display = 'block'; // Show original content
-    //     restartTextAnimation(); // Restart text animation
-    //     console.log('restarted text animation')
-    //   }
     });
-    
-    // Function to restart text animation after video ends
-// function restartTextAnimation() {
-//     console.log('Restarting text animation...');
-//     textIndex = 0; // Always start with "welcome to my portfolio"
-//     index = 0;
-//     textElement.innerHTML = ""; // Clear content completely
-//     isAnimating = false; // Reset animation state
-//     typeText(); // Start fresh
-//   }
-    
+   
     // Load YouTube API asynchronously
     function loadYouTubeAPI() {
       let tag = document.createElement('script');
@@ -148,13 +99,8 @@ wrapper.appendChild(overlay);
     // Call YouTube API loader when the page loads
     loadYouTubeAPI();
 
-
-
-
-
 // Updated text animation with blank screen between texts
 const textElement = document.getElementById('text');
-
 
 const texts = ["welcome to my portfolio", "tap to play"];
 let index = 0;
@@ -192,6 +138,18 @@ function typeText() {
   type();
 }
 
+// function resetText() {
+  // Only restart if not already animating
+//   if (!isAnimating) {
+//     typeText();
+//   }
+// }
+
+// Start typing when the page loads
+// typeText();
+
+
+
 // Reset text and animation completely when the video starts
 function resetTextAnimation() {
   textIndex = 0;
@@ -213,49 +171,11 @@ function restoreContent() {
   document.getElementById('titleStack').style.display = 'block';      
 }
 
-// Simulate video starting (optional, reset when video starts)
-// function onVideoStart() {
-//   console.log("Video started, resetting text animation...");
-//   resetTextAnimation(); // Prepare to restart after video ends
-// }
-
-// Simulate the video ending
-// setTimeout(restoreContent, 5000); // Simulate video ending after 5 seconds
-
-// Start typing when the page loads
 typeText();
 
     
 
-    
 
-    // function restoreContent() {
-    //     videoContainer.style.transition = "opacity 0.5s ease-in-out";
-    //     videoContainer.style.opacity = "0";
-    //     setTimeout(function () {
-    //         // Restore the original content
-    //         content.innerHTML = originalContentHTML; 
-    //         content.style.display = 'block';
-    //         videoContainer.innerHTML = "";
-    //         videoContainer.style.display = 'none';
-    //         videoContainer.style.opacity = "1";
-    //         isRestoring = false;
-    
-    //         // Reinitialize the text animation
-    //         const textElement = document.getElementById('text');
-    //         if (textElement) {
-    //             // Reset animation state and variables
-    //             isAnimating = false; // Make sure animation can restart
-    //             index = 0; // Reset text index
-    //             textElement.innerHTML = ""; // Clear any leftover text
-    //             typeText(); // Restart typing animation
-    //         }
-    //     }, 500);
-    // }
-    
-    
-
-    
 
     // Close menu when a nav item is clicked
     navLinks.forEach(link => {
@@ -277,22 +197,13 @@ typeText();
 
 
     // Automatically filter by "editing" when the page loads
-    filterVideos("all");
+    // filterVideos("all");
 dropdownButton.querySelector(".button-text").textContent = "All Videos";
 categoryFilter.value = "all";
-updateDropdownList("all"); // 👈 add this line
+updateDropdownList("all"); 
 
-    // Navbar transparency on scroll
-    // window.addEventListener("scroll", function () {
-    //     let top = window.scrollY;
-    //     let opacity = Math.min(top / 300, 1);
-        
-    //     if (top > 0) {
-    //         header.style.backgroundImage = `linear-gradient(to bottom, rgba(58, 96, 115, ${opacity}) 0%, rgba(0, 0, 0, ${opacity}) 90%)`;
-    //     } else {
-    //         header.style.backgroundImage = "none"; // Transparent when at the top
-    //     }
-    // });
+
+//YOUTUBE FOR MAIN VIDEOS
 
     function setupVideoEndListener(videoContainer, thumbnail, videoId) {
         if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
@@ -421,6 +332,7 @@ setTimeout(() => {
 
 
 
+//DROPDOWN MENU
 
 
   // Ensure the dropdown button has a proper position
@@ -462,14 +374,6 @@ dropdownList.querySelectorAll("li").forEach(item => {
         dropdownList.classList.remove("open");
         rotateTriangle(false);
         filterVideos(selectedValue);
-
-        if (expandedInfoContainer) {
-            closeExpandedInfo();
-        }
-
-        expandVideosNoAnimation();
-
-        // 👇 Update the dropdown list visibility
         updateDropdownList(selectedValue);
     });
 });
@@ -494,12 +398,17 @@ document.addEventListener("click", function (event) {
 });
 
 
+//filter videos by category
+function filterVideos(category) {
+    document.querySelectorAll(".video-thumbnail").forEach(video => {
+        let categories = video.getAttribute("data-category").split(" ");
+        let displayValue = (categories.includes(category) || category === "all") ? "block" : "none";
+        video.style.setProperty("display", displayValue, "important");
 
-    function filterVideos(category) {
-        document.querySelectorAll(".video-thumbnail").forEach(video => {
-            let categories = video.getAttribute("data-category").split(" ");
-            video.style.display = categories.includes(category) || category === "all" ? "block" : "none";
-        });
+        const expandButton = document.getElementById('expandButton');
+        expandButton.style.display = 'none';
+    });
+
     
         // Stop the currently playing video when the filter changes
         if (currentlyPlaying) {
@@ -508,6 +417,11 @@ document.addEventListener("click", function (event) {
             currentlyPlaying = null;
 }
     
+
+
+//MORE INFO EXPANSION
+
+
     }
 
     function getInsertIndex(clickedVideo, visibleVideos) {
@@ -527,7 +441,7 @@ document.addEventListener("click", function (event) {
 
         const index = visibleVideos.indexOf(clickedVideo);
         let rowEndIndex = Math.floor(index / videosPerRow) * videosPerRow + (videosPerRow - 1);
-        return rowEndIndex >= visibleVideos.length ? visibleVideos.length - 1 : rowEndIndex;
+        return rowEndIndex >= visibleVideos.length ? visibleVideos.length - 2 : rowEndIndex;
     }
 
     function closeExpandedInfo(callback) {
@@ -554,37 +468,9 @@ document.addEventListener("click", function (event) {
         } else if (callback) {
             callback();
         }
-    }
+    }  
 
-    // function openExpandedInfo(videoCard, visibleVideos, insertAfterIndex) {
-    //     expandedInfoContainer = document.createElement("div");
-    //     expandedInfoContainer.classList.add("expanded-info-container");
-    //     expandedInfoContainer.innerHTML = 
-    // `<div class="dialog-header">
-    //     <button class="close-info">x</button>
-    // </div>
-    // ${videoCard.querySelector(".expanded-info").innerHTML}`;
 
-    //     visibleVideos[insertAfterIndex].insertAdjacentElement("afterend", expandedInfoContainer);
-
-    //     expandedInfoContainer.querySelector(".close-info").addEventListener("click", function () {
-    //         closeExpandedInfo();
-    //     });
-
-    //     requestAnimationFrame(() => {
-    //         expandedInfoContainer.classList.add("open");
-    //     });
-    // }    
-
-function resetText() {
-  // Only restart if not already animating
-  if (!isAnimating) {
-    typeText();
-  }
-}
-
-// Start typing when the page loads
-typeText();
 
     //adjust screen to expanded-info panel
     function adjustScrollToFit(expandedInfoContainer, videoCard) {
@@ -592,12 +478,12 @@ typeText();
         const navbarHeight = document.querySelector(".navbar").offsetHeight;
         
         // Check if the top of the video is off the screen after expanding
-        if (videoRect.top < navbarHeight) {
-            window.scrollBy({
-                top: videoRect.top - navbarHeight - 10, // Slight padding for spacing
-                behavior: "smooth"
-            });
-        }
+        // if (videoRect.top < navbarHeight) {
+        //     window.scrollBy({
+        //         top: videoRect.top - navbarHeight - 20, 
+        //         behavior: "smooth"
+        //     });
+        // }
     
         // Adjust scroll to fit the bottom of expanded info
         const rect = expandedInfoContainer.getBoundingClientRect();
@@ -605,30 +491,56 @@ typeText();
         const spaceBelow = windowHeight - rect.bottom;
     
         if (spaceBelow < 0) {
-            window.scrollBy({
-                top: Math.abs(spaceBelow) + 20, // Add padding to avoid exact edge
-                behavior: "smooth"
-            });
+            const scrollAmount = Math.min(Math.abs(spaceBelow) + 30, rect.top - 75); 
+            if (scrollAmount > 0) {
+                window.scrollBy({
+                    top: scrollAmount,
+                    behavior: "smooth"
+                });
+            }
         }
     }
+
+    
+
+
+
+    
     
     function openExpandedInfo(videoCard, visibleVideos, insertAfterIndex) {
         expandedInfoContainer = document.createElement("div");
         expandedInfoContainer.classList.add("expanded-info-container");
         expandedInfoContainer.innerHTML = 
             `<button class="close-info">
-  <div class="toggler-icon open-x">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</button>
+      <div class="toggler-icon open-x">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
             ${videoCard.querySelector(".expanded-info").innerHTML}`;
     
         visibleVideos[insertAfterIndex].insertAdjacentElement("afterend", expandedInfoContainer);
     
         expandedInfoContainer.querySelector(".close-info").addEventListener("click", function () {
             closeExpandedInfo();
+    
+            // After closing, check if we need to scroll back up
+            requestAnimationFrame(() => {
+                const videoRect = videoCard.getBoundingClientRect();
+                const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 0;
+    
+                if (videoRect.top - navbarHeight > 0) {
+                    // Video is already fine; no need to scroll
+                    return;
+                } else {
+                    // Scroll back up to the video
+                    window.scrollBy({
+                        top: videoRect.top - navbarHeight - 10, // Small padding
+                        behavior: "smooth"
+                    });
+                }
+            });
         });
     
         requestAnimationFrame(() => {
@@ -640,6 +552,7 @@ typeText();
             }, 300);
         });
     }
+    
     
     //close expanded info - "more info" button to "less info"
     document.querySelectorAll(".info-btn").forEach(button => {
@@ -789,33 +702,45 @@ const form = document.getElementById('contactForm');
     }
   }
 
+
+  
   //hide most videos on mobile
   function expandVideos() {
-    const section = document.querySelector('.video-section');
+    const hiddenThumbnails = document.querySelectorAll('.video-section .video-thumbnail:nth-child(n+4)');
+    hiddenThumbnails.forEach(thumbnail => {
+      thumbnail.style.setProperty('display', 'block', 'important');
+    });
+  
     const expandButton = document.getElementById('expandButton');
-    const whiteFade = document.getElementById('whiteFade');
+    const videoSlide = document.getElementById('videoSlide');
   
-    section.classList.add('expanded');
-  
-    // Add a fade-out effect
-    expandButton.style.transition = 'opacity 1s ease';
-    whiteFade.style.transition = 'opacity 1s ease';
-  
+    // Start fade out
     expandButton.style.opacity = '0';
-    whiteFade.style.opacity = '0';
+    expandButton.style.height = '0px';
+    expandButton.style.marginTop = '0px'
   
-    // After 1 second (1000ms), hide them completely
+    // After the fade-out animation is done, hide it
     setTimeout(() => {
       expandButton.style.display = 'none';
-      whiteFade.style.display = 'none';
-    }, 1000);
+    }, 1000); // Match the transition time (500ms)
+  
+    // Expand videoSlide
+    videoSlide.style.display = 'block';
+    videoSlide.style.height = '1000px';
+  
+    // Force a reflow
+    void videoSlide.offsetWidth;
+  
+    // Now transition the height
+    videoSlide.style.height = '0'; // or whatever expanded size
   }
+  
+ 
+  
 
-  function expandVideosNoAnimation() {
-    const section = document.querySelector('.video-section');
-    section.classList.add('expanded');
-    section.classList.add('no-animation'); // You can use this new class in your CSS if needed
-    document.getElementById('expandButton').style.display = 'none';
-    document.getElementById('whiteFade').style.display = 'none';
-}
+
+
+
+
+
   
