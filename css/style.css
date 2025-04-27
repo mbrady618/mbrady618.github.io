@@ -135,6 +135,13 @@ a:link {
   transition: all 0.3s ease;
 }
 
+.playCard:focus,
+.playCard:active {
+  background-color: white !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 .no-hover {
     pointer-events: none;
     background-color: white; /* No more hover or tap effects */
