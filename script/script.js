@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     //cover page video
     document.querySelector('.playCard').addEventListener('click', function () {
         document.querySelector('.playCard').classList.add('no-hover');
-        playCard.style.backgroundColor = 'white'; 
         let videoContainer = document.getElementById('videoContainer');
         let content = document.getElementById('content');
         
