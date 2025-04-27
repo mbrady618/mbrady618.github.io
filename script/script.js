@@ -18,7 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Play button click event
     //cover page video
     document.querySelector('.playCard').addEventListener('click', function () {
-        document.querySelector('.playCard').classList.add('no-hover');
+        let playCard = document.querySelector('.playCard'); // ✅ define it first
+        playCard.classList.add('no-hover');
+        playCard.style.backgroundColor = 'white';
+        playCard.blur(); // ✅ now it works
+    
         let videoContainer = document.getElementById('videoContainer');
         let content = document.getElementById('content');
         
