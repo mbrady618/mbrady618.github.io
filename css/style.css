@@ -135,26 +135,6 @@ a:link {
   transition: all 0.3s ease;
 }
 
-.playCard:focus,
-.playCard:active {
-  background-color: white !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-.no-hover {
-    pointer-events: none;
-    background-color: white; /* No more hover or tap effects */
-  }
-
-.playCard.no-hover {
-    pointer-events: none;
-  }
-
-  .playCard {
-    transition: all 0.3s ease;
-    /* border: 2px solid black !important;  */
-      }
 
 
 
@@ -1726,7 +1706,28 @@ section {
         top: -24px;
       }
 
+      body .my-card:hover {
+        background-color: white !important;
+        border: 2px solid transparent !important;
+    }
+   
 
+      }
+
+      
+
+
+
+
+  .my-card {
+    background-color: white;
+    box-sizing: border-box;
+    border: 2px solid transparent; /* <-- Always a 2px border, just invisible */
+    transition: all 0.3s ease; /* optional: smooth transition */
 }
 
+.my-card:hover {
+    background-color: rgb(244, 248, 250) !important;
+    border: 2px solid #3A6073; /* Real border color on hover */
+}
 
