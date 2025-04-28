@@ -198,9 +198,9 @@ typeText();
 
     // Automatically filter by "editing" when the page loads
     // filterVideos("all");
-dropdownButton.querySelector(".button-text").textContent = "All Videos";
-categoryFilter.value = "all";
-updateDropdownList("all"); 
+// dropdownButton.querySelector(".button-text").textContent = "All Videos";
+// categoryFilter.value = "all";
+// updateDropdownList("all"); 
 
 
 //YOUTUBE FOR MAIN VIDEOS
@@ -405,17 +405,35 @@ function filterVideos(category) {
         let displayValue = (categories.includes(category) || category === "all") ? "block" : "none";
         video.style.setProperty("display", displayValue, "important");
 
+        video.classList.remove("empty-video");
+        
+        
+        
         const expandButton = document.getElementById('expandButton');
         expandButton.style.display = 'none';
     });
-
     
+
+      // Remove hide class from video-container elements
+      document.querySelectorAll(".video-container").forEach(container => {
+        container.classList.remove("hide");
+    });
+    
+   // Remove hide class from card-body elements
+   document.querySelectorAll(".card-body").forEach(cardBody => {
+    cardBody.classList.remove("hide");
+});
+
         // Stop the currently playing video when the filter changes
         if (currentlyPlaying) {
             const originalThumbnail = currentlyPlaying.dataset.thumbnail;
             currentlyPlaying.innerHTML = `<img src="${originalThumbnail}" alt="Video Thumbnail">`;
             currentlyPlaying = null;
+
+
 }
+
+
     
 
 
@@ -704,7 +722,7 @@ const form = document.getElementById('contactForm');
 
 
   
-  //hide most videos on mobile
+  //expand button function
   function expandVideos() {
     const hiddenThumbnails = document.querySelectorAll('.video-section .video-thumbnail:nth-child(n+4)');
     hiddenThumbnails.forEach(thumbnail => {
@@ -713,20 +731,45 @@ const form = document.getElementById('contactForm');
   
     const expandButton = document.getElementById('expandButton');
     const videoSlide = document.getElementById('videoSlide');
+    let hideDiv = document.querySelector('.card-body.hide'); 
+    let hideDiv2 = document.querySelector('.video-container.hide');
+    const emptyVideoDiv = document.querySelector('.empty-video')
+    const cardBody1 = document.querySelector('.card-body');
   
-    // Start fade out
+    // Make sure #videoSlide is visible
+    if (videoSlide) {
+      videoSlide.style.setProperty('display', 'block', 'important');
+    }
+
+    if (hideDiv) {
+        hideDiv.classList.remove('hide'); // Removes the 'hide' class to make it visible
+    }
+
+    if (hideDiv2) {
+        hideDiv2.classList.remove('hide'); // Removes the 'hide' class to make it visible
+    }
+
+
+  
+
+  if (emptyVideoDiv) {
+    // emptyVideoDiv.style.setProperty('border-top', '8px solid #2b4654', 'important');
+    // emptyVideoDiv.style.setProperty('border-left', '2px solid rgb(234, 234, 234)', 'important');
+    // emptyVideoDiv.style.setProperty('border-right', 'none', 'important');
+    
+  }
+  
+
+
+    // Start fade out for expandButton
     expandButton.style.opacity = '0';
     expandButton.style.height = '0px';
-    expandButton.style.marginTop = '0px'
+    expandButton.style.marginTop = '0px';
   
     // After the fade-out animation is done, hide it
     setTimeout(() => {
       expandButton.style.display = 'none';
-    }, 1000); // Match the transition time (500ms)
-  
-    // Expand videoSlide
-    videoSlide.style.display = 'block';
-    videoSlide.style.height = '1000px';
+    }, 1000); // Match the transition time (1000ms)
   
     // Force a reflow
     void videoSlide.offsetWidth;
