@@ -1094,16 +1094,23 @@ section {
 
   .icon-link i {
     color: #3A6073; /* Match your LinkedIn icon */
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
         opacity: 0.6; /* Adjust to your preferred transparency */
       }
 
     .icon-link .fa-file-lines {
     transform: scaleY(0.85);
 }
+
   
   .icon-link i:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
 
+  /* Override hover transform for .fa-file-lines to maintain scaleY(0.85) while scaling X */
+.icon-link .fa-file-lines:hover {
+    transform: scaleX(1.1) scaleY(0.93);
     opacity: 1;
   }
 
@@ -1848,6 +1855,8 @@ section {
       height: 350px;
   }
 
+  
+
 
   /* .video-section {
     max-height: 185vh; 
@@ -1889,6 +1898,20 @@ section {
         background-color: white !important;
         border: 2px solid transparent !important;
     }
+
+
+    .icon-link i:hover,
+    .icon-link .fa-file-lines:hover {
+      transform: none !important;
+      opacity: 0.6; /* match the default */
+
+      
+
+  }
+
+  .icon-link .fa-file-lines:hover {
+    transform: scaleX(1) scaleY(0.85) !important;
+  }
    
 
       }
