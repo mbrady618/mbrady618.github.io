@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let iframe = document.createElement('iframe');
         iframe.id = "youtubeVideo";
         // iframe.src = "https://www.youtube-nocookie.com/embed/GSbJzr4GQxc?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
-        iframe.src = "https://www.youtube-nocookie.com/embed/bY45Wjdda9c?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&&enablejsapi=1";
+        const baseSrc = "https://www.youtube-nocookie.com/embed/bY45Wjdda9c?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&enablejsapi=1";
+iframe.src = window.innerWidth < 768 ? baseSrc + "&mute=1" : baseSrc;
         iframe.frameBorder = "0";
         iframe.allow = "autoplay; fullscreen";
         iframe.allowFullscreen = true;
@@ -65,16 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
         iframe.onload = function () {
             setTimeout(() => {
                 iframe.style.opacity = "1";
-        
+    
                 if (typeof YT !== "undefined" && YT.Player) {
-                    player = new YT.Player(iframe, {
+                    player = new YT.Player(iframe, { // <--- NO "let" here anymore!
                         events: {
-                            'onReady': function (event) {
-                                // Unmute after short delay, but only if autoplay succeeded
-                                setTimeout(() => {
-                                    event.target.unMute();
-                                }, 500);
-                            },
                             'onStateChange': function (event) {
                                 if (event.data === YT.PlayerState.ENDED) {
                                     youtubeVideo.style.opacity = "0";
@@ -84,11 +79,13 @@ document.addEventListener("DOMContentLoaded", function () {
                             }
                         }
                     });
-        
+    
+                    // Now that player is created, you can create the buttons
                     createVideoControls();
                 }
             }, 100);
         };
+
         
     });
    
@@ -112,27 +109,39 @@ function createVideoControls() {
     controlsContainer.style.left = '50%';
     controlsContainer.style.transform = 'translateX(-50%)';
     controlsContainer.style.display = 'flex';
-    controlsContainer.style.justifyContent = 'space-between'; // even space
-    controlsContainer.style.width = '350px'; // <-- Fixed width for the container
+    controlsContainer.style.justifyContent = 'space-between';
+    controlsContainer.style.width = '350px';
     controlsContainer.style.zIndex = '1000';
 
     // Create Pause/Play Button
     let pauseButton = document.createElement('button');
-pauseButton.id = 'pauseButton';
-pauseButton.classList.add('pause-button'); // <--- add class
-pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+    pauseButton.id = 'pauseButton';
+    pauseButton.classList.add('pause-button');
+    pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
 
     // Create Mute/Unmute Button
     let muteButton = document.createElement('button');
     muteButton.id = 'muteButton';
-    muteButton.classList.add('mute-button'); // <--- add class
+    muteButton.classList.add('mute-button');
+    
+    // Default icon — will update below after checking state
     muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
 
-
+    // Append buttons first
     controlsContainer.appendChild(pauseButton);
     controlsContainer.appendChild(muteButton);
-
     document.body.appendChild(controlsContainer);
+
+    // Delay icon update to ensure player is ready
+    setTimeout(() => {
+        if (player && typeof player.isMuted === 'function') {
+            if (player.isMuted()) {
+                muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+        }
+    }, 300);
 
     // Set up event listeners
     pauseButton.addEventListener('click', function () {
@@ -155,6 +164,7 @@ pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
         }
     });
 }
+
 
 // Updated text animation with blank screen between texts
 const textElement = document.getElementById('text');
