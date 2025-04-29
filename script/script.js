@@ -110,8 +110,16 @@ function createVideoControls() {
     controlsContainer.style.transform = 'translateX(-50%)';
     controlsContainer.style.display = 'flex';
     controlsContainer.style.justifyContent = 'space-between';
-    controlsContainer.style.width = '350px';
     controlsContainer.style.zIndex = '1000';
+
+    // Set width based on screen size
+    if (window.innerWidth <= 768) {
+        // Mobile
+        controlsContainer.style.width = '350px';
+    } else {
+        // Desktop
+        controlsContainer.style.width = '500px';
+    }
 
     // Create Pause/Play Button
     let pauseButton = document.createElement('button');
