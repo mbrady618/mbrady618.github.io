@@ -185,10 +185,19 @@ a:link {
   } 
 
 /* Disable hover effect when .no-hover class is added */
-.no-hover:hover {
-    pointer-events: none; /* This will prevent hover styles from being applied */
-    cursor: default; /* Change cursor to default when hovering */
-  }
+.my-card.no-hover,
+.my-card.no-hover:hover {
+    transition: none !important;
+    background-color: white !important;
+    border: 2px solid transparent !important;
+}
+
+    /* Disable hover effects sitewide when .disable-hover is on body */
+/* body.disable-hover *:hover {
+    all: unset !important;
+    cursor: default !important;
+  } */
+
 
   .video-desktop {
     width: 900px;
@@ -525,6 +534,8 @@ section {
     overflow: visible;
     display: block;
 }
+
+
 
 
 
@@ -956,6 +967,55 @@ section {
     background-image: none;
   }
 
+  /* Video controls for intro video, hide when not playing */
+
+  /* #videoControls {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  } */
+
+
+  /* When the playCard has .no-hover, disable hover effects */
+.playCard.no-hover:hover {
+    border: none;
+    pointer-events: none; /* optional: prevent clicking too if needed */
+    color:white;
+}
+
+
+  .pause-button {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #3A6073;
+    transition: all 0.3s ease; 
+  }
+  
+  .pause-button:hover {
+    color: #517a8e; 
+    transform: scale(1.2); 
+}
+
+.mute-button {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #3A6073;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .mute-button:hover {
+    color: #517a8e; 
+    transform: scale(1.2);
+  }
+  
+
 
   
   #titleStack {
@@ -1319,11 +1379,11 @@ section {
 /* Positioning the box below the video */
 #clickBox {
     position: absolute;
-    top: 272px;
+    top: -170px;
   left: 50%; /* Center it horizontally */
   transform: translateX(-50%); /* Ensure it is centered exactly */
-  width: 62px;
-  height: 120px;
+  width: 120px;
+  height: 70px;
   background-color: red; /* Set the background to red so you can see it */
   cursor: pointer; /* Change cursor to indicate it's clickable */
   z-index: 10; 
@@ -1333,14 +1393,14 @@ section {
 
   #clickBox2 {
     position: absolute;
-    top: 327px;
+    top: -220px;
   left: 50%; /* Center it horizontally */
   transform: translateX(-50%); /* Ensure it is centered exactly */
-  width: 130px;
-  height: 70px;
+  width: 62px;
+  height: 120px;
   background-color: red; /* Set the background to red so you can see it */
   cursor: pointer; /* Change cursor to indicate it's clickable */
-  z-index: 10; 
+  z-index: 9999; 
     background-color: transparent; /* Change to transparent */
   }
 
@@ -1631,7 +1691,15 @@ section {
         display: none !important;
     }
 
-    .card-body.
+    .video-border-top {
+        border-top: none !important;
+      }
+      
+      .border-sides {
+          border-left: none;
+          border-right: none;
+          
+      }
 
 }
 
@@ -1654,12 +1722,25 @@ section {
   } */
 
 
+  .video-border-top {
+  border-top: 8px solid #2b4654 !important;
+}
+
+.border-sides {
+    border-left: solid rgb(234, 234, 234) 2px;
+    border-right: solid rgb(234, 234, 234) 2px;
+    
+}
+
+
 
 
 /* hide most videos on mobile */
 
 @media (max-width: 992px) {
  
+
+
  
     .video-section {
     position: relative;
@@ -1717,10 +1798,6 @@ section {
     width: 100%;
     background: linear-gradient(to bottom, rgb(38, 62, 76)  0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 50%, rgb(51, 83, 101) 100%); 
 }
-
-
-
-
  
 }
 

@@ -17,72 +17,70 @@ document.addEventListener("DOMContentLoaded", function () {
     
    
     //INTRO PAGE
+    
     document.querySelector('.playCard').addEventListener('click', function () {
         document.querySelector('.playCard').classList.add('no-hover');
         let videoContainer = document.getElementById('videoContainer');
         let content = document.getElementById('content');
-        
-        // Hide text and button
+    
         content.style.display = 'none';
         videoContainer.style.display = 'flex';
-        content.style.display = 'none';
         document.getElementById('titleStack').style.display = 'none';
     
-        // Remove existing content
         videoContainer.innerHTML = "";
     
-        // Create the iframe
         let iframe = document.createElement('iframe');
         iframe.id = "youtubeVideo";
-        iframe.src = "https://www.youtube-nocookie.com/embed/GSbJzr4GQxc?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
+        // iframe.src = "https://www.youtube-nocookie.com/embed/GSbJzr4GQxc?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1&enablejsapi=1";
+        iframe.src = "https://www.youtube-nocookie.com/embed/bY45Wjdda9c?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&&enablejsapi=1";
         iframe.frameBorder = "0";
         iframe.allow = "autoplay; fullscreen";
         iframe.allowFullscreen = true;
-        iframe.title = ""; // Add this line to remove the tooltip
-        iframe.style.opacity = "0";  // Initially hidden
-        iframe.style.transition = "opacity 1s ease-in-out"; // Smooth fade-in
+        iframe.title = "";
+        iframe.style.opacity = "0";
+        iframe.style.transition = "opacity 1s ease-in-out";
         iframe.style.border = "none";
         iframe.style.outline = "none";
         iframe.style.boxShadow = "none";
-
+    
         if (window.innerWidth < 768) {
             iframe.classList.add("video-mobile");
         } else {
             iframe.classList.add("video-desktop");
         }
-
-        // Create video wrapper
+    
         let wrapper = document.createElement('div');
         wrapper.classList.add('video-wrapper');
         wrapper.appendChild(iframe);
-
-        // Create transparent overlay
-let overlay = document.createElement('div');
-overlay.classList.add('video-touch-overlay');
-wrapper.appendChild(overlay);
     
-        // Replace placeholder with video wrapper
+        let overlay = document.createElement('div');
+        overlay.classList.add('video-touch-overlay');
+        wrapper.appendChild(overlay);
+    
         videoContainer.innerHTML = "";
         videoContainer.appendChild(wrapper);
+
+        
     
         iframe.onload = function () {
             setTimeout(() => {
-                iframe.style.opacity = "1"; // Fade in the video
+                iframe.style.opacity = "1";
     
-                // Setup YouTube Player to detect when the video ends
                 if (typeof YT !== "undefined" && YT.Player) {
-                    let player = new YT.Player(iframe, {
+                    player = new YT.Player(iframe, { // <--- NO "let" here anymore!
                         events: {
                             'onStateChange': function (event) {
                                 if (event.data === YT.PlayerState.ENDED) {
-                                    // Show the end image after the video ends
-                                    youtubeVideo.style.opacity = "0";  // Fade in the image
-                                    restoreContent()
+                                    youtubeVideo.style.opacity = "0";
+                                    restoreContent();
                                     document.querySelector('.playCard').classList.remove('no-hover');
                                 }
                             }
                         }
                     });
+    
+                    // Now that player is created, you can create the buttons
+                    createVideoControls();
                 }
             }, 100);
         };
@@ -98,6 +96,59 @@ wrapper.appendChild(overlay);
     
     // Call YouTube API loader when the page loads
     loadYouTubeAPI();
+
+// Function to create Pause/Play and Mute/Unmute buttons
+function createVideoControls() {
+    let controlsContainer = document.createElement('div');
+    controlsContainer.id = 'videoControls';
+    controlsContainer.style.position = 'absolute';
+    controlsContainer.style.top = '630px';
+    controlsContainer.style.left = '50%';
+    controlsContainer.style.transform = 'translateX(-50%)';
+    controlsContainer.style.display = 'flex';
+    controlsContainer.style.justifyContent = 'space-between'; // even space
+    controlsContainer.style.width = '350px'; // <-- Fixed width for the container
+    controlsContainer.style.zIndex = '1000';
+
+    // Create Pause/Play Button
+    let pauseButton = document.createElement('button');
+pauseButton.id = 'pauseButton';
+pauseButton.classList.add('pause-button'); // <--- add class
+pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+
+    // Create Mute/Unmute Button
+    let muteButton = document.createElement('button');
+    muteButton.id = 'muteButton';
+    muteButton.classList.add('mute-button'); // <--- add class
+    muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+
+
+    controlsContainer.appendChild(pauseButton);
+    controlsContainer.appendChild(muteButton);
+
+    document.body.appendChild(controlsContainer);
+
+    // Set up event listeners
+    pauseButton.addEventListener('click', function () {
+        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+            player.pauseVideo();
+            pauseButton.innerHTML = '<i class="fas fa-play"></i>';
+        } else {
+            player.playVideo();
+            pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+    });
+
+    muteButton.addEventListener('click', function () {
+        if (player.isMuted()) {
+            player.unMute();
+            muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+        } else {
+            player.mute();
+            muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        }
+    });
+}
 
 // Updated text animation with blank screen between texts
 const textElement = document.getElementById('text');
@@ -168,7 +219,16 @@ function restoreContent() {
   content.style.display = 'block'; // Show original content
   resetTextAnimation(); // Restart animation fresh
   content.style.display = 'block';
-  document.getElementById('titleStack').style.display = 'block';      
+  document.getElementById('titleStack').style.display = 'block';  
+  document.getElementById('videoControls').style.display = 'none';    
+
+  // ALSO hide individual buttons if needed
+  const pauseButton = document.getElementById('pauseButton');
+  const muteButton = document.getElementById('muteButton');
+  
+  if (pauseButton) pauseButton.style.display = 'none';
+  if (muteButton) muteButton.style.display = 'none';
+
 }
 
 typeText();
@@ -749,6 +809,10 @@ const form = document.getElementById('contactForm');
         hideDiv2.classList.remove('hide'); // Removes the 'hide' class to make it visible
     }
 
+    document.querySelectorAll(".video-container").forEach(container => {
+        container.classList.remove("hide");
+    });
+
 
   
 
@@ -779,6 +843,7 @@ const form = document.getElementById('contactForm');
   }
   
  
+
   
 
 
