@@ -1798,6 +1798,40 @@ section {
     width: 100%;
     background: linear-gradient(to bottom, rgb(38, 62, 76)  0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 50%, rgb(51, 83, 101) 100%); 
 }
+
+.pause-button {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #3A6073;
+    transition: all 0.3s ease; 
+    transform: scale(1.2); 
+  }
+  
+  .pause-button:hover {
+    color: #3A6073;
+    transform: scale(1.2); 
+}
+
+.mute-button {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #3A6073;
+    transition: color 0.3s ease, transform 0.3s ease;
+    transform: scale(1.2);
+  }
+  
+  .mute-button:hover {
+    color: #3A6073;
+    transform: scale(1.2);
+  }
  
 }
 
