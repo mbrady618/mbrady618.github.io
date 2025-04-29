@@ -106,7 +106,7 @@ function createVideoControls() {
     controlsContainer.id = 'videoControls';
     controlsContainer.style.position = 'absolute';
     controlsContainer.style.top = '630px';
-    controlsContainer.style.left = '50%';
+    controlsContainer.style.left = '51%';
     controlsContainer.style.transform = 'translateX(-50%)';
     controlsContainer.style.display = 'flex';
     controlsContainer.style.justifyContent = 'space-between';
