@@ -65,10 +65,16 @@ document.addEventListener("DOMContentLoaded", function () {
         iframe.onload = function () {
             setTimeout(() => {
                 iframe.style.opacity = "1";
-    
+        
                 if (typeof YT !== "undefined" && YT.Player) {
-                    player = new YT.Player(iframe, { // <--- NO "let" here anymore!
+                    player = new YT.Player(iframe, {
                         events: {
+                            'onReady': function (event) {
+                                // Unmute after short delay, but only if autoplay succeeded
+                                setTimeout(() => {
+                                    event.target.unMute();
+                                }, 500);
+                            },
                             'onStateChange': function (event) {
                                 if (event.data === YT.PlayerState.ENDED) {
                                     youtubeVideo.style.opacity = "0";
@@ -78,12 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
                             }
                         }
                     });
-    
-                    // Now that player is created, you can create the buttons
+        
                     createVideoControls();
                 }
             }, 100);
         };
+        
     });
    
     // Load YouTube API asynchronously
