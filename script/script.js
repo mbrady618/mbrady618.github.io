@@ -435,6 +435,7 @@ triangle.style.borderLeft = "6px solid transparent";
 triangle.style.borderRight = "6px solid transparent";
 triangle.style.borderTop = "6px solid white";
 triangle.style.transition = "transform 0.3s ease";
+triangle.style.filter = "drop-shadow(1  50px black)";
 dropdownButton.appendChild(triangle);
 
 function rotateTriangle(up) {
@@ -472,6 +473,9 @@ function updateDropdownList(selectedValue) {
         }
     });
 }
+
+// Initial setup to hide the default "All Videos" option from dropdown list
+updateDropdownList("all");
 
 // Close dropdown on outside click
 document.addEventListener("click", function (event) {
