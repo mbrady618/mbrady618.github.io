@@ -4,6 +4,10 @@
     outline: 1px solid red;
 } */
 
+.zeroheight {
+    height: 0px;
+}
+
 body {
     font-family: 'Lato', sans-serif !important;
 }
@@ -86,7 +90,7 @@ a:link {
   }
 
   .bgimage {
-    background-image: url('/images/background_portfolio_new.jpg');
+    background-image: url('/images/background_portfolio_cutout.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover; /* Let it scale naturally */
@@ -100,7 +104,25 @@ a:link {
     position: relative;
     height: 800px;
     bottom: 0;
+    z-index: 2;
   }
+
+  .bgimage-inner {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/background_portfolio_arrow.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index: 1;
+    will-change: transform;
+    pointer-events: none;
+  }
+  
+
 
   .bgimage-btm {
     position: relative;
@@ -115,12 +137,25 @@ a:link {
     left: 0;
     width: 100%;
     height: 800px;
-    background-image: url('/images/background_portfolio_bottom.jpg');
+    background-image: url('/images/background_portfolio_blue_btm.jpg');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
     transform: scaleY(-1);
     z-index: -1;
+  }
+
+
+  #portfolio {
+    margin-top: 0 !important;
+  }
+
+  .parallax-wrapper {
+    position: relative;
+    width: 100%;
+    top: -2px;
+    height: 60px; /* Or however tall the wrapper needs to be */
+    overflow: visible;
   }
 
   .content-wrapper {
@@ -266,7 +301,7 @@ section {
 }
 
 .section-divider {
-    margin-top: 0 !important;
+    /* margin-top: 0 !important; */
   }
 
 /* spacing on all sections */
@@ -1002,7 +1037,7 @@ section {
   }
   
   .pause-button:hover {
-    color: #517a8e; 
+    color: #4b6b7b; 
     transform: scale(1.2); 
 }
 
@@ -1019,7 +1054,7 @@ section {
   }
   
   .mute-button:hover {
-    color: #517a8e; 
+    color: #4b6b7b; 
     transform: scale(1.2);
   }
   
@@ -1394,11 +1429,11 @@ section {
 /* Positioning the box below the video */
 #clickBox {
     position: absolute;
-    top: -170px;
+    top: -90px;
   left: 50%; /* Center it horizontally */
   transform: translateX(-50%); /* Ensure it is centered exactly */
   width: 120px;
-  height: 70px;
+  height: 80px;
   background-color: red; /* Set the background to red so you can see it */
   cursor: pointer; /* Change cursor to indicate it's clickable */
   z-index: 10; 
@@ -1408,7 +1443,7 @@ section {
 
   #clickBox2 {
     position: absolute;
-    top: -220px;
+    top: -140px;
   left: 50%; /* Center it horizontally */
   transform: translateX(-50%); /* Ensure it is centered exactly */
   width: 62px;
@@ -1535,9 +1570,13 @@ section {
 
   /*section dividers*/
   .section-divider {
-    height: 40px;
-    width: 100%;
-    background: linear-gradient(to bottom, rgb(38, 62, 76)  0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 80%, rgb(51, 83, 101) 100%); 
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  top: -20px; /* Move it up to overlap the top section */
+  left: 0;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgb(38, 62, 76) 0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 80%, rgb(51, 83, 101) 100%);
 }
 
 .section-divider-2 {
@@ -1661,6 +1700,8 @@ section {
     #videoSlide {
         display: none;
     }
+
+    
     
 
 #expandButton {
@@ -1940,6 +1981,39 @@ section {
         .shadow-lg-md {
           box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
         }
+
+        .pause-button {
+            width: 80px;
+            height: 80px;
+            font-size: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #b9c4c9 !important;
+            transition: all 0.3s ease; 
+          }
+          
+          .pause-button:hover {
+            color: #e1e6e9 !important;
+            transform: scale(1.2); 
+        }
+        
+        .mute-button {
+            
+            width: 80px;
+            height: 80px;
+            font-size: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #b9c4c9 !important;
+            transition: color 0.3s ease, transform 0.3s ease;
+          }
+          
+          .mute-button:hover {
+            color: #e1e6e9 !important;
+            transform: scale(1.2);
+          }
       }
 
 

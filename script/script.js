@@ -105,8 +105,8 @@ function createVideoControls() {
     let controlsContainer = document.createElement('div');
     controlsContainer.id = 'videoControls';
     controlsContainer.style.position = 'absolute';
-    controlsContainer.style.top = '630px';
-    controlsContainer.style.left = '51%';
+    controlsContainer.style.top = '620px';
+    controlsContainer.style.left = '50%';
     controlsContainer.style.transform = 'translateX(-50%)';
     controlsContainer.style.display = 'flex';
     controlsContainer.style.justifyContent = 'space-between';
@@ -115,10 +115,10 @@ function createVideoControls() {
     // Set width based on screen size
     if (window.innerWidth <= 768) {
         // Mobile
-        controlsContainer.style.width = '350px';
+        controlsContainer.style.width = '280px';
     } else {
         // Desktop
-        controlsContainer.style.width = '500px';
+        controlsContainer.style.width = '530px';
     }
 
     // Create Pause/Play Button
@@ -869,6 +869,28 @@ const form = document.getElementById('contactForm');
     // Now transition the height
     videoSlide.style.height = '0'; // or whatever expanded size
   }
+
+    // Tweak these for fine-tuning scroll speeds
+  const parallaxSpeed = 0.3;
+  const topLayerSpeed = -0.03;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset;
+
+    // Bottom layer moves slower to simulate depth
+    const parallaxLayer = document.querySelector('.bg-parallax');
+    const topLayer = document.querySelector('.bgimage');
+
+    if (parallaxLayer) {
+      parallaxLayer.style.transform = `translateY(${scrollTop * parallaxSpeed}px)`;
+    }
+
+    if (topLayer) {
+      topLayer.style.transform = `translateY(${scrollTop * topLayerSpeed}px)`;
+    }
+
+    
+  });
   
  
 
