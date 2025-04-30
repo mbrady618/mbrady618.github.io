@@ -107,9 +107,18 @@ a:link {
     z-index: 2;
   }
 
+
+    @media (max-width: 768px) {
+        .bgimage{
+            background-image: url('/images/background_portfolio_cutout_mobile.png');
+        }
+    }
+
+  
+
   .bgimage-inner {
     position: absolute;
-    top: -8px;
+    top: -9px;
     left: 0;
     width: 100%;
     height: 800px;
@@ -126,17 +135,19 @@ a:link {
 
   .bgimage-btm {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding-bottom: 20px; /* Keeps spacing below card */
+    height: 640px;
+    z-index: 0;
   }
   
   .bgimage-btm::before {
     content: "";
     position: absolute;
-    top: -100px;
+    top: -800px;
     left: 0;
     width: 100%;
-    height: 800px;
+    height: 600px;
     background-image: url('/images/background_portfolio_blue_btm.jpg');
     background-repeat: no-repeat;
     background-position: center top;
@@ -145,6 +156,52 @@ a:link {
     z-index: -1;
   }
 
+  .section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-parallax-wrapper {
+    position: relative;
+    overflow: hidden; /* Keeps background within the section */
+    min-height: 500px;
+  }
+
+
+  .contact-title-parallax,
+.contact-card-parallax {
+  will-change: transform;
+}
+  
+
+  
+  .parallax-background {
+    position: absolute;
+    top: -358px;
+    left: 0;
+    width: 100%;
+    height: 800px;
+    background-image: url('/images/background_portfolio_blue_btm.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    transform: scaleY(-1);
+    z-index: 0;
+  }
+
+  @media (max-width: 768px) {
+    .parallax-background {
+        background-image: none;
+    }
+}
+
+  .section-divider-3 {
+    position: relative; /* ← this is required for z-index to work */
+    height: 40px;
+    width: 100%;
+    background: linear-gradient(to top, rgb(35, 58, 69) 0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 80%, rgb(51, 83, 101) 100%); 
+    z-index: 2;
+}
 
   #portfolio {
     margin-top: 0 !important;
@@ -156,6 +213,7 @@ a:link {
     top: -2px;
     height: 60px; /* Or however tall the wrapper needs to be */
     overflow: visible;
+    
   }
 
   .content-wrapper {
@@ -1585,11 +1643,7 @@ section {
     background: rgb(51, 83, 101) ; 
 }
 
-.section-divider-3 {
-    height: 40px;
-    width: 100%;
-    background: linear-gradient(to top, rgb(35, 58, 69) 0%, rgb(58, 96, 115) 60%, rgb(58, 96, 115) 80%, rgb(51, 83, 101) 100%); 
-}
+
 
 .thick-border {
     border-top: 2px solid rgb(51, 83, 101) 100%);

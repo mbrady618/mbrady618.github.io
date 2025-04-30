@@ -889,8 +889,60 @@ const form = document.getElementById('contactForm');
       topLayer.style.transform = `translateY(${scrollTop * topLayerSpeed}px)`;
     }
 
+
     
   });
+
+
+  //bottom parallax
+  document.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const speed = 0.08;
+  
+    const title = document.querySelector('.contact-title-parallax');
+    const background = document.querySelector('.parallax-background');
+  
+    if (!title) return;
+  
+    const titleRect = title.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+  
+    const visibleRatio = Math.min(Math.max(1 - titleRect.top / windowHeight, 0), 1);
+  
+    // 👇 Control how quickly scaling completes — reaches maxScale by 40% visibility
+    const rampUpThreshold = 0.5;
+  
+    const minScale = 0.6;
+    const maxScale = 1;
+    let scale = minScale;
+  
+    if (visibleRatio >= rampUpThreshold) {
+      scale = maxScale;
+    } else {
+      // scale up proportionally within the ramp-up range
+      const adjustedRatio = visibleRatio / rampUpThreshold;
+      scale = minScale + (maxScale - minScale) * adjustedRatio;
+    }
+  
+    let translateY = 0;
+  
+    if (window.innerWidth > 992) {
+      translateY = scrollTop * speed * 0.8 - 210;
+    } else if (window.innerWidth >= 768 && window.innerWidth <= 992) {
+      translateY = scrollTop * speed * 0.8 - 232;
+    }
+  
+    title.style.transform = `translateY(${translateY}px) scale(${scale})`;
+  
+    if (background) {
+      background.style.transform = `translateY(${scrollTop * speed}px) scaleY(-1)`;
+    }
+  });
+  
+  
+  
+  
+  
   
  
 
