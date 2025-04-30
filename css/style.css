@@ -1551,11 +1551,11 @@ section {
     }
   }
 
-  .toggle-bio-btn {
+  /* .toggle-bio-btn {
     display: block;
     margin: 1rem auto;
     padding-right: 0 !important;
-  }
+  } */
 
   .position-relative {
     position: relative;
@@ -1577,33 +1577,47 @@ section {
   
 
 /* Button style */
-.toggle-bio-btn {
+/* .toggle-bio-btn {
     background-color: #005a8d;
     color: white;
     border: none;
     padding: 10px 16px;
-    /* border-radius: 5px; */
+    border-radius: 5px;
     font-size: 1rem;
     width: 100%;
+  } */
+
+
+
+
+
+  .toggle-bio-btn {
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 300;
+    z-index: 1;
   }
-
-
-
-
-
-.toggle-bio-btn {
-  height: 50px;
-  width: 100%;
-  border: none;
-  cursor: pointer;
-  background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 300;
-}
+  
+  .toggle-bio-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073 51%, #16222A 100%);
+    z-index: -1;
+    transform: scale(2); /* zoomed */
+    transform-origin: center;
+    transition: transform 0.5s ease;
+  }
 
 .image-wrapper {
     background-color: black;
