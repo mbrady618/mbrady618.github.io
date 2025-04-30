@@ -927,9 +927,9 @@ const form = document.getElementById('contactForm');
     let translateY = 0;
   
     if (window.innerWidth > 992) {
-      translateY = scrollTop * speed * 0.8 - 210;
+      translateY = scrollTop * speed * 0.8 - 205;
     } else if (window.innerWidth >= 768 && window.innerWidth <= 992) {
-      translateY = scrollTop * speed * 0.8 - 232;
+      translateY = scrollTop * speed * 0.8 - 238;
     }
   
     title.style.transform = `translateY(${translateY}px) scale(${scale})`;
