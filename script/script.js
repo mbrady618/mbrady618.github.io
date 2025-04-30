@@ -896,6 +896,9 @@ const form = document.getElementById('contactForm');
 
   //bottom parallax
   document.addEventListener('scroll', function () {
+    // Only run the effect if screen width is greater than 767px
+    if (window.innerWidth <= 767) return;
+  
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const speed = 0.08;
   
@@ -909,19 +912,17 @@ const form = document.getElementById('contactForm');
   
     const visibleRatio = Math.min(Math.max(1 - titleRect.top / windowHeight, 0), 1);
   
-    // 👇 Control how quickly scaling completes — reaches maxScale by 40% visibility
+    const startFade = 0.1;
     const rampUpThreshold = 0.5;
-  
-    const minScale = 0.6;
-    const maxScale = 1;
-    let scale = minScale;
+    let opacity = 0;
   
     if (visibleRatio >= rampUpThreshold) {
-      scale = maxScale;
+      opacity = 1;
+    } else if (visibleRatio > startFade) {
+      const adjustedRatio = (visibleRatio - startFade) / (rampUpThreshold - startFade);
+      opacity = adjustedRatio;
     } else {
-      // scale up proportionally within the ramp-up range
-      const adjustedRatio = visibleRatio / rampUpThreshold;
-      scale = minScale + (maxScale - minScale) * adjustedRatio;
+      opacity = 0;
     }
   
     let translateY = 0;
@@ -929,17 +930,16 @@ const form = document.getElementById('contactForm');
     if (window.innerWidth > 992) {
       translateY = scrollTop * speed * 0.8 - 205;
     } else if (window.innerWidth >= 768 && window.innerWidth <= 992) {
-      translateY = scrollTop * speed * 0.8 - 238;
+      translateY = scrollTop * speed * 0.8 - 234;
     }
   
-    title.style.transform = `translateY(${translateY}px) scale(${scale})`;
+    title.style.transform = `translateY(${translateY}px)`;
+    title.style.opacity = opacity;
   
     if (background) {
       background.style.transform = `translateY(${scrollTop * speed}px) scaleY(-1)`;
     }
   });
-  
-  
   
   
   
