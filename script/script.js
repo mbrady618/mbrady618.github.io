@@ -802,7 +802,7 @@ const form = document.getElementById('contactForm');
       const topPosition = bioTop.getBoundingClientRect().top + window.pageYOffset - expandOffset;
       window.scrollTo({ top: topPosition, behavior: 'smooth' });
     } else {
-      button.textContent = "Expand Bio +";
+      button.textContent = "Tap to Expand Bio +";
       const topPosition = photoTop.getBoundingClientRect().top + window.pageYOffset - collapseOffset;
       window.scrollTo({ top: topPosition, behavior: 'smooth' });
     }
