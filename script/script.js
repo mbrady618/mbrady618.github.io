@@ -289,104 +289,134 @@ typeText();
 
 //YOUTUBE FOR MAIN VIDEOS
 
-    function setupVideoEndListener(videoContainer, thumbnail, videoId) {
-        if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
-            // If YouTube API is not ready, wait and try again
-            setTimeout(() => setupVideoEndListener(videoContainer, thumbnail, videoId), 100);
-            return;
-        }
-    
-        // Create the YouTube Player and track video state
-        let player = new YT.Player('video-iframe', {
-            events: {
-                'onStateChange': function (event) {
-                    if (event.data === 0) { // Video ended
-                        videoContainer.innerHTML = `<img src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg" alt="Video Thumbnail">`;
-                    }
-                }
-            }
-        });
+function setupVideoEndListener(videoContainer, thumbnail, videoId) {
+    if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+        // If YouTube API is not ready, wait and try again
+        setTimeout(() => setupVideoEndListener(videoContainer, thumbnail, videoId), 100);
+        return;
     }
 
-    function setupVideoEndListener(videoContainer, videoId) {
-        if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
-            setTimeout(() => setupVideoEndListener(videoContainer, videoId), 100);
-            return;
+    // Create the YouTube Player and track video state
+    let player = new YT.Player('video-iframe', {
+        events: {
+            'onStateChange': function (event) {
+                if (event.data === 0) { // Video ended
+                    videoContainer.innerHTML = `<img src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg" alt="Video Thumbnail">`;
+                }
+            }
         }
-    
+    });
+}
+
+function setupVideoEndListener(videoContainer, videoId) {
+    if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+        setTimeout(() => setupVideoEndListener(videoContainer, videoId), 100);
+        return;
+    }
+
+    const player = new YT.Player(`video-iframe-${videoId}`, {
+        events: {
+            'onStateChange': function (event) {
+                if (event.data === YT.PlayerState.ENDED) {
+                    // Retrieve the original thumbnail from data-thumbnail
+                    const originalThumbnail = videoContainer.dataset.thumbnail;
+                    console.log("Restoring Thumbnail:", originalThumbnail); // Add this for debugging
+                    
+                    if (originalThumbnail) {
+                        // Restore the original thumbnail after video ends
+                        videoContainer.innerHTML = `<img src="${originalThumbnail}" alt="Video Thumbnail">`;
+                    } else {
+                        console.error("Thumbnail not found or incorrect path.");
+                        videoContainer.innerHTML = `<img src="fallback-thumbnail.jpg" alt="Fallback Thumbnail">`;
+                    }
+
+                    currentlyPlaying = null;
+                }
+            }
+        }
+    });
+}
+
+// Click to play Video
+document.querySelectorAll(".video-thumbnail .video-container").forEach(videoContainer => {
+    videoContainer.addEventListener("click", function (event) {
+        event.stopPropagation();
+        const videoId = this.closest(".video-thumbnail").getAttribute("data-video-id");
+        const thumbnail = this.querySelector("img");
+
+        if (currentlyPlaying && currentlyPlaying !== this) {
+            const originalThumbnail = currentlyPlaying.dataset.thumbnail;
+            currentlyPlaying.innerHTML = `<img src="${originalThumbnail}" alt="Video Thumbnail">`;
+        }
+
+        let fadeOverlay = this.querySelector(".fade-overlay");
+        if (!fadeOverlay) {
+            fadeOverlay = document.createElement("div");
+            fadeOverlay.classList.add("fade-overlay");
+            this.appendChild(fadeOverlay);
+        }
+
+        thumbnail.style.opacity = "0";
+
+        setTimeout(() => {
+            fadeOverlay.style.opacity = "1";
+
+            setTimeout(() => {
+                this.innerHTML = 
+`<div class="fade-video">
+    <div id="video-iframe-${videoId}"></div>
+</div>`;
+
+setTimeout(() => {
+    // Replace autoplay iframe with API-driven player
+    if (typeof YT !== 'undefined' && typeof YT.Player !== 'undefined') {
         const player = new YT.Player(`video-iframe-${videoId}`, {
+            videoId: videoId,
+            playerVars: {
+                rel: 0,
+                showinfo: 0,
+                modestbranding: 1,
+                autohide: 1,
+                cc_load_policy: 1
+            },
             events: {
-                'onStateChange': function (event) {
+                onReady: function (event) {
+                    event.target.playVideo(); // ✅ Play immediately from user tap
+                },
+                onStateChange: function (event) {
                     if (event.data === YT.PlayerState.ENDED) {
-                        // Retrieve the original thumbnail from data-thumbnail
                         const originalThumbnail = videoContainer.dataset.thumbnail;
-                        console.log("Restoring Thumbnail:", originalThumbnail); // Add this for debugging
+                        console.log("Restoring Thumbnail:", originalThumbnail);
                         
                         if (originalThumbnail) {
-                            // Restore the original thumbnail after video ends
                             videoContainer.innerHTML = `<img src="${originalThumbnail}" alt="Video Thumbnail">`;
                         } else {
-                            console.error("Thumbnail not found or incorrect path.");
                             videoContainer.innerHTML = `<img src="fallback-thumbnail.jpg" alt="Fallback Thumbnail">`;
                         }
-    
+
                         currentlyPlaying = null;
                     }
                 }
             }
         });
+    } else {
+        console.warn("YouTube API not ready. Retrying...");
+        setTimeout(() => setupVideoEndListener(this, videoId), 100);
     }
-
-    // Click to play Video
-    document.querySelectorAll(".video-thumbnail .video-container").forEach(videoContainer => {
-        videoContainer.addEventListener("click", function (event) {
-            event.stopPropagation();
-            const videoId = this.closest(".video-thumbnail").getAttribute("data-video-id");
-            const thumbnail = this.querySelector("img");
-
-            if (currentlyPlaying && currentlyPlaying !== this) {
-                const originalThumbnail = currentlyPlaying.dataset.thumbnail;
-                currentlyPlaying.innerHTML = `<img src="${originalThumbnail}" alt="Video Thumbnail">`;
-            }
-
-            let fadeOverlay = this.querySelector(".fade-overlay");
-            if (!fadeOverlay) {
-                fadeOverlay = document.createElement("div");
-                fadeOverlay.classList.add("fade-overlay");
-                this.appendChild(fadeOverlay);
-            }
-
-            thumbnail.style.opacity = "0";
-
-            setTimeout(() => {
-                fadeOverlay.style.opacity = "1";
+}, 100);
 
                 setTimeout(() => {
-                    this.innerHTML = 
-    `<div class="fade-video">
-        <iframe id="video-iframe-${videoId}" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&showinfo=0&modestbranding=1&autohide=1&cc_load_policy=1" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-        </iframe>
-    </div>`;
-    
-setTimeout(() => {
-    setupVideoEndListener(this, videoId);
-}, 100);
-    
-// Wait for the iframe to load, then check when the video ends
-setTimeout(() => {
-    setupVideoEndListener(this, thumbnail, videoId);
-}, 100);
-                    setTimeout(() => {
-                        this.querySelector(".fade-video").style.opacity = "1";
-                    }, 100);
-                }, 500);
+                    this.querySelector(".fade-video").style.opacity = "1";
+                }, 100);
             }, 500);
+        }, 500);
 
-            this.dataset.videoId = videoId;
-            currentlyPlaying = this;
-        });
+        this.dataset.videoId = videoId;
+        this.dataset.thumbnail = thumbnail.src;
+        currentlyPlaying = this;
     });
+});
+
 
     // Remove focus from currently selected item after 1 second
     // document.addEventListener("click", function () {
