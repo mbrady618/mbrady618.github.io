@@ -1781,9 +1781,13 @@ section {
     transform: scale(1);
   }
 
-   
+
   
 }
+
+
+
+
 
 @media (max-width: 700px) {  /* Target mobile screens */
 .playCard {
@@ -1791,6 +1795,13 @@ section {
     border-left: none !important;
     border-right: none !important;
    } 
+
+   .my-card.no-hover,
+   .my-card.no-hover:hover {
+     border-bottom: 5px solid #42697c !important;
+     border-left: none !important;
+     border-right: none !important;
+   }   
 }
 
 
