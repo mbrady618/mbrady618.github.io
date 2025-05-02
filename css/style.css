@@ -739,7 +739,7 @@ section {
 .close-info {
     position: absolute;
     top: 0;
-    right: 10px;
+    right: 14px;
     padding: 8px;
     z-index:10;
     background: none;
@@ -747,7 +747,7 @@ section {
     font-size: 35px;
     font-weight: 300;
     cursor: pointer !important;
-    color: #3A6073 ;
+    /* color: #3A6073 !important; */
     transition: transform 0.2s ease-in-out; /* Apply transition here */
 }
 
@@ -771,7 +771,7 @@ section {
 }
 
 .close-info .toggler-icon span {
-    background-color: #2e2e2e; /* Black */
+    background-color: #3A6073 ; /* Black */
   }
 
 /* Fade-in animation */
@@ -1153,26 +1153,26 @@ section {
   
   /* Fine-tuning individual lines */
   #word1 {
-    font-family: 'Photograph Signature'; /*a name to be used later*/
+    font-family: 'Photograph Signature', 'Lato', sans-serif;
     font-weight: 300;
     font-size: 40px;
-    top: 5px;
+    top: 15px;
     /* text-shadow: 0 0 1px #3A6073; */
   }
   #word2 {
-    top: 4px;
+    top: 8px;
     font-weight: 100;
     font-size: 20px;
     text-shadow: 0 0 1px #000000;
   }
   #word3 {
-    top: 4px;
+    top: 8px;
     font-weight: 100;
     font-size: 20px;
     text-shadow: 0 0 1px #000000;
   }
   #word4 {
-    top: 8px;
+    top: 10px;
     font-weight: 100;
     font-size: 20px;
     text-shadow: 0 0 1px #000000;
@@ -1738,8 +1738,8 @@ section {
     }
 
     .close-info {
-        top: -30px !important;
-        right: 0px !important;
+        top: -28px !important;
+        right: 14px !important;
         font-size: 60px !important;
       } 
 
@@ -2039,6 +2039,11 @@ section {
 
 @media (min-width: 768px) and (max-width: 992px) {
     
+    .close-info {
+        top: -28px !important;
+        right: 14px !important;
+        font-size: 60px !important;
+      } 
   
     .white-fade {
       position: absolute;
