@@ -911,7 +911,7 @@ const form = document.getElementById('contactForm');
   });
 
 
-  //bottom parallax
+  //bottom parallax 
   document.addEventListener('scroll', function () {
     // Only run the effect if screen width is greater than 767px
     if (window.innerWidth <= 767) return;
@@ -944,10 +944,11 @@ const form = document.getElementById('contactForm');
   
     let translateY = 0;
   
+    //"Contact" position
     if (window.innerWidth > 992) {
-      translateY = scrollTop * speed * 0.8 - 205;
+      translateY = scrollTop * speed * 0.8 - 240;
     } else if (window.innerWidth >= 768 && window.innerWidth <= 992) {
-      translateY = scrollTop * speed * 0.8 - 234;
+      translateY = scrollTop * speed * 0.8 - 244;
     }
   
     title.style.transform = `translateY(${translateY}px)`;

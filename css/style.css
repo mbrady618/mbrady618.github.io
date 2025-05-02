@@ -17,6 +17,11 @@ p {
     font-size: 18px;
 }
 
+.justify-text {
+    text-align: justify !important;
+    text-indent: 2em;
+  }
+
 .font-weight-light-small {
     font-size: .9rem;
 }
@@ -28,7 +33,7 @@ p {
 
 .video_editor {
     padding-top: 10px;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     margin-left: 3px;
 }
 
@@ -37,7 +42,7 @@ p {
 }
 
 .storyteller {
-    letter-spacing: 2.4px; 
+    letter-spacing: 2.5px; 
     margin-left: 4px;
 }
 
@@ -188,7 +193,7 @@ a:link {
   
   .parallax-background {
     position: absolute;
-    top: -358px;
+    top: -404px;
     left: 0;
     width: 100%;
     height: 800px;
@@ -199,6 +204,13 @@ a:link {
     transform: scaleY(-1);
     z-index: 0;
   }
+
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    .parallax-background {
+    top: -418px;
+    }
+}
 
   @media (max-width: 768px) {
     .parallax-background {
@@ -1165,19 +1177,19 @@ section {
     /* text-shadow: 0 0 1px #3A6073; */
   }
   #word2 {
-    top: 8px;
+    top: 14px;
     font-weight: 100;
     font-size: 20px;
     text-shadow: 0 0 1px #000000;
   }
   #word3 {
-    top: 8px;
+    top: 6px;
     font-weight: 100;
     font-size: 20px;
     text-shadow: 0 0 1px #000000;
   }
   #word4 {
-    top: 10px;
+    top: 8px;
     font-weight: 100;
     font-size: 20px;
     text-shadow: 0 0 1px #000000;
@@ -1567,7 +1579,7 @@ section {
   
   /* When active */
   .bio-text.show {
-    max-height: 1200px; /* Set higher than needed to allow full expansion */
+    max-height: 3000px; /* Set higher than needed to allow full expansion */
     padding-top: 1rem; /* Optional: add some smooth spacing reveal */
   }
   
