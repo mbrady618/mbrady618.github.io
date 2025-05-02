@@ -488,7 +488,23 @@ document.addEventListener("click", function (event) {
 
 //filter videos by category
 function filterVideos(category) {
+    // Check if expanded-info-container is visible
+const expandedInfo = document.querySelector('.expanded-info-container');
+
+if (expandedInfo && !expandedInfo.classList.contains('hide')) {
+    // If it's open, close it and wait before continuing
+    closeExpandedInfo(); // Call the function
+
+    // Delay the rest of this function slightly to allow close animation to finish
+    setTimeout(() => {
+        filterVideos(category); // Call again after closing
+    }, 300); // Adjust delay to match close animation duration
+
+    return; // Stop execution until close is done
+}
+    //actual filtering function, after check
     document.querySelectorAll(".video-thumbnail").forEach(video => {
+
         let categories = video.getAttribute("data-category").split(" ");
         let displayValue = (categories.includes(category) || category === "all") ? "block" : "none";
         video.style.setProperty("display", displayValue, "important");
@@ -499,6 +515,7 @@ function filterVideos(category) {
         
         const expandButton = document.getElementById('expandButton');
         expandButton.style.display = 'none';
+        
     });
     
 
