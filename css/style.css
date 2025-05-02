@@ -1853,11 +1853,7 @@ section {
 
 }
 
-@media (max-width: 768px) {
-    label[for="categoryFilter"] {
-      display: none;
-    }
-  }
+
 
 .card-body-1 {
     display:none;

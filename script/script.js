@@ -474,22 +474,8 @@ function updateDropdownList(selectedValue) {
     });
 }
 
-// Initial setup to hide the default "All Videos" option from dropdown list only on mobile
-if (window.innerWidth > 768) {
-    updateDropdownList("all");
-  }
-
-  // Initial setup
-const isMobile = window.innerWidth <= 768;
-
-
-// Show "Tap to select category" on mobile
-if (isMobile) {
-    dropdownButton.querySelector(".button-text").textContent = "Tap to Select Category";
-} else {
-    updateDropdownList("all");
-    dropdownButton.querySelector(".button-text").textContent = "All";
-}
+// Initial setup to hide the default "All Videos" option from dropdown list
+updateDropdownList("all");
 
 // Close dropdown on outside click
 document.addEventListener("click", function (event) {
