@@ -1773,8 +1773,27 @@ section {
   .button-wrapper {
     text-align: center;
   }
+
+
+
+   .intro-card:hover .triangle-icon {
+    background-color: #3A6073;
+    transform: scale(1);
+  }
+
+   
   
 }
+
+@media (max-width: 700px) {  /* Target mobile screens */
+.playCard {
+    border-bottom: 5px solid #42697c !important;
+    border-left: none !important;
+    border-right: none !important;
+   } 
+}
+
+
 
 #videoSlide {
     height: 400px;
@@ -1788,7 +1807,7 @@ section {
         display: none;
     }
 
-    
+
     
 
 #expandButton {
@@ -2047,6 +2066,9 @@ section {
       body .my-card:hover {
         background-color: white !important;
         border: 2px solid transparent !important;
+        border-bottom: 5px solid #42697c !important;
+        border-left: none !important;
+        border-right: none !important;
     }
 
 
