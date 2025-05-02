@@ -801,20 +801,31 @@ const form = document.getElementById('contactForm');
     });
   });
 
-  function toggleBio() {
+//open bio
+function toggleBio() {
     const bio = document.getElementById('bio-content');
     const button = document.querySelector('.toggle-bio-btn');
     const dots = document.getElementById('bio-dots');
     const bioTop = document.getElementById('biotop');
     const photoTop = document.getElementById('phototop');
   
-    bio.classList.toggle('show');
-    dots.classList.toggle('hidden');
-  
     const expandOffset = 75;  // Offset for expanding (scroll to biotop)
     const collapseOffset = 80; // Offset for collapsing (scroll to phototop)
   
-    if (bio.classList.contains('show')) {
+    // Check if bio is currently expanded
+    const isExpanding = !bio.classList.contains('show');
+  
+    // Apply the appropriate transition speed
+    bio.style.transition = isExpanding
+      ? 'max-height 1.5s ease, padding 0.5s ease'
+      : 'max-height 0.5s ease, padding 0.5s ease';
+  
+    // Toggle visibility
+    bio.classList.toggle('show');
+    dots.classList.toggle('hidden');
+  
+    // Update button label and scroll
+    if (isExpanding) {
       button.textContent = "Collapse Bio −";
       const topPosition = bioTop.getBoundingClientRect().top + window.pageYOffset - expandOffset;
       window.scrollTo({ top: topPosition, behavior: 'smooth' });
@@ -824,7 +835,9 @@ const form = document.getElementById('contactForm');
       window.scrollTo({ top: topPosition, behavior: 'smooth' });
     }
   }
-
+  
+  
+  
 
   
   //expand button function

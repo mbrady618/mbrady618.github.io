@@ -1575,7 +1575,7 @@ section {
   .bio-text {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 1.5s ease, padding 0.5s ease;
+    transition: max-height 0.5s ease, padding 0.5s ease;
     padding-top: 2rem; /* Optional: add some smooth spacing reveal */
 
 }
