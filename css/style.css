@@ -1811,14 +1811,14 @@ section {
 
 @media (max-width: 700px) {  /* Target mobile screens */
 .playCard {
-    border-bottom: 5px solid #42697c !important;
+    border-bottom: 5px solid #3A6073 !important;
     border-left: none !important;
     border-right: none !important;
    } 
 
    .my-card.no-hover,
    .my-card.no-hover:hover {
-     border-bottom: 5px solid #42697c !important;
+     border-bottom: 5px solid #3A6073 !important;
      border-left: none !important;
      border-right: none !important;
    }   
