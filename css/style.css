@@ -38,11 +38,11 @@ p {
 }
 
 .graphic_designer {
-    letter-spacing: 0.1px; 
+    letter-spacing: 0.2px; 
 }
 
 .storyteller {
-    letter-spacing: 2.5px; 
+    letter-spacing: 3.1px; 
     margin-left: 4px;
 }
 
@@ -1177,22 +1177,25 @@ section {
     /* text-shadow: 0 0 1px #3A6073; */
   }
   #word2 {
+    font-family: 'Avenir', sans-serif;
     top: 14px;
     font-weight: 100;
     font-size: 20px;
-    text-shadow: 0 0 1px #000000;
+    /* text-shadow: 0 0 1px #000000; */
   }
   #word3 {
+    font-family: 'Avenir', sans-serif;
     top: 6px;
     font-weight: 100;
     font-size: 20px;
-    text-shadow: 0 0 1px #000000;
+    /* text-shadow: 0 0 1px #000000; */
   }
   #word4 {
+    font-family: 'Avenir', sans-serif;
     top: 8px;
     font-weight: 100;
     font-size: 20px;
-    text-shadow: 0 0 1px #000000;
+    /* text-shadow: 0 0 1px #000000; */
   }
 
   #line {
