@@ -1575,14 +1575,14 @@ section {
   .bio-text {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.6s ease, padding 0.5s ease;
+    transition: max-height 1.5s ease, padding 0.5s ease;
     padding-top: 2rem; /* Optional: add some smooth spacing reveal */
 
 }
   
   /* When active */
   .bio-text.show {
-    max-height: 3000px; /* Set higher than needed to allow full expansion */
+    max-height: 1700px; /* Set higher than needed to allow full expansion */
     padding-top: 1rem; /* Optional: add some smooth spacing reveal */
   }
   
