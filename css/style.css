@@ -47,7 +47,7 @@ p {
 
 @font-face {
     font-family: 'Photograph Signature'; /*a name to be used later*/
-    src: url(/PhotographSignature.ttf); /*URL to font*/
+    src: url(/webfonts/PhotographSignature.ttf); /*URL to font*/
 }
 
 @font-face {
@@ -177,6 +177,11 @@ a:link {
   .contact-title-parallax,
 .contact-card-parallax {
   will-change: transform;
+}
+
+.card-img-top {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
 }
   
 
