@@ -1582,7 +1582,7 @@ section {
   
   /* When active */
   .bio-text.show {
-    max-height: 1800px; /* Set higher than needed to allow full expansion */
+    max-height: 2000px; /* Set higher than needed to allow full expansion */
     padding-top: 1rem; /* Optional: add some smooth spacing reveal */
   }
   
