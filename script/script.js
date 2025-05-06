@@ -959,9 +959,9 @@ function toggleBio() {
   
     //"Contact" position
     if (window.innerWidth > 992) {
-      translateY = scrollTop * speed * 0.8 - 240;
+      translateY = scrollTop * speed * 0.8 - 224;
     } else if (window.innerWidth >= 768 && window.innerWidth <= 992) {
-      translateY = scrollTop * speed * 0.8 - 244;
+      translateY = scrollTop * speed * 0.8 - 230;
     }
   
     title.style.transform = `translateY(${translateY}px)`;
