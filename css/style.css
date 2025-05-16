@@ -70,7 +70,7 @@ body, html {
     scroll-behavior: smooth;
   }
 
-h1 {
+h2 {
     font-weight:300 !important;
     font-size: clamp(2rem, 5vw, 3rem);
 }
